@@ -1,0 +1,131 @@
+ <box lunit="mm" name="gemsupport_solid_top1" x="gemsupport_m[1,3]" y="gemsupport_m[1,1]" z="gemsupport_m[1,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_center1" x="gemsupport_m[1,2]" y="gemsupport_m[1,4]" z="gemsupport_m[1,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_bottom1" x="gemsupport_m[1,3]" y="gemsupport_m[1,1]" z="gemsupport_m[1,5]"/> 
+
+ <box lunit="mm" name="gemsupport_solid_top2" x="gemsupport_m[2,3]" y="gemsupport_m[2,1]" z="gemsupport_m[2,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_center2" x="gemsupport_m[2,2]" y="gemsupport_m[2,4]" z="gemsupport_m[2,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_bottom2" x="gemsupport_m[2,3]" y="gemsupport_m[2,1]" z="gemsupport_m[2,5]"/> 
+
+ <box lunit="mm" name="gemsupport_solid_top3" x="gemsupport_m[3,3]" y="gemsupport_m[3,1]" z="gemsupport_m[3,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_center3" x="gemsupport_m[3,2]" y="gemsupport_m[3,4]" z="gemsupport_m[3,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_bottom3" x="gemsupport_m[3,3]" y="gemsupport_m[3,1]" z="gemsupport_m[3,5]"/> 
+
+ <box lunit="mm" name="gemsupport_solid_top4" x="gemsupport_m[4,3]" y="gemsupport_m[4,1]" z="gemsupport_m[4,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_center4" x="gemsupport_m[4,2]" y="gemsupport_m[4,4]" z="gemsupport_m[4,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_bottom4" x="gemsupport_m[4,3]" y="gemsupport_m[4,1]" z="gemsupport_m[4,5]"/> 
+
+ <box lunit="mm" name="gemsupport_solid_top5" x="gemsupport_m[5,3]" y="gemsupport_m[5,1]" z="gemsupport_m[5,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_center5" x="gemsupport_m[5,2]" y="gemsupport_m[5,4]" z="gemsupport_m[5,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_bottom5" x="gemsupport_m[5,3]" y="gemsupport_m[5,1]" z="gemsupport_m[5,5]"/> 
+
+ <box lunit="mm" name="gemsupport_solid_top6" x="gemsupport_m[6,3]" y="gemsupport_m[6,1]" z="gemsupport_m[6,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_center6" x="gemsupport_m[6,2]" y="gemsupport_m[6,4]" z="gemsupport_m[6,5]"/> 
+ <box lunit="mm" name="gemsupport_solid_bottom6" x="gemsupport_m[6,3]" y="gemsupport_m[6,1]" z="gemsupport_m[6,5]"/> 
+
+<union name="gemsupport_solid_topcenter1" >
+    <first ref="gemsupport_solid_center1" />
+    <second ref="gemsupport_solid_top1" />
+    <position x="0" y="(gemsupport_m[1,4]-gemsupport_m[1,1])/2" z="0"/>
+</union>
+<union name="gemsupport_1union" >
+    <first ref="gemsupport_solid_topcenter1" />
+    <second ref="gemsupport_solid_bottom1" />
+    <position x="0" y="-(gemsupport_m[1,4]-gemsupport_m[1,1])/2" z="0"/>
+</union>
+
+<union name="gemsupport_solid_topcenter2" >
+    <first ref="gemsupport_solid_center2" />
+    <second ref="gemsupport_solid_top2" />
+    <position x="0" y="(gemsupport_m[2,4]-gemsupport_m[2,1])/2" z="0"/>
+</union>
+<union name="gemsupport_2union" >
+    <first ref="gemsupport_solid_topcenter2" />
+    <second ref="gemsupport_solid_bottom2" />
+    <position x="0" y="-(gemsupport_m[2,4]-gemsupport_m[2,1])/2" z="0"/>
+</union>
+
+<union name="gemsupport_solid_topcenter3" >
+    <first ref="gemsupport_solid_center3" />
+    <second ref="gemsupport_solid_top3" />
+    <position x="0" y="(gemsupport_m[3,4]-gemsupport_m[3,1])/2" z="0"/>
+</union>
+<union name="gemsupport_3union" >
+    <first ref="gemsupport_solid_topcenter3" />
+    <second ref="gemsupport_solid_bottom3" />
+    <position x="0" y="-(gemsupport_m[3,4]-gemsupport_m[3,1])/2" z="0"/>
+</union>
+
+<union name="gemsupport_solid_topcenter4" >
+    <first ref="gemsupport_solid_center4" />
+    <second ref="gemsupport_solid_top4" />
+    <position x="0" y="(gemsupport_m[4,4]-gemsupport_m[4,1])/2" z="0"/>
+</union>
+<union name="gemsupport_4union" >
+    <first ref="gemsupport_solid_topcenter4" />
+    <second ref="gemsupport_solid_bottom4" />
+    <position x="0" y="-(gemsupport_m[4,4]-gemsupport_m[4,1])/2" z="0"/>
+</union>
+
+<union name="gemsupport_solid_topcenter5" >
+    <first ref="gemsupport_solid_center5" />
+    <second ref="gemsupport_solid_top5" />
+    <position x="0" y="(gemsupport_m[5,4]-gemsupport_m[5,1])/2" z="0"/>
+</union>
+<union name="gemsupport_5union" >
+    <first ref="gemsupport_solid_topcenter5" />
+    <second ref="gemsupport_solid_bottom5" />
+    <position x="0" y="-(gemsupport_m[5,4]-gemsupport_m[5,1])/2" z="0"/>
+</union>
+
+<union name="gemsupport_solid_topcenter6" >
+    <first ref="gemsupport_solid_center6" />
+    <second ref="gemsupport_solid_top6" />
+    <position x="0" y="(gemsupport_m[6,4]-gemsupport_m[6,1])/2" z="0"/>
+</union>
+<union name="gemsupport_6union" >
+    <first ref="gemsupport_solid_topcenter6" />
+    <second ref="gemsupport_solid_bottom6" />
+    <position x="0" y="-(gemsupport_m[6,4]-gemsupport_m[6,1])/2" z="0"/>
+</union>
+
+
+<multiUnion name="gemsupport_multiUnion" >
+  <multiUnionNode name="node-1">
+    <solid ref="gemsupport_1union" />
+    <positionref ref="gemsupport_position1"/>
+    <rotationref ref="gemsupport_rotation1"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-2">
+    <solid ref="gemsupport_2union" />
+    <positionref ref="gemsupport_position2"/>
+<!--    <position x="-1098.7" y="-1615.3"  z="15991.45"/>-->
+    <rotationref ref="gemsupport_rotation2"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-3">
+    <solid ref="gemsupport_3union" />
+    <positionref ref="gemsupport_position3"/>
+    <rotationref ref="gemsupport_rotation3"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-4">
+    <solid ref="gemsupport_4union" />
+    <positionref ref="gemsupport_position4"/>
+    <rotationref ref="gemsupport_rotation4"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-5">
+    <solid ref="gemsupport_5union" />
+    <positionref ref="gemsupport_position5"/>
+    <rotationref ref="gemsupport_rotation5"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-6">
+    <solid ref="gemsupport_6union" />
+    <positionref ref="gemsupport_position6"/>
+    <rotationref ref="gemsupport_rotation6"/>
+  </multiUnionNode>
+
+</multiUnion>
+

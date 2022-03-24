@@ -18,6 +18,8 @@ Usage:
     --------------------------------------------------------------------------------------------
 */
 
+#include <unistd.h>
+
 #if defined(__cpp_lib_filesystem)
 #include <filesystem>
 namespace fs = std::filesystem;
@@ -31,12 +33,8 @@ namespace fs = boost::filesystem;
 #define NO_FS_SUPPORT
 #endif
 
-#include <vector>
 #include <string>
 
-#ifdef __APPLE__
-#include <unistd.h>
-#endif
 
 class remollSearchPath
 {

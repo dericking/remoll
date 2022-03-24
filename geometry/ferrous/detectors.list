@@ -1,0 +1,11 @@
+9001     : PIVOT
+
+9010     : Fasteners Plate      (9 Sections along beamline)
+
+9020     : Fasteners Coil       (9 Sections along beamline)
+
+9030     : Fasteners Brackets : (9 Sections along beamline)
+
+9040     : Fasteners Outer      (9 Sections along beamline)
+
+9060     : Tierod Ends          (This will break into 9060-60 and 9070-79)

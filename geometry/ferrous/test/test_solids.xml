@@ -1,0 +1,19 @@
+ <box lunit="m" name="test_solid" x="test_m[1]" y="test_m[2]" z="test_m[3]"/> 
+ <box lunit="m" name="test_solid2" x="test_m[1]" y="test_m[2]" z="test_m[3]"/> 
+
+<union name="union" >
+ <first  ref="test_solid" />
+ <second ref="test_solid2"/>
+ <positionref ref="test_position" />
+</union>
+
+<multiUnion name="multiUnion" >
+  <multiUnionNode name="node-1">
+    <solid ref="test_solid" />
+  </multiUnionNode>
+  <multiUnionNode name="node-2">
+    <solid ref="test_solid2" />
+    <positionref ref="test_position" />
+  </multiUnionNode>
+</multiUnion>
+

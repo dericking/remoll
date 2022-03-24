@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY tierodendsParallel_matrix SYSTEM "tierodends_matrix.xml">
+<!ENTITY tierodendsParallel_positions SYSTEM "tierodends_positions.xml">
+<!ENTITY tierodendsParallel_rotations SYSTEM "tierodends_rotations.xml">
+<!ENTITY tierodendsParallel_solids SYSTEM "tierodends_solids.xml">
+<!ENTITY tierodendsParallel_volumes SYSTEM "tierodendsParallel_volumes.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &tierodendsParallel_matrix;
+ &tierodendsParallel_positions;
+ &tierodendsParallel_rotations;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+ &tierodendsParallel_solids;
+</solids>
+
+<structure>
+ &tierodendsParallel_volumes;
+</structure>
+
+<setup name="tierodendsParallel_setup" version="1.0">
+  <world ref="tierodendsParallel_logic"/>
+</setup>
+
+
+</gdml>

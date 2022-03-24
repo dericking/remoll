@@ -1,0 +1,951 @@
+<tube name="fasteners_coil_solid"    rmin="0.0" rmax="fasteners_coil_bolts_m_dim[1]"    z="fasteners_coil_bolts_m_dim[2]"    deltaphi="360" startphi="0" aunit="deg" lunit="mm"/> 
+<tube name="fasteners_bracket_solid" rmin="0.0" rmax="fasteners_bracket_bolts_m_dim[1]" z="fasteners_bracket_bolts_m_dim[2]" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/> 
+<tube name="fasteners_clamp_solid"   rmin="0.0" rmax="fasteners_clamp_bolts_m_dim[1]"   z="fasteners_clamp_bolts_m_dim[2]"   deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+
+<!-- COIL FASTENERS -->
+
+<multiUnion name="fasteners_coil_septant" >
+  <multiUnionNode name="subnode-1">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position1" />
+    <rotationref ref="fasteners_coil_rotation1"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-2">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position2" />
+    <rotationref ref="fasteners_coil_rotation2"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-3">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position3" />
+    <rotationref ref="fasteners_coil_rotation3"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-4">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position4" />
+    <rotationref ref="fasteners_coil_rotation4"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-5">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position5" />
+    <rotationref ref="fasteners_coil_rotation5"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-6">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position6" />
+    <rotationref ref="fasteners_coil_rotation6"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-7">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position7" />
+    <rotationref ref="fasteners_coil_rotation7"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-8">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position8" />
+    <rotationref ref="fasteners_coil_rotation8"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-9">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position9" />
+    <rotationref ref="fasteners_coil_rotation9"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-10">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position10" />
+    <rotationref ref="fasteners_coil_rotation10"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-11">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position11" />
+    <rotationref ref="fasteners_coil_rotation11"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-12">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position12" />
+    <rotationref ref="fasteners_coil_rotation12"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-13">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position13" />
+    <rotationref ref="fasteners_coil_rotation13"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-14">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position14" />
+    <rotationref ref="fasteners_coil_rotation14"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-15">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position15" />
+    <rotationref ref="fasteners_coil_rotation15"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-16">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position16" />
+    <rotationref ref="fasteners_coil_rotation16"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-17">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position17" />
+    <rotationref ref="fasteners_coil_rotation17"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-18">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position18" />
+    <rotationref ref="fasteners_coil_rotation18"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-19">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position19" />
+    <rotationref ref="fasteners_coil_rotation19"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-20">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position20" />
+    <rotationref ref="fasteners_coil_rotation20"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-21">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position21" />
+    <rotationref ref="fasteners_coil_rotation21"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-22">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position22" />
+    <rotationref ref="fasteners_coil_rotation22"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-23">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position23" />
+    <rotationref ref="fasteners_coil_rotation23"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-24">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position24" />
+    <rotationref ref="fasteners_coil_rotation24"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-25">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position25" />
+    <rotationref ref="fasteners_coil_rotation25"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-26">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position26" />
+    <rotationref ref="fasteners_coil_rotation26"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-27">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position27" />
+    <rotationref ref="fasteners_coil_rotation27"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-28">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position28" />
+    <rotationref ref="fasteners_coil_rotation28"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-29">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position29" />
+    <rotationref ref="fasteners_coil_rotation29"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-30">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position30" />
+    <rotationref ref="fasteners_coil_rotation30"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-31">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position31" />
+    <rotationref ref="fasteners_coil_rotation31"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-32">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position32" />
+    <rotationref ref="fasteners_coil_rotation32"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-33">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position33" />
+    <rotationref ref="fasteners_coil_rotation33"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-34">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position34" />
+    <rotationref ref="fasteners_coil_rotation34"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-35">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position35" />
+    <rotationref ref="fasteners_coil_rotation35"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-36">
+    <solid ref="fasteners_coil_solid" />
+    <positionref ref="fasteners_coil_position36" />
+    <rotationref ref="fasteners_coil_rotation36"/> 
+  </multiUnionNode>
+</multiUnion>
+
+<union name="fasteners_coil_septant12">
+ <first ref="fasteners_coil_septant"/>
+ <second ref="fasteners_coil_septant"/>
+ <rotation z="1*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_coil_septant123">
+ <first ref="fasteners_coil_septant12"/>
+ <second ref="fasteners_coil_septant"/>
+ <rotation z="2*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_coil_septant1234">
+ <first ref="fasteners_coil_septant123"/>
+ <second ref="fasteners_coil_septant"/>
+ <rotation z="3*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_coil_septant12345">
+ <first ref="fasteners_coil_septant1234"/>
+ <second ref="fasteners_coil_septant"/>
+ <rotation z="4*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_coil_septant123456">
+ <first ref="fasteners_coil_septant12345"/>
+ <second ref="fasteners_coil_septant"/>
+ <rotation z="5*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_coil_union">
+ <first ref="fasteners_coil_septant123456"/>
+ <second ref="fasteners_coil_septant"/>
+ <rotation z="6*360/7.0" unit="deg"/>
+</union>
+
+<!-- BRACKET FASTENERS -->
+
+<multiUnion name="fasteners_bracket_septant" >
+  <multiUnionNode name="subnode-1">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position1" />
+    <rotationref ref="fasteners_bracket_rotation1"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-2">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position2" />
+    <rotationref ref="fasteners_bracket_rotation2"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-3">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position3" />
+    <rotationref ref="fasteners_bracket_rotation3"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-4">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position4" />
+    <rotationref ref="fasteners_bracket_rotation4"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-5">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position5" />
+    <rotationref ref="fasteners_bracket_rotation5"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-6">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position6" />
+    <rotationref ref="fasteners_bracket_rotation6"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-7">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position7" />
+    <rotationref ref="fasteners_bracket_rotation7"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-8">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position8" />
+    <rotationref ref="fasteners_bracket_rotation8"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-9">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position9" />
+    <rotationref ref="fasteners_bracket_rotation9"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-10">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position10" />
+    <rotationref ref="fasteners_bracket_rotation10"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-11">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position11" />
+    <rotationref ref="fasteners_bracket_rotation11"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-12">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position12" />
+    <rotationref ref="fasteners_bracket_rotation12"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-13">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position13" />
+    <rotationref ref="fasteners_bracket_rotation13"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-14">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position14" />
+    <rotationref ref="fasteners_bracket_rotation14"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-15">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position15" />
+    <rotationref ref="fasteners_bracket_rotation15"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-16">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position16" />
+    <rotationref ref="fasteners_bracket_rotation16"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-17">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position17" />
+    <rotationref ref="fasteners_bracket_rotation17"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-18">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position18" />
+    <rotationref ref="fasteners_bracket_rotation18"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-19">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position19" />
+    <rotationref ref="fasteners_bracket_rotation19"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-20">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position20" />
+    <rotationref ref="fasteners_bracket_rotation20"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-21">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position21" />
+    <rotationref ref="fasteners_bracket_rotation21"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-22">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position22" />
+    <rotationref ref="fasteners_bracket_rotation22"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-23">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position23" />
+    <rotationref ref="fasteners_bracket_rotation23"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-24">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position24" />
+    <rotationref ref="fasteners_bracket_rotation24"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-25">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position25" />
+    <rotationref ref="fasteners_bracket_rotation25"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-26">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position26" />
+    <rotationref ref="fasteners_bracket_rotation26"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-27">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position27" />
+    <rotationref ref="fasteners_bracket_rotation27"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-28">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position28" />
+    <rotationref ref="fasteners_bracket_rotation28"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-29">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position29" />
+    <rotationref ref="fasteners_bracket_rotation29"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-30">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position30" />
+    <rotationref ref="fasteners_bracket_rotation30"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-31">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position31" />
+    <rotationref ref="fasteners_bracket_rotation31"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-32">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position32" />
+    <rotationref ref="fasteners_bracket_rotation32"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-33">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position33" />
+    <rotationref ref="fasteners_bracket_rotation33"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-34">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position34" />
+    <rotationref ref="fasteners_bracket_rotation34"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-35">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position35" />
+    <rotationref ref="fasteners_bracket_rotation35"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-36">
+    <solid ref="fasteners_bracket_solid" />
+    <positionref ref="fasteners_bracket_position36" />
+    <rotationref ref="fasteners_bracket_rotation36"/> 
+  </multiUnionNode>
+</multiUnion>
+
+<union name="fasteners_bracket_septant12">
+ <first ref="fasteners_bracket_septant"/>
+ <second ref="fasteners_bracket_septant"/>
+ <rotation z="1*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_bracket_septant123">
+ <first ref="fasteners_bracket_septant12"/>
+ <second ref="fasteners_bracket_septant"/>
+ <rotation z="2*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_bracket_septant1234">
+ <first ref="fasteners_bracket_septant123"/>
+ <second ref="fasteners_bracket_septant"/>
+ <rotation z="3*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_bracket_septant12345">
+ <first ref="fasteners_bracket_septant1234"/>
+ <second ref="fasteners_bracket_septant"/>
+ <rotation z="4*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_bracket_septant123456">
+ <first ref="fasteners_bracket_septant12345"/>
+ <second ref="fasteners_bracket_septant"/>
+ <rotation z="5*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_bracket_union">
+ <first ref="fasteners_bracket_septant123456"/>
+ <second ref="fasteners_bracket_septant"/>
+ <rotation z="6*360/7.0" unit="deg"/>
+</union>
+
+<!-- CLAMP FASTENERS -->
+<multiUnion name="fasteners_clamp_septant" >
+  <multiUnionNode name="subnode-1">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position1" />
+    <rotationref ref="fasteners_clamp_rotation1"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-2">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position2" />
+    <rotationref ref="fasteners_clamp_rotation2"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-3">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position3" />
+    <rotationref ref="fasteners_clamp_rotation3"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-4">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position4" />
+    <rotationref ref="fasteners_clamp_rotation4"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-5">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position5" />
+    <rotationref ref="fasteners_clamp_rotation5"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-6">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position6" />
+    <rotationref ref="fasteners_clamp_rotation6"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-7">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position7" />
+    <rotationref ref="fasteners_clamp_rotation7"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-8">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position8" />
+    <rotationref ref="fasteners_clamp_rotation8"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-9">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position9" />
+    <rotationref ref="fasteners_clamp_rotation9"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-10">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position10" />
+    <rotationref ref="fasteners_clamp_rotation10"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-11">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position11" />
+    <rotationref ref="fasteners_clamp_rotation11"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-12">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position12" />
+    <rotationref ref="fasteners_clamp_rotation12"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-13">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position13" />
+    <rotationref ref="fasteners_clamp_rotation13"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-14">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position14" />
+    <rotationref ref="fasteners_clamp_rotation14"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-15">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position15" />
+    <rotationref ref="fasteners_clamp_rotation15"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-16">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position16" />
+    <rotationref ref="fasteners_clamp_rotation16"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-17">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position17" />
+    <rotationref ref="fasteners_clamp_rotation17"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-18">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position18" />
+    <rotationref ref="fasteners_clamp_rotation18"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-19">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position19" />
+    <rotationref ref="fasteners_clamp_rotation19"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-20">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position20" />
+    <rotationref ref="fasteners_clamp_rotation20"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-21">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position21" />
+    <rotationref ref="fasteners_clamp_rotation21"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-22">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position22" />
+    <rotationref ref="fasteners_clamp_rotation22"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-23">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position23" />
+    <rotationref ref="fasteners_clamp_rotation23"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-24">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position24" />
+    <rotationref ref="fasteners_clamp_rotation24"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-25">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position25" />
+    <rotationref ref="fasteners_clamp_rotation25"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-26">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position26" />
+    <rotationref ref="fasteners_clamp_rotation26"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-27">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position27" />
+    <rotationref ref="fasteners_clamp_rotation27"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-28">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position28" />
+    <rotationref ref="fasteners_clamp_rotation28"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-29">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position29" />
+    <rotationref ref="fasteners_clamp_rotation29"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-30">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position30" />
+    <rotationref ref="fasteners_clamp_rotation30"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-31">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position31" />
+    <rotationref ref="fasteners_clamp_rotation31"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-32">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position32" />
+    <rotationref ref="fasteners_clamp_rotation32"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-33">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position33" />
+    <rotationref ref="fasteners_clamp_rotation33"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-34">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position34" />
+    <rotationref ref="fasteners_clamp_rotation34"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-35">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position35" />
+    <rotationref ref="fasteners_clamp_rotation35"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-36">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position36" />
+    <rotationref ref="fasteners_clamp_rotation36"/> 
+  </multiUnionNode>
+  <multiUnionNode name="subnode-37">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position37" />
+    <rotationref ref="fasteners_clamp_rotation37"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-38">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position38" />
+    <rotationref ref="fasteners_clamp_rotation38"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-39">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position39" />
+    <rotationref ref="fasteners_clamp_rotation39"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-40">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position40" />
+    <rotationref ref="fasteners_clamp_rotation40"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-41">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position41" />
+    <rotationref ref="fasteners_clamp_rotation41"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-42">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position42" />
+    <rotationref ref="fasteners_clamp_rotation42"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-43">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position43" />
+    <rotationref ref="fasteners_clamp_rotation43"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-44">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position44" />
+    <rotationref ref="fasteners_clamp_rotation44"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-45">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position45" />
+    <rotationref ref="fasteners_clamp_rotation45"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-46">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position46" />
+    <rotationref ref="fasteners_clamp_rotation46"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-47">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position47" />
+    <rotationref ref="fasteners_clamp_rotation47"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-48">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position48" />
+    <rotationref ref="fasteners_clamp_rotation48"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-49">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position49" />
+    <rotationref ref="fasteners_clamp_rotation49"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-50">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position50" />
+    <rotationref ref="fasteners_clamp_rotation50"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-51">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position51" />
+    <rotationref ref="fasteners_clamp_rotation51"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-52">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position52" />
+    <rotationref ref="fasteners_clamp_rotation52"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-53">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position53" />
+    <rotationref ref="fasteners_clamp_rotation53"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-54">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position54" />
+    <rotationref ref="fasteners_clamp_rotation54"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-55">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position55" />
+    <rotationref ref="fasteners_clamp_rotation55"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-56">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position56" />
+    <rotationref ref="fasteners_clamp_rotation56"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-57">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position57" />
+    <rotationref ref="fasteners_clamp_rotation57"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-58">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position58" />
+    <rotationref ref="fasteners_clamp_rotation58"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-59">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position59" />
+    <rotationref ref="fasteners_clamp_rotation59"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-60">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position60" />
+    <rotationref ref="fasteners_clamp_rotation60"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-61">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position61" />
+    <rotationref ref="fasteners_clamp_rotation61"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-62">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position62" />
+    <rotationref ref="fasteners_clamp_rotation62"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-63">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position63" />
+    <rotationref ref="fasteners_clamp_rotation63"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-64">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position64" />
+    <rotationref ref="fasteners_clamp_rotation64"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-65">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position65" />
+    <rotationref ref="fasteners_clamp_rotation65"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-66">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position66" />
+    <rotationref ref="fasteners_clamp_rotation66"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-67">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position67" />
+    <rotationref ref="fasteners_clamp_rotation67"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-68">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position68" />
+    <rotationref ref="fasteners_clamp_rotation68"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-69">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position69" />
+    <rotationref ref="fasteners_clamp_rotation69"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-70">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position70" />
+    <rotationref ref="fasteners_clamp_rotation70"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-71">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position71" />
+    <rotationref ref="fasteners_clamp_rotation71"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-72">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position72" />
+    <rotationref ref="fasteners_clamp_rotation72"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-73">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position73" />
+    <rotationref ref="fasteners_clamp_rotation73"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-74">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position74" />
+    <rotationref ref="fasteners_clamp_rotation74"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-75">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position75" />
+    <rotationref ref="fasteners_clamp_rotation75"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-76">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position76" />
+    <rotationref ref="fasteners_clamp_rotation76"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-77">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position77" />
+    <rotationref ref="fasteners_clamp_rotation77"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-78">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position78" />
+    <rotationref ref="fasteners_clamp_rotation78"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-79">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position79" />
+    <rotationref ref="fasteners_clamp_rotation79"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-80">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position80" />
+    <rotationref ref="fasteners_clamp_rotation80"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-81">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position81" />
+    <rotationref ref="fasteners_clamp_rotation81"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-82">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position82" />
+    <rotationref ref="fasteners_clamp_rotation82"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-83">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position83" />
+    <rotationref ref="fasteners_clamp_rotation83"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-84">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position84" />
+    <rotationref ref="fasteners_clamp_rotation84"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-85">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position85" />
+    <rotationref ref="fasteners_clamp_rotation85"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-86">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position86" />
+    <rotationref ref="fasteners_clamp_rotation86"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-87">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position87" />
+    <rotationref ref="fasteners_clamp_rotation87"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-88">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position88" />
+    <rotationref ref="fasteners_clamp_rotation88"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-89">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position89" />
+    <rotationref ref="fasteners_clamp_rotation89"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-90">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position90" />
+    <rotationref ref="fasteners_clamp_rotation90"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-91">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position91" />
+    <rotationref ref="fasteners_clamp_rotation91"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-92">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position92" />
+    <rotationref ref="fasteners_clamp_rotation92"/>
+  </multiUnionNode>
+  <multiUnionNode name="subnode-93">
+    <solid ref="fasteners_clamp_solid" />
+    <positionref ref="fasteners_clamp_position93" />
+    <rotationref ref="fasteners_clamp_rotation93"/>
+  </multiUnionNode>
+</multiUnion>
+
+<union name="fasteners_clamp_septant12">
+ <first ref="fasteners_clamp_septant"/>
+ <second ref="fasteners_clamp_septant"/>
+ <rotation z="1*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_clamp_septant123">
+ <first ref="fasteners_clamp_septant12"/>
+ <second ref="fasteners_clamp_septant"/>
+ <rotation z="2*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_clamp_septant1234">
+ <first ref="fasteners_clamp_septant123"/>
+ <second ref="fasteners_clamp_septant"/>
+ <rotation z="3*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_clamp_septant12345">
+ <first ref="fasteners_clamp_septant1234"/>
+ <second ref="fasteners_clamp_septant"/>
+ <rotation z="4*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_clamp_septant123456">
+ <first ref="fasteners_clamp_septant12345"/>
+ <second ref="fasteners_clamp_septant"/>
+ <rotation z="5*360/7.0" unit="deg"/>
+</union>
+
+<union name="fasteners_clamp_union">
+ <first ref="fasteners_clamp_septant123456"/>
+ <second ref="fasteners_clamp_septant"/>
+ <rotation z="6*360/7.0" unit="deg"/>
+</union>
+

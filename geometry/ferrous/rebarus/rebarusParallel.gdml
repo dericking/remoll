@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY rebarusParallel_matrix SYSTEM "rebarus_matrix.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &rebarusParallel_matrix;
+    <!--constant for shieldings - dimension from Alan design -->
+    <constant name="rebarusBoxx" value="rebarus_m[1]"/>
+    <constant name="rebarusBoxy" value="rebarus_m[2]"/>
+    <constant name="rebarusBoxz" value="rebarus_m[3]"/>
+    <constant name="rebarusThickness" value="rebarus_m[4]"/>
+</define>
+
+<materials>
+</materials>
+
+<solids>
+    <!--shielding concrete -->
+    <box lunit="mm" name="rebarus_box" x="rebarusBoxx" y="rebarusBoxy-rebarusThickness+rebarus_m[5]" z="rebarusThickness"/>
+
+
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="rebarus_tube"
+          rmin="0" rmax="rebarus_m[6]" z="rebarusThickness+rebarus_m[7]"/>
+
+    <subtraction name="rebarus_sub">
+      <first ref = "rebarus_box"/>
+      <second ref = "rebarus_tube"/>
+      <position name ="rebarusSub_pos" lunit="mm" x="0" y="rebarus_m[8]" z="0" />
+    </subtraction>
+
+</solids>
+
+<structure>
+
+    <!--Shielding-->
+    <volume name="rebarus_logic">
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="rebarus_sub"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="1005"/>
+    </volume>
+
+<!-- <volume name="rebarusParallel_logic">
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="rebarusDS_sub"/> 
+      <auxiliary auxtype="Alpha" auxvalue="0.1"/>
+-->
+
+      <!--shielding placement
+      <physvol>
+	<volumeref ref="RebarusShieldDS1"/>
+	<position name="RebarusShieldDS_pos" unit="mm" x="0" y="rebarusBoxy/2.+rebarus_m[9]" z="rebarusBoxz/2. - rebarusThickness/2."/>
+      </physvol>-->
+
+<!--    </volume>-->
+</structure>
+
+<setup name="rebarusParallel_setup" version="1.0">
+<!--  <world ref="rebarusParallel_logic"/>-->
+  <world ref="rebarus_logic"/>
+
+</setup>
+
+
+</gdml>
+
+
+
+
+
+

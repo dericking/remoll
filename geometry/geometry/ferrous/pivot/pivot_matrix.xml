@@ -1,0 +1,6 @@
+<!-- 
+lengthx(mm) lengthy(mm) lengthz(mm) PosX(mm) PosY(mm) PosZ(mm) 
+position is relative to hall center (i.e. in this coord system target is located at -4500mm and DS is +z)
+-->
+
+<matrix name = "pivot_m" coldim="6" values="4261  50.0  4935.  0.0  -1700.  -837.5"/>

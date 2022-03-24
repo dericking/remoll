@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY detectorsupportParallel_matrix SYSTEM "detectorsupport_matrix.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &detectorsupportParallel_matrix;
+    <!--constant for shieldings - dimension from Alan design -->
+    <constant name="detectorsupportBoxx" value="detectorsupport_m[1]"/>
+    <constant name="detectorsupportBoxy" value="detectorsupport_m[2]"/>
+    <constant name="detectorsupportBoxz" value="detectorsupport_m[3]"/>
+ <!--   <constant name="detectorsupportThickness" value="detectorsupport_m[4]"/>-->
+    <constant name="detectorsupportRmax" value="detectorsupport_m[4]"/>
+    <constant name="detectorsupportEpsilon" value="detectorsupport_m[5]"/>
+    <constant name="detectorsupportYtube" value="detectorsupport_m[6]"/>
+
+</define>
+
+<materials>
+</materials>
+
+<solids>
+    <!--shielding concrete -->
+    <box lunit="mm" name="detectorsupport_box" x="detectorsupportBoxx" y="detectorsupportBoxy" z="detectorsupportBoxz"/>
+
+
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="detectorsupport_tube"
+          rmin="0" rmax="detectorsupportRmax" z="detectorsupportBoxz+detectorsupportEpsilon"/>
+
+    <subtraction name="detectorsupport_sub">
+      <first ref = "detectorsupport_box"/>
+      <second ref = "detectorsupport_tube"/>
+      <position name ="detectorsupportSub_pos" lunit="mm" x="0" y="detectorsupportYtube" z="0" />
+    </subtraction>
+
+</solids>
+
+<structure>
+    <volume name="detectorsupport_logic">
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="detectorsupport_sub"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="1007"/>
+    </volume>
+</structure>
+
+<setup name="detectorsupportParallel_setup" version="1.0">
+  <world ref="detectorsupport_logic"/>
+</setup>
+
+
+</gdml>
+
+
+
+
+
+

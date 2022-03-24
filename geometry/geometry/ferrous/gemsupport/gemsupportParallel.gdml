@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY gemsupportParallel_matrix SYSTEM "gemsupport_matrix.xml">
+<!ENTITY gemsupportParallel_positions SYSTEM "gemsupport_positions.xml">
+<!ENTITY gemsupportParallel_rotations SYSTEM "gemsupport_rotations.xml">
+<!ENTITY gemsupportParallel_solids SYSTEM "gemsupport_solids.xml">
+<!ENTITY gemsupportParallel_volumes SYSTEM "gemsupportParallel_volumes.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &gemsupportParallel_matrix;
+ &gemsupportParallel_positions;
+ &gemsupportParallel_rotations;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+ &gemsupportParallel_solids;
+</solids>
+
+<structure>
+ &gemsupportParallel_volumes;
+</structure>
+
+<setup name="gemsupportParallel_setup" version="1.0">
+  <world ref="gemsupportParallel_logic"/>
+</setup>
+
+
+</gdml>

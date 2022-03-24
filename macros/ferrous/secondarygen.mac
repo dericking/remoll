@@ -1,0 +1,42 @@
+/remoll/setgeofile geometry/mollerMother.gdml
+#/remoll/physlist/register QGSP_BERT_HP
+/remoll/physlist/parallel/enable
+/remoll/parallel/setfile geometry/mollerParallel.gdml
+#/run/numberOfThreads 5
+/run/initialize
+/remoll/addfield map_directory/V2DSg.9.75cm.parallel.txt
+/remoll/addfield map_directory/V2U.1a.50cm.parallel.txt
+
+#turn on main det an det for source generation
+/remoll/SD/disable_all
+/remoll/SD/enable 28
+/remoll/SD/detect lowenergyneutral 28
+/remoll/SD/detect secondaries 28
+/remoll/SD/detect boundaryhits 28
+
+/remoll/SD/enable 1004
+/remoll/SD/detect lowenergyneutral 1004
+/remoll/SD/detect secondaries 1004
+/remoll/SD/detect boundaryhits 1004
+
+
+## External Generator
+/remoll/evgen/set external
+#/remoll/evgen/copyRate 1
+#/remoll/evgen/external/startEvent 0
+
+/remoll/evgen/external/file ../bellowsgenerators/b2.root
+#/remoll/evgen/external/file rootfiles/o_remollSkimTree1004.root
+/remoll/evgen/external/detid 1004
+/remoll/evgen/external/zOffset 1 #backoff trajectory by 1mm
+/remoll/filename o_externalgen_1004.root
+
+## this shold be the same number of events as the skim output
+### if you want your rate calculation to be ok for non-beam generators
+/run/beamOn 100
+
+#/remoll/kryptonite/volume lefthut_Det_inside_logic
+#/remoll/kryptonite/enable
+#/remoll/filename /w/moller12gev-sciwork18/rahmans/genExternalThreading/out_windowtest_collected/external_31595776_1.root
+#/run/beamOn 42353     #If this number is bigger than the exact number of entries in b1.root, the simulation will loop over from the first event again. 
+

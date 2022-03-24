@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY matrices SYSTEM "../../matrices.xml">
+<!ENTITY pivot_matrix SYSTEM "pivot_matrix.xml">
+<!ENTITY pivot_positions SYSTEM "pivot_positions.xml">
+<!--<!ENTITY pivot_rotations SYSTEM "pivot_rotations.xml">-->
+<!ENTITY pivot_solids SYSTEM "pivot_solids.xml">
+<!ENTITY pivot_volumes SYSTEM "pivot_volumes.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &matrices;
+ &pivot_matrix;
+ &pivot_positions;
+ &pivot_rotations;
+</define>
+
+&materials;
+<!--<materials>
+</materials>
+-->
+
+<solids>
+ &pivot_solids;
+</solids>
+
+<structure>
+ &pivot_volumes;
+</structure>
+
+<setup name="pivot_setup" version="1.0">
+  <world ref="pivot_logic"/>
+</setup>
+
+
+</gdml>

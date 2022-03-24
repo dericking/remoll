@@ -6,7 +6,7 @@ remollRunData* remollRun::fRunData = 0;
 
 remollRunData* remollRun::GetRunData()
 {
-  if (fRunData == nullptr) {
+  if (!fRunData) {
     fRunData = new remollRunData();
     fRunData->Init();
   }

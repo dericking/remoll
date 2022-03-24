@@ -15,67 +15,52 @@
  * stream
 */
 
+class TGeoManager;
+
 class remollRunData : public TObject {
   using TObject::Print;
     public:
-	remollRunData() { };
-	virtual ~remollRunData() { };
+	remollRunData();
+	virtual ~remollRunData();
 
-        void Init();
+	unsigned long long int GetNthrown(){ return fNthrown; }
+	void SetNthrown(unsigned long long int n){ fNthrown = n; }
+
+	void Init();
+
+	void SetGenName(const char *n){ strcpy(fGenName, n); }
+	const char *GetGenName(){ return fGenName; }
+
+	void SetBeamE(double E){ fBeamE = E; }
+	void SetSeed(unsigned long int seed){ fSeed = seed; }
+
+	void AddMagData(filedata_t d){fMagData.push_back(d);}
+	void SetMacroFile(const char *fn){ fMacro = remollTextFile(fn); }
+	void AddGDMLFile(const char *fn);
+	void ClearGDMLFiles(){ fGDMLFiles.clear(); }
+
+	void RecreateGDML(const char *adir = NULL, bool clobber = false);
+
+	remollTextFile GetGDMLFile(int i){ return fGDMLFiles[i]; }
 
 	void Print();
 
-    private:
-        std::vector<filedata_t> fMagData;
-    public:
-	void AddMagData(filedata_t d) { fMagData.push_back(d); }
-
-    private:
-	remollTextFile fMacro;
-    public:
-	void SetMacroFile(const char *fn) { fMacro = remollTextFile(fn); }
-
-    private:
-	std::vector<remollTextFile> fGDMLFiles;
-    public:
-	void AddGDMLFile(const char *fn);
-	remollTextFile GetGDMLFile(int i) const { return fGDMLFiles[i]; }
-	void ClearGDMLFiles(){ fGDMLFiles.clear(); }
-	void RecreateGDML(const char *adir = NULL, bool clobber = false);
-
-    private:
-	long int fNthrown;
-    public:
-	void SetNthrown(unsigned long long int n) { fNthrown = n; }
-	unsigned long long int GetNthrown() const { return fNthrown; }
-
-    private:
-	long int fSeed;
-    public:
-	void SetSeed(unsigned long int seed) { fSeed = seed; }
-        unsigned long long int GetSeed() const { return fSeed; }
-
-    private:
-        std::string fGitInfo;
-    public:
-        std::string GetGitInfo() const { return fGitInfo; }
-
-    private:
 	TTimeStamp fRunTime;
-    public:
-        TTimeStamp GetRunTime() const { return fRunTime; }
 
-    private:
-	std::string fRunPath;
-    public:
-        std::string GetRunPath() const { return fRunPath; }
+	long int  fNthrown;
+	long int  fSeed;
+	double fBeamE;
+	char fGenName[__RUNSTR_LEN];
 
-    private:
-        std::string fHostName;
-    public:
-        std::string GetHostName() const { return fHostName; }
+	char fHostName[__RUNSTR_LEN];
+	char fRunPath[__RUNSTR_LEN];
 
-	ClassDef(remollRunData, 2);
+	remollTextFile              fMacro;
+	std::vector<remollTextFile> fGDMLFiles;
+
+	std::vector<filedata_t> fMagData;
+
+	ClassDef(remollRunData, 1);
 };
 
 #endif//__REMOLLRUNDATA_HH

@@ -1,0 +1,93 @@
+/remoll/setgeofile geometry/mollerMother.gdml
+/remoll/parallel/setfile geometry/mollerParallel.gdml 
+/remoll/physlist/parallel/enable 
+/run/initialize
+/remoll/printgeometry true
+/remoll/addfield map_directory/V2DSg.9.75cm.parallel.txt
+/remoll/addfield map_directory/V2U.1a.50cm.parallel.txt
+/remoll/evgen/beam/origin 0 0 -7.5 m
+/remoll/evgen/beam/rasx 5 mm
+/remoll/evgen/beam/rasy 5 mm
+/remoll/evgen/beam/corrx 0.065
+/remoll/evgen/beam/corry 0.065
+/remoll/evgen/beam/rasrefz -4.5 m
+/remoll/beamene 11 GeV
+/remoll/beamcurr 65 microampere
+/remoll/evgen/set beam
+/remoll/evgen/beamPolarization +L
+/remoll/field/equationtype 2
+/remoll/field/steppertype 2
+/remoll/field/print
+/remoll/SD/disable_all
+/remoll/SD/enable 28
+/remoll/SD/detect lowenergyneutral 28
+/remoll/SD/detect secondaries 28
+/remoll/SD/detect boundaryhits 28
+/remoll/SD/enable 1000
+/remoll/SD/detect lowenergyneutral 1000
+/remoll/SD/detect secondaries 1000
+/remoll/SD/detect boundaryhits 1000
+/remoll/SD/enable 1001
+/remoll/SD/detect lowenergyneutral 1001
+/remoll/SD/detect secondaries 1001
+/remoll/SD/detect boundaryhits 1001
+/remoll/SD/enable 1002
+/remoll/SD/detect lowenergyneutral 1002
+/remoll/SD/detect secondaries 1002
+/remoll/SD/detect boundaryhits 1002
+/remoll/SD/enable 1003
+/remoll/SD/detect lowenergyneutral 1003
+/remoll/SD/detect secondaries 1003
+/remoll/SD/detect boundaryhits 1003
+/remoll/SD/enable 1004
+/remoll/SD/detect lowenergyneutral 1004
+/remoll/SD/detect secondaries 1004
+/remoll/SD/detect boundaryhits 1004
+/remoll/SD/enable 1005
+/remoll/SD/detect lowenergyneutral 1005
+/remoll/SD/detect secondaries 1005
+/remoll/SD/detect boundaryhits 1005
+/remoll/SD/enable 1006
+/remoll/SD/detect lowenergyneutral 1006
+/remoll/SD/detect secondaries 1006
+/remoll/SD/detect boundaryhits 1006
+/remoll/SD/enable 1007
+/remoll/SD/detect lowenergyneutral 1007
+/remoll/SD/detect secondaries 1007
+/remoll/SD/detect boundaryhits 1007
+/remoll/SD/enable 1011
+/remoll/SD/detect lowenergyneutral 1011
+/remoll/SD/detect secondaries 1011
+/remoll/SD/detect boundaryhits 1011
+/remoll/SD/enable 1012
+/remoll/SD/detect lowenergyneutral 1012
+/remoll/SD/detect secondaries 1012
+/remoll/SD/detect boundaryhits 1012
+/remoll/SD/enable 1013
+/remoll/SD/detect lowenergyneutral 1013
+/remoll/SD/detect secondaries 1013
+/remoll/SD/detect boundaryhits 1013
+/remoll/SD/enable 1014
+/remoll/SD/detect lowenergyneutral 1014
+/remoll/SD/detect secondaries 1014
+/remoll/SD/detect boundaryhits 1014
+/remoll/SD/enable 1015
+/remoll/SD/detect lowenergyneutral 1015
+/remoll/SD/detect secondaries 1015
+/remoll/SD/detect boundaryhits 1015
+/remoll/SD/enable 1016
+/remoll/SD/detect lowenergyneutral 1016
+/remoll/SD/detect secondaries 1016
+/remoll/SD/detect boundaryhits 1016
+/remoll/kryptonite/enable
+/remoll/kryptonite/add VacuumKryptonite
+/remoll/kryptonite/add Tungsten
+/remoll/kryptonite/add Copper
+/remoll/kryptonite/add Lead
+/remoll/kryptonite/add CW95
+/remoll/kryptonite/list
+/process/list
+/remoll/seed 1
+/remoll/filename remollout.root
+/remoll/printtargetinfo
+/run/beamOn 1000

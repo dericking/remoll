@@ -1,0 +1,129 @@
+/remoll/setgeofile geometry/mollerMother_merged.gdml
+/remoll/parallel/setfile geometry/mollerParallel.gdml 
+/remoll/physlist/parallel/enable 
+/run/initialize
+/remoll/printgeometry true
+/remoll/addfield map_directory/V2DSg.9.75cm.parallel.txt
+/remoll/addfield map_directory/V2U.1a.50cm.parallel.txt
+/remoll/evgen/beam/origin 0 0 -7.5 m
+/remoll/evgen/beam/rasx 5 mm
+/remoll/evgen/beam/rasy 5 mm
+/remoll/evgen/beam/corrx 0.065
+/remoll/evgen/beam/corry 0.065
+/remoll/evgen/beam/rasrefz -4.5 m
+/remoll/beamene 11 GeV
+/remoll/beamcurr 65 microampere
+/remoll/evgen/set beam
+/remoll/evgen/beamPolarization +L
+/remoll/field/equationtype 2
+/remoll/field/steppertype 2
+/remoll/field/print
+/remoll/SD/disable_all
+/remoll/SD/enable 28
+/remoll/SD/detect lowenergyneutral 28
+/remoll/SD/detect secondaries 28
+/remoll/SD/detect boundaryhits 28
+/remoll/SD/enable 70
+/remoll/SD/detect lowenergyneutral 70
+/remoll/SD/detect secondaries 70
+/remoll/SD/detect boundaryhits 70
+/remoll/SD/enable 71
+/remoll/SD/detect lowenergyneutral 71
+/remoll/SD/detect secondaries 71
+/remoll/SD/detect boundaryhits 71
+/remoll/SD/enable 72
+/remoll/SD/detect lowenergyneutral 72
+/remoll/SD/detect secondaries 72
+/remoll/SD/detect boundaryhits 72
+/remoll/SD/enable 73
+/remoll/SD/detect lowenergyneutral 73
+/remoll/SD/detect secondaries 73
+/remoll/SD/detect boundaryhits 73
+/remoll/SD/enable 74
+/remoll/SD/detect lowenergyneutral 74
+/remoll/SD/detect secondaries 74
+/remoll/SD/detect boundaryhits 74
+/remoll/SD/enable 75
+/remoll/SD/detect lowenergyneutral 75
+/remoll/SD/detect secondaries 75
+/remoll/SD/detect boundaryhits 75
+/remoll/SD/enable 76
+/remoll/SD/detect lowenergyneutral 76
+/remoll/SD/detect secondaries 76
+/remoll/SD/detect boundaryhits 76
+/remoll/SD/enable 5547
+/remoll/SD/detect lowenergyneutral 5547
+/remoll/SD/detect secondaries 5547
+/remoll/SD/detect boundaryhits 5547
+/remoll/SD/enable 40
+/remoll/SD/detect lowenergyneutral 40
+/remoll/SD/detect secondaries 40
+/remoll/SD/detect boundaryhits 40
+/remoll/SD/enable 30
+/remoll/SD/detect lowenergyneutral 30
+/remoll/SD/detect secondaries 30
+/remoll/SD/detect boundaryhits 30
+/remoll/SD/enable 1057
+/remoll/SD/detect lowenergyneutral 1057
+/remoll/SD/detect secondaries 1057
+/remoll/SD/detect boundaryhits 1057
+/remoll/SD/enable 1058
+/remoll/SD/detect lowenergyneutral 1058
+/remoll/SD/detect secondaries 1058
+/remoll/SD/detect boundaryhits 1058
+/remoll/SD/enable 1059
+/remoll/SD/detect lowenergyneutral 1059
+/remoll/SD/detect secondaries 1059
+/remoll/SD/detect boundaryhits 1059
+/remoll/SD/enable 1060
+/remoll/SD/detect lowenergyneutral 1060
+/remoll/SD/detect secondaries 1060
+/remoll/SD/detect boundaryhits 1060
+/remoll/SD/enable 1065
+/remoll/SD/detect lowenergyneutral 1065
+/remoll/SD/detect secondaries 1065
+/remoll/SD/detect boundaryhits 1065
+/remoll/SD/enable 5620
+/remoll/SD/detect lowenergyneutral 5620
+/remoll/SD/detect secondaries 5620
+/remoll/SD/detect boundaryhits 5620
+/remoll/SD/enable 1067
+/remoll/SD/detect lowenergyneutral 1067
+/remoll/SD/detect secondaries 1067
+/remoll/SD/detect boundaryhits 1067
+/remoll/SD/enable 1074
+/remoll/SD/detect lowenergyneutral 1074
+/remoll/SD/detect secondaries 1074
+/remoll/SD/detect boundaryhits 1074
+/remoll/SD/enable 1076
+/remoll/SD/detect lowenergyneutral 1076
+/remoll/SD/detect secondaries 1076
+/remoll/SD/detect boundaryhits 1076
+/remoll/SD/enable 1077
+/remoll/SD/detect lowenergyneutral 1077
+/remoll/SD/detect secondaries 1077
+/remoll/SD/detect boundaryhits 1077
+/remoll/SD/enable 1079
+/remoll/SD/detect lowenergyneutral 1079
+/remoll/SD/detect secondaries 1079
+/remoll/SD/detect boundaryhits 1079
+/remoll/SD/enable 1085
+/remoll/SD/detect lowenergyneutral 1085
+/remoll/SD/detect secondaries 1085
+/remoll/SD/detect boundaryhits 1085
+/remoll/SD/enable 1089
+/remoll/SD/detect lowenergyneutral 1089
+/remoll/SD/detect secondaries 1089
+/remoll/SD/detect boundaryhits 1089
+/remoll/kryptonite/enable
+/remoll/kryptonite/add VacuumKryptonite
+/remoll/kryptonite/add Tungsten
+/remoll/kryptonite/add Copper
+/remoll/kryptonite/add Lead
+/remoll/kryptonite/add CW95
+/remoll/kryptonite/list
+/process/list
+/remoll/seed 1
+/remoll/filename remollout.root
+/remoll/printtargetinfo
+/run/beamOn 1000

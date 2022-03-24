@@ -17,11 +17,7 @@
 
 #include "TTimeStamp.h"
 
-enum SamplingType_t {
-    kNoTargetVolume,
-    kActiveTargetVolume,
-    kAllTargetVolumes
-};
+enum SampType_t { kNoTargetVolume, kActiveTargetVolume, kAllTargetVolumes };
 
 struct filedata_t {
     char filename[__RUNSTR_LEN];
@@ -77,7 +73,7 @@ struct remollGenericDetectorHit_t {
   double px, py, pz;
   double pxl, pyl, pzl;
   double sx, sy, sz;
-  double p, e, m, k, beta;
+  double p, e, m, k;
   double vx, vy, vz;
   double edep;
 };

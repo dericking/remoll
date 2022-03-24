@@ -1,0 +1,7 @@
+<position name="gemsupport_position_zero" x="0" y="0" z="0" unit="mm"/>
+<position name="gemsupport_position1" x="gemsupport_m[1,6]" y="gemsupport_m[1,7]" z="gemsupport_m[1,8]" unit="mm"/>
+<position name="gemsupport_position2" x="gemsupport_m[2,6]" y="gemsupport_m[2,7]" z="gemsupport_m[2,8]" unit="mm"/>
+<position name="gemsupport_position3" x="gemsupport_m[3,6]" y="gemsupport_m[3,7]" z="gemsupport_m[3,8]" unit="mm"/>
+<position name="gemsupport_position4" x="gemsupport_m[4,6]" y="gemsupport_m[4,7]" z="gemsupport_m[4,8]" unit="mm"/>
+<position name="gemsupport_position5" x="gemsupport_m[5,6]" y="gemsupport_m[5,7]" z="gemsupport_m[5,8]" unit="mm"/>
+<position name="gemsupport_position6" x="gemsupport_m[6,6]" y="gemsupport_m[6,7]" z="gemsupport_m[6,8]" unit="mm"/>

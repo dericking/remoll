@@ -13,68 +13,87 @@
 
 remollMultScatt::remollMultScatt() {
     InitInternal();
+
+    return;
 }
 
-remollMultScatt::remollMultScatt(double p, const std::vector<std::tuple<double,double,double>>& m)
-: remollMultScatt() {
+remollMultScatt::remollMultScatt( double p, int nmat, double t[], double A[], double Z[] ){
     /*
        p    - electron momentum
-      (t,   - Thickness
-       A,   - Mass number
-       Z)   - Atomic number
-       */
-    Init(p, m);
-}
-
-remollMultScatt::remollMultScatt(double p, const std::tuple<double,double,double>& m) {
-    /*
-       p    - electron momentum
-      (t,   - Thickness
-       A,   - Mass number
-       Z)   - Atomic number
+       nmat - number of materials
+       t    - Thickness
+       A    - Mass number
+       Z    - Atomic number
        */
     InitInternal();
-    Init(p, m);
+    remollMultScatt();
+    Init( p, nmat, t, A, Z );
+    return;
+}
+
+remollMultScatt::remollMultScatt( double p, double t, double A, double Z ){
+    /*
+       p    - electron momentum
+       nmat - number of materials
+       t    - Thickness
+       A    - Mass number
+       Z    - Atomic number
+       */
+    InitInternal();
+    Init( p, t, A, Z );
+
+    return;
 }
 
 void remollMultScatt::InitInternal(){
     fInit = false;
     fErf2sig = erf(2.0/sqrt(2.0));
+    fNmat = 0;
 }
 
-void remollMultScatt::Init(double p, const std::vector<std::tuple<double,double,double>>& m) {
-    /*
+void remollMultScatt::Init( double p, int nmat, double t[], double A[], double Z[] ){
+    /* 
        Load materials and calculate necessary
        variables to generate distributions
 
        p    - electron momentum
-      (t,   - Thickness
-       A,   - Mass number
-       Z)   - Atomic number
+       nmat - number of materials
+       t    - Thickness
+       A    - Mass number
+       Z    - Atomic number
     */
+
+    int i;
+
+    if( nmat >= MAT_MAX ){
+	fprintf(stderr, "%s %s line %d: Too many materials.  Limited by MAT_MAX (%d)\n", 
+		__FILE__, __FUNCTION__, __LINE__, MAT_MAX );
+	return;
+    }
+
+    fNmat = nmat;
 
     fReturnZero = false;
     fInit       = false;
 
     fp = p;
 
-    fm.resize(m.size());
-    for (size_t i = 0; i < m.size(); i++) {
-	assert( !std::isnan(std::get<0>(m[i])) && !std::isinf(std::get<0>(m[i])) &&
-		!std::isnan(std::get<1>(m[i])) && !std::isinf(std::get<1>(m[i])) &&
-		!std::isnan(std::get<2>(m[i])) && !std::isinf(std::get<2>(m[i])) );
+    for( i = 0; i < nmat; i++ ){
+	assert( !std::isnan(t[i]) && !std::isinf(t[i]) &&
+		!std::isnan(A[i]) && !std::isinf(A[i]) &&
+		!std::isnan(Z[i]) && !std::isinf(Z[i]) );
 
-	fm[i] = m[i];
+	ft[i] = t[i];
+	fA[i] = A[i];
+	fZ[i] = Z[i];
     }
 
     double radsum = 0.0;
+    double X0;
 
-    for (size_t i = 0; i < m.size(); i++) {
-	double t = std::get<0>(m[i]);
-	double A = std::get<1>(m[i]);
-	double Z = std::get<2>(m[i]);
-	double X0  = (716.4*g/cm2)*A/(Z*(Z+1.0)*log(287.0/sqrt(Z)));
-	radsum += t/X0;
+    for( i = 0; i < nmat; i++ ){
+	X0  = (716.4*g/cm2)*A[i]/(Z[i]*(Z[i]+1.0)*log(287.0/sqrt(Z[i])));
+	radsum += t[i]/X0;
     }
 
     // First work out characteristic gaussian spread.
@@ -88,15 +107,14 @@ void remollMultScatt::Init(double p, const std::vector<std::tuple<double,double,
     fthpdg = thpdg;
 
     // First calculate b
+
+    
     double expb_num, expb_den;
     double bsum = 0.0;
 
-    for (size_t i = 0; i < fm.size(); i++) {
-	double t = std::get<0>(fm[i]);
-	double A = std::get<1>(fm[i]);
-	double Z = std::get<2>(fm[i]);
-	expb_num = (6680.0*cm2/g)*t*(Z+1.0)*pow(Z,1.0/3.0);
-	expb_den = A*(1.0+3.34*pow(Z/137.0,2.0));
+    for( i = 0; i < fNmat; i++ ){
+	expb_num = (6680.0*cm2/g)*ft[i]*(fZ[i]+1.0)*pow(fZ[i],1.0/3.0);
+	expb_den = fA[i]*(1.0+3.34*pow(fZ[i]/137.0,2.0));
 
 	bsum += expb_num/expb_den;
     }
@@ -106,9 +124,18 @@ void remollMultScatt::Init(double p, const std::vector<std::tuple<double,double,
     /*
       Added  bsum < 0 check to this if statement otherwise if target material is set to vacuum for beam on target case b would be nan and exit the simulation - Rakitha Fri Aug 21 12:19:37 EDT 2015
      */
-    if (fm.size() == 0 || bsum < 0 || log(bsum) < 1.0) {
+    if( fNmat == 0 || bsum < 0 || log(bsum) < 1.0){
 	fInit = true;
 	fReturnZero = true;
+
+	/*
+	fprintf(stderr, "%s line %d: WARNING sum of b is %f\n", __FILE__, __LINE__, bsum );
+	for( i = 0; i < fNmat; i++ ){
+	    fprintf(stderr, "\tThickness mat %d: %f g/cm2\n", i, ft[i] );
+	}
+	fprintf(stderr, "Too little material - disabling MS for this configuration\n");
+	*/
+
 	return;
     }
 
@@ -131,14 +158,13 @@ void remollMultScatt::Init(double p, const std::vector<std::tuple<double,double,
 
     // Change of variables
 
-    double chi2 = 0.0;
+    double chi2, chi2_num, chi2_den;
 
-    for (size_t i = 0; i < fm.size(); i++) {
-	double t = std::get<0>(fm[i]);
-	double A = std::get<1>(fm[i]);
-	double Z = std::get<2>(fm[i]);
-	double chi2_num = 4.0*3.14159*e_squared*e_squared*t*Z*(Z+1.0);
-	double chi2_den = fp*fp*(A*g/mole);
+    chi2 = 0.0;
+
+    for( i = 0; i < fNmat; i++ ){
+	chi2_num = 4.0*3.14159*e_squared*e_squared*ft[i]*fZ[i]*(fZ[i]+1.0);
+	chi2_den = fp*fp*(A[i]*g/mole);
 	chi2  += chi2_num/chi2_den;
     }
 
@@ -176,21 +202,27 @@ void remollMultScatt::Init(double p, const std::vector<std::tuple<double,double,
     return;
 }
 
-void   remollMultScatt::Init(double p, const std::tuple<double,double,double>& m) {
+void   remollMultScatt::Init( double p, double t, double A, double Z ){
     /*
        p    - electron momentum, [GeV]
-      (t,   - Thickness [g/cm2]
-       A,   - Mass number
-       Z)   - Atomic number
+       nmat - number of materials
+       t    - Thickness [g/cm2]
+       A    - Mass number
+       Z    - Atomic number
        */
-    std::vector<std::tuple<double,double,double>> tm(1, m);
-    Init(p, tm);
+
+    double tt[] = {t};
+    double tA[] = {A};
+    double tZ[] = {Z};
+
+    Init( p, 1, tt, tA, tZ );
+    return;
 }
 
 double remollMultScatt::J0(double x) {
     // Returns J0 for any real x
     // Stolen from ROOT in TMath.cxx
-
+    
     double ax,z;
     double xx,y,result,result1,result2;
     const double p1  = 57568490574.0, p2  = -13362590354.0, p3 = 651619640.7;
@@ -245,7 +277,7 @@ double remollMultScatt::solvelogeq(double b){
     int n = 0;
 
     double f, df;
-
+    
     // Fix at 100 iterations
     while( n < MAX_ITER && fabs(thisB-lastB)>err ){
 	assert(thisB > 0.0);
@@ -350,19 +382,20 @@ double remollMultScatt::intsimpson_fn( double th, int n ){
     return sum/fact;
 }
 
-double remollMultScatt::CalcMSDistPlane( double theta, double p, const std::tuple<double,double,double>& m) {
-    Init(p, m);
+double remollMultScatt::CalcMSDistPlane( double theta, double p, double t, double A, double Z ){
+    Init( p, t, A, Z );
     return CalcMSDistPlane(theta);
 }
 
-double remollMultScatt::CalcMSDistPlane( double theta, double p, const std::vector<std::tuple<double,double,double>>& m) {
-    Init(p, m);
+double remollMultScatt::CalcMSDistPlane( double theta, double p, int nmat, double t[], double A[], double Z[] ){
+    Init( p, nmat, t, A, Z );
     return CalcMSDistPlane(theta);
 }
 
-double remollMultScatt::CalcMSDistPlane( double theta) {
+double remollMultScatt::CalcMSDistPlane( double theta){
     /*
        p    - electron momentum
+       nmat - number of materials
        t    - Thickness
        A    - Mass number
        Z    - Atomic number
@@ -397,13 +430,13 @@ double remollMultScatt::CalcMSDistPlane( double theta) {
     return retval;
 }
 
-double remollMultScatt::CalcMSDist( double theta, double p, const std::tuple<double,double,double>& m) {
-    Init(p, m);
+double remollMultScatt::CalcMSDist( double theta, double p, double t, double A, double Z ){
+    Init( p, t, A, Z );
     return CalcMSDist(theta);
 }
 
-double remollMultScatt::CalcMSDist( double theta, double p, const std::vector<std::tuple<double,double,double>>& m) {
-    Init(p, m);
+double remollMultScatt::CalcMSDist( double theta, double p, int nmat, double t[], double A[], double Z[] ){
+    Init( p, nmat, t, A, Z );
     assert( !std::isnan(theta));
     return CalcMSDist(theta);
 }
@@ -479,25 +512,27 @@ double remollMultScatt::GenerateMSPlane(){
     return -1e9;
 }
 
-double remollMultScatt::GenerateMSPlane(double p, const std::vector<std::tuple<double,double,double>>& m) {
+double remollMultScatt::GenerateMSPlane( double p, int nmat, double t[], double A[], double Z[] ){
     /*
        p    - electron momentum, [GeV]
+       nmat - number of materials
        t    - Thickness [g/cm2]
        A    - Mass number
        Z    - Atomic number
        */
-    Init(p, m);
+    Init(p, nmat, t, A, Z);
     return GenerateMSPlane();
 }
 
-double remollMultScatt::GenerateMSPlane(double p, const std::tuple<double,double,double>& m) {
+double remollMultScatt::GenerateMSPlane( double p, double t, double A, double Z ){
     /*
        p    - electron momentum
+       nmat - number of materials
        t    - Thickness
        A    - Mass number
        Z    - Atomic number
        */
-    Init(p, m);
+    Init(p, t, A, Z);
     return GenerateMSPlane();
 }
 
@@ -518,24 +553,26 @@ double remollMultScatt::GenerateMS(){
     return thisth;
 }
 
-double remollMultScatt::GenerateMS(double p, const std::vector<std::tuple<double,double,double>>& m) {
+double remollMultScatt::GenerateMS( double p, int nmat, double t[], double A[], double Z[] ){
     /*
        p    - electron momentum
-       t    - Thickness
+       nmat - number of materials
+       t    - Thickness 
        A    - Mass number
        Z    - Atomic number
        */
-    Init(p, m);
+    Init(p, nmat, t, A, Z);
     return GenerateMS();
 }
 
-double remollMultScatt::GenerateMS(double p, const std::tuple<double,double,double>& m) {
+double remollMultScatt::GenerateMS( double p, double t, double A, double Z ){
     /*
        p    - electron momentum
+       nmat - number of materials
        t    - Thickness
        A    - Mass number
        Z    - Atomic number
        */
-    Init(p, m);
+    Init(p, t, A, Z);
     return GenerateMS();
 }

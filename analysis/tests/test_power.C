@@ -6,7 +6,6 @@ part of this is taken from Rakitha's code coll_scan.cc
 */
 #include <vector>
 #include <iostream>
-#include <iomanip>
 
 #include "remolltypes.hh"
 

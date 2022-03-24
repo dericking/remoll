@@ -1,6 +1,7 @@
 # This must be called before initialize
 /remoll/geometry/setfile geometry/mollerMother.gdml
 /remoll/parallel/setfile geometry/mollerParallel.gdml 
+/remoll/physlist/parallel/enable
 
 # This must be explicitly called
 /run/initialize
@@ -51,11 +52,14 @@
 # Beam current for rate
 /remoll/beamcurr 85 microampere
 
-# Seed
+# Make interactions with W, Cu, and Pb
+# realistic rather than pure absorbers
+/control/execute macros/kryptonite.mac
+
 /remoll/seed 123456
 
 # Output
 /remoll/filename test_raster.root
 
 # Shoot
-/run/beamOn 100
+/run/beamOn 1000

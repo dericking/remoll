@@ -8,6 +8,7 @@
 #include "anaConst.h"
 #include "histogramUtilities.h"
 #include <math.h>
+
 class beamLineDetHistos {
  private:
   int histos; //sets which histograms are recorded
@@ -435,6 +436,34 @@ void beamLineDetHistos::initHisto(TFile *fout, const int detID, const string det
           
       }
     }
+
+}
+
+void beamLineDetHistos::writeOutput_det5614(TFile *fout, int detID, double scaleFactor,const int subDet=0) {
+  if (ID2entry.find(detID+10000*subDet) == ID2entry.end())
+    return;
+  int det = ID2entry[detID+10000*subDet];
+  fout->cd();
+  fout->cd(Form("det%d",detID));
+  for(int k=0;k<nFB;k++)
+    for(int j=0;j<nDmg;j++){
+      XY[j][k][det]->Scale(scaleFactor);
+      XY[j][k][det]->Write();
+    }
+    
+
+}
+void  beamLineDetHistos::writeOutput_detX(TFile *fout,int detID, double scaleFactor){
+  if (ID2entry.find(detID) == ID2entry.end())
+    return;
+  int det = ID2entry[detID];
+  fout->cd(Form("det%d",detID));
+  for(int k=0;k<nFB;k++){
+    for(int i=0;i<nDmg-1;i++){
+      dXY[i][k][det]->Scale(scaleFactor);
+      dXY[i][k][det]->Write();
+    }
+  }
 }
 void beamLineDetHistos::initHisto_Botdet(TFile *fout, const int detID, const string detNm, const string postfix = "",
 					 const float range=2000, const int subDet=0){
