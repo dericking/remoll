@@ -1,4 +1,16 @@
 # Ignore everything in this directory
-*
-# Except this file
-!.gitignore
+*.root
+
+extgen/*/
+extgen/*root
+
+primaryskims/*/
+primaryskims/*list
+primaryskims/*root
+
+!primaryskims/skimTree.C
+!primaryskims/skimMacro
+!extgen/ferrous_analysis.C
+!extgen/ferrous_analysis.h
+!extgen/ferrous_gettable.C
+!extgen/load_includes

@@ -1,0 +1,5 @@
+{
+  gInterpreter->AddIncludePath("~/Remoll/EricRemoll/remoll/include/");
+  gInterpreter->AddIncludePath("~/Software/Geant/geant4.10.07.p03-install/include/Geant4/");
+  //gInterpreter->AddIncludePath("/u/site/12gev_phys/2.4/Linux_CentOS7.7.1908-gcc9.2.0/clhep/2.4.1.3/include/");
+}
