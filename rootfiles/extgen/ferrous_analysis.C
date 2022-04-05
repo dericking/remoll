@@ -112,15 +112,19 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim)
     TH1F * h1Eg[Nset];
     TH1F * h1Rg[Nset];
     TH1F * h1Bg[Nset];
-    TH2F * h2BRe = new TH2F( Form("h2BRe_%i",DetNo[jj]),Form("e-e+ DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),100,-2,4,100,0,700 );
-    TH2F * h2BRg = new TH2F( Form("h2BRg_%i",DetNo[jj]),Form("gammas DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),100,-2,4,100,0,700 );
+    //TH2F * h2BRe = new TH2F( Form("h2BRe_%i",DetNo[jj]),Form("e-e+ DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),100,-2,4,100,0,700 );
+    //TH2F * h2BRg = new TH2F( Form("h2BRg_%i",DetNo[jj]),Form("gammas DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),100,-2,4,100,0,700 );
+    TH2F * h2BRe = new TH2F( Form("h2BRe_%i",DetNo[jj]),Form("e-e+ DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),2000,0,2000,100,0,700 );
+    TH2F * h2BRg = new TH2F( Form("h2BRg_%i",DetNo[jj]),Form("gammas DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),2000,0,2000,100,0,700 );
     for(Int_t i=0; i<Nset; i++){
       h1Ee[i] = new TH1F( Form("hEe%i",i), Form("e-e+ DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
       h1Re[i] = new TH1F( Form("hRe%i",i), Form("e-e+ DetNo=%i hit.r %s",DetNo[jj],energyText[i].Data()),80,detRmin,detRmax);
-      h1Be[i] = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
+      //h1Be[i] = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
+      h1Be[i] = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),2000,0,2000);
       h1Eg[i] = new TH1F( Form("hEg%i",i), Form("gammas DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
       h1Rg[i] = new TH1F( Form("hRg%i",i), Form("gammas DetNo=%i hit.r %s",DetNo[jj],energyText[i].Data()),80,detRmin,detRmax);
-      h1Bg[i] = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
+      //h1Bg[i] = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
+      h1Bg[i] = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),2000,0,2000);
     }
 
     fThis = new TFile(filename);
@@ -163,73 +167,73 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim)
           if(hit_e[n] < 1.){
             h1Ee[0]->Fill( log10(hit_e[n]) );
             h1Re[0]->Fill( hit_r[n] );
-            h1Be[0]->Fill( log10(fieldMag) );
+            h1Be[0]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 1.    && hit_e[n] < 10.   ){
             h1Ee[1]->Fill( log10(hit_e[n]) );
             h1Re[1]->Fill( hit_r[n] );
-            h1Be[1]->Fill( log10(fieldMag) );
+            h1Be[1]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 10.   && hit_e[n] < 100.  ){
             h1Ee[2]->Fill( log10(hit_e[n]) );
             h1Re[2]->Fill( hit_r[n] );
-            h1Be[2]->Fill( log10(fieldMag) );
+            h1Be[2]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 100.  && hit_e[n] < 1000. ){
             h1Ee[3]->Fill( log10(hit_e[n]) );
             h1Re[3]->Fill( hit_r[n] );
-            h1Be[3]->Fill( log10(fieldMag) );
+            h1Be[3]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 1000. && hit_e[n] < 10000.){
             h1Ee[4]->Fill( log10(hit_e[n]) );
             h1Re[4]->Fill( hit_r[n] );
-            h1Be[4]->Fill( log10(fieldMag) );
+            h1Be[4]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 10000.){
             h1Ee[5]->Fill( log10(hit_e[n]) );
             h1Re[5]->Fill( hit_r[n] );
-            h1Be[5]->Fill( log10(fieldMag) );
+            h1Be[5]->Fill( (fieldMag) );
           }
           h1Ee[6]->Fill( log10(hit_e[n]) ); //Seventh histogram is all hits.
           h1Re[6]->Fill( hit_r[n] );
-          h1Be[6]->Fill( log10(fieldMag) );
-          h2BRe->Fill( log10(fieldMag) , vertexRad );
+          h1Be[6]->Fill( (fieldMag) );
+          h2BRe->Fill( (fieldMag) , vertexRad );
         }//end if(part==11)
         if( hit_pid[n]==22 && hit_r[n] > detRmin && hit_r[n] < detRmax && hit_det[n] == 28){
           if(hit_e[n] < 1.){
             h1Eg[0]->Fill( log10(hit_e[n]) );
             h1Rg[0]->Fill( hit_r[n] );
-            h1Bg[0]->Fill( log10(fieldMag) );
+            h1Bg[0]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 1.    && hit_e[n] < 10.   ){
             h1Eg[1]->Fill( log10(hit_e[n]) );
             h1Rg[1]->Fill( hit_r[n] );
-            h1Bg[1]->Fill( log10(fieldMag) );
+            h1Bg[1]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 10.   && hit_e[n] < 100.  ){
             h1Eg[2]->Fill( log10(hit_e[n]) );
             h1Rg[2]->Fill( hit_r[n] );
-            h1Bg[2]->Fill( log10(fieldMag) );
+            h1Bg[2]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 100.  && hit_e[n] < 1000. ){
             h1Eg[3]->Fill( log10(hit_e[n]) );
             h1Rg[3]->Fill( hit_r[n] );
-            h1Bg[3]->Fill( log10(fieldMag) );
+            h1Bg[3]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 1000. && hit_e[n] < 10000.){
             h1Eg[4]->Fill( log10(hit_e[n]) );
             h1Rg[4]->Fill( hit_r[n] );
-            h1Bg[4]->Fill( log10(fieldMag) );
+            h1Bg[4]->Fill( (fieldMag) );
           }
           if(hit_e[n] >= 10000.){
             h1Eg[5]->Fill( log10(hit_e[n]) );
             h1Rg[5]->Fill( hit_r[n] );
-            h1Bg[5]->Fill( log10(fieldMag) );
+            h1Bg[5]->Fill( (fieldMag) );
           }
           h1Eg[6]->Fill( log10(hit_e[n]) ); //Seventh histogram is all hits.
           h1Rg[6]->Fill( hit_r[n] );
-          h1Bg[6]->Fill( log10(fieldMag) );
-          h2BRg->Fill( log10(fieldMag) , vertexRad );
+          h1Bg[6]->Fill( (fieldMag) );
+          h2BRg->Fill( (fieldMag) , vertexRad );
         }//end if(part==22)
 
       }//end for(hit_)

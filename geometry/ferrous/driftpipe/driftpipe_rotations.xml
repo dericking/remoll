@@ -1,0 +1,6 @@
+<rotation name="driftpipe_mount_rotation1" y="driftpipe_mount_m[1,9]" unit="deg" />
+<rotation name="driftpipe_mount_rotation2" y="driftpipe_mount_m[2,9]" unit="deg" />
+<rotation name="driftpipe_mount_rotation3" y="driftpipe_mount_m[3,9]" unit="deg" />
+<rotation name="driftpipe_mount_rotation4" y="driftpipe_mount_m[4,9]" unit="deg" />
+
+<rotation name="driftpipe_ionpumppipe_rotation" unit="deg" x="90" />

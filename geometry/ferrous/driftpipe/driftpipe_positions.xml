@@ -1,0 +1,9 @@
+<!-- Driftpipe ion pump pipe position --> 
+<position name="driftpipe_ionpumppipe_position" unit="mm" x="0" y="-2235.0" z="12854.94"/>
+
+<!-- Caryn's drift pipe  positioning -->
+<position name="driftpipe_position_zero" x="0" y="0" z="0" unit="mm"/>
+<position name="driftpipe_position1" x="driftpipe_mount_m[1,6]" y="driftpipe_mount_m[1,7]" z="driftpipe_mount_m[1,8]" unit="mm"/>
+<position name="driftpipe_position2" x="driftpipe_mount_m[2,6]" y="driftpipe_mount_m[2,7]" z="driftpipe_mount_m[2,8]" unit="mm"/>
+<position name="driftpipe_position3" x="driftpipe_mount_m[3,6]" y="driftpipe_mount_m[3,7]" z="driftpipe_mount_m[3,8]" unit="mm"/>
+<position name="driftpipe_position4" x="driftpipe_mount_m[4,6]" y="driftpipe_mount_m[4,7]" z="driftpipe_mount_m[4,8]" unit="mm"/>

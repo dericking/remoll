@@ -1,0 +1,10 @@
+<!-- 
+I-beams
+thickness-top/bottom(mm) thickness-center(mm) width(mm) height(mm) length(mm) PosX(mm) PosY(mm) PosZ(mm) RotAngle(deg)
+position is relative to hall center (i.e. in this coord system target is located at -4500mm and DS is +z)
+rotation is about y-axis-->
+<matrix name="driftpipe_mount_m" coldim="9" values="
+11.1 7.94 203.2 203.2 2413 -6.2 -1818.5 13807.05 90
+11.1 7.94 203.2 203.2 4572 -1098.7 -1615.3 15991.45 0
+11.1 7.94 203.2 203.2 4572 1098.7 -1615.3 15991.45 0
+11.1 7.94 203.2 203.2 2413 -6.2 -1818.5 18175.85 90"/>

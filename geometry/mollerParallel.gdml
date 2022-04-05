@@ -684,7 +684,6 @@
       <positionref ref="ferrous_pos"/>
     </physvol>
 
-
     <physvol name="fasteners_coil_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v3/fasteners_coil_Parallel.gdml"/>
       <positionref ref="ferrous_pos"/>

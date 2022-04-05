@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY matrices             SYSTEM  "../../matrices.xml">
+<!ENTITY driftpipe_matrix     SYSTEM  "driftpipe_matrix.xml">
+<!ENTITY driftpipe_positions  SYSTEM  "driftpipe_positions.xml">
+<!ENTITY driftpipe_rotations  SYSTEM  "driftpipe_rotations.xml">
+<!ENTITY driftpipe_solids     SYSTEM  "driftpipe_solids.xml">
+<!ENTITY driftpipe_volumes    SYSTEM  "driftpipe_volumes.xml">
+<!ENTITY materials            SYSTEM  "../../materials.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+  &matrices;
+
+  <position name="driftpipe_ionpumppipe_position" unit="mm" x="0" y="-2235.0" z="12854.94"/>
+  <rotation name="driftpipe_ionpumppipe_rotation" unit="deg" x="90" />
+
+</define>
+
+&materials;
+
+<solids>
+
+  <tube name="solid_driftPipeIonPump_tube" rmin="19.0" rmax="20.0" z="4470.0" deltaphi="360.0" startphi="0.0" aunit="deg" lunit="mm">
+  <box  name="solid_driftPipeRegion" x="50" y="50" z="50" lunit="mm" />
+
+  <multiUnion name="solid_union_driftPipeIonPump_tube" >
+    <multiUnionNode name="union-1">
+      <solid ref="solid_driftPipeIonPump_tube" />
+      <positionref ref="driftpipe_ionpumppipe_position" />
+      <rotationref ref="driftpipe_ionpumppipe_rotation"/>
+    </multiUnionNode>
+  </multiUnion>
+
+</solids>
+
+<structure>
+  <volume>
+    
+  </volume>
+  <volume name="driftPipeRegion_logic">
+    <materialref ref="G4_Galactic"/>
+    <solidref    ref="solid_driftPipeRegion"/>
+
+    <physvol>
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="solid_union_driftPipeIonPump_tube"/>
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="9100"/>
+    </physvol>
+  </volume>
+</structure>
+
+<setup name="driftpipeParallel_ionPumpPipe_setup" version="1.0">
+  <world ref="driftpipeParallel_ionPumpPipe_logic"/>
+</setup>
+
+</gdml>
