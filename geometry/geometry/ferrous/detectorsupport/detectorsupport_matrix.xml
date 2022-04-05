@@ -1,0 +1,5 @@
+<!-- 
+Boxx Boxy Boxz Thickness cuty rmax epsilon ytube yposshift
+-->
+<matrix name = "detectorsupport_m" coldim="6" values="
+8229.6 6003.93 5029.2 1336 1 -113.475"/>

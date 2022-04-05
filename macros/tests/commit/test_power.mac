@@ -1,6 +1,7 @@
 # This must be called before initialize
 /remoll/geometry/setfile geometry/mollerMother.gdml
 /remoll/parallel/setfile geometry/mollerParallel.gdml 
+/remoll/physlist/parallel/enable
 
 # This must be explicitly called
 /run/initialize
@@ -17,4 +18,4 @@
 /remoll/filename test_power.root
 
 # Shoot
-/run/beamOn 100
+/run/beamOn 10000

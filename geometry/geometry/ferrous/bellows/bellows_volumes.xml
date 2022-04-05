@@ -1,0 +1,84 @@
+  <volume name="bellows1_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows1_union"/> 
+    <auxiliary auxtype="Color" auxvalue="Cyan"/>
+  </volume>
+  <volume name="bellows2_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows2_union"/> 
+    <auxiliary auxtype="Color" auxvalue="Cyan"/>
+  </volume>
+  <volume name="bellows3_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows3_union"/> 
+    <auxiliary auxtype="Color" auxvalue="Cyan"/>
+  </volume>
+  <volume name="bellows4_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows4_union"/> 
+    <auxiliary auxtype="Color" auxvalue="Cyan"/>
+  </volume>
+  <volume name="bellows5_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows5_union"/> 
+    <auxiliary auxtype="Color" auxvalue="Cyan"/>
+  </volume>
+  <volume name="bellows6_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows6_union"/> 
+    <auxiliary auxtype="Color" auxvalue="Cyan"/>
+  </volume>
+
+
+<volume name="bellowsall_logic">
+  <materialref ref="G4_Galactic"/>
+  <solidref ref="bellowsall_multiUnion"/> 
+
+  <physvol name="bellows1_pv">
+   <volumeref ref="bellows1_logic"/>
+   <positionref ref="bellows_position1"/>
+  </physvol>
+  <physvol name="bellows2_pv">
+   <volumeref ref="bellows2_logic"/>
+   <positionref ref="bellows_position2"/>
+  </physvol>
+  <physvol name="bellows3_pv">
+   <volumeref ref="bellows3_logic"/>
+   <positionref ref="bellows_position3"/>
+  </physvol>
+  <physvol name="bellows4_pv">
+   <volumeref ref="bellows4_logic"/>
+   <positionref ref="bellows_position4"/>
+  </physvol>
+  <physvol name="bellows5_pv">
+   <volumeref ref="bellows5_logic"/>
+   <positionref ref="bellows_position5"/>
+  </physvol>
+  <physvol name="bellows6_pv">
+   <volumeref ref="bellows6_logic"/>
+   <positionref ref="bellows_position6"/>
+  </physvol>
+</volume>
+
+<!--  <volume name="bellows2_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows2_union"/> 
+  </volume>
+  <volume name="bellows3_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows3_union"/> 
+  </volume>
+  <volume name="bellows4_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows4_union"/> 
+  </volume>
+  <volume name="bellows5_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows5_union"/> 
+  </volume>
+  <volume name="bellows6_logic">
+    <materialref ref="Inconel625"/>
+    <solidref ref="bellows6_union"/> 
+  </volume>
+-->
+

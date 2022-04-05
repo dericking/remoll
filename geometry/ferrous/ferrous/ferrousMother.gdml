@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY ferrousworld SYSTEM "ferrousworld.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+<!ENTITY ferrous_positions SYSTEM "ferrous_positions.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+  &ferrous_positions;
+</define>
+
+<materials>
+</materials>
+
+
+<solids>
+ &ferrousworld;  
+
+  <box lunit="m" name="lefthut_world_solid" 
+       x="4.4" y="3.6" z="4.2"/> 
+
+</solids>
+
+<structure>
+
+  <volume name="ferrousmother">
+<!--    <materialref ref="G4_Galactic"/>
+    <solidref ref="lefthut_world_solid"/>-->
+
+    <physvol>
+      <file name="ferrous/bellows.gdml"/>
+      <positionref ref="ferrous_pos_local"/>
+    </physvol>
+    
+ 
+    <auxiliary auxtype="Alpha" auxvalue="0.1"/>
+  </volume>
+
+</structure>
+
+<setup name="ferrousname" version="1.0">
+  <world ref="ferrousmother"/>
+</setup>
+
+</gdml>

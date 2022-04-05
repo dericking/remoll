@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY matrices SYSTEM "../../matrices.xml">
+<!ENTITY bearings_matrix SYSTEM "bearings_matrix.xml">
+<!ENTITY bearings_positions SYSTEM "bearings_positions.xml">
+<!ENTITY bearings_rotations SYSTEM "bearings_rotations.xml">
+<!ENTITY bearings_solids SYSTEM "bearings_solids.xml">
+<!ENTITY bearings_volumes SYSTEM "bearings_volumes.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &matrices;
+ &bearings_matrix;
+ &bearings_positions;
+ &bearings_rotations;
+</define>
+
+&materials;
+<!--
+<materials>
+</materials>
+-->
+
+<solids>
+ &bearings_solids;
+</solids>
+
+<structure>
+ &bearings_volumes;
+</structure>
+
+<setup name="bearings_setup" version="1.0">
+  <world ref="bearings_logic"/>
+</setup>
+
+
+</gdml>

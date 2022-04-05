@@ -1,0 +1,4 @@
+  <volume name="pivot_logic">
+    <materialref ref="G4_Fe"/>
+    <solidref ref="pivot_solid1"/> 
+  </volume>

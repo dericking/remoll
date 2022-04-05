@@ -2,6 +2,7 @@
 
 // Geant4 includes
 #include "G4Material.hh"
+#include "G4GenericMessenger.hh"
 
 // remoll includes
 #include "remollBeamTarget.hh"
@@ -28,25 +29,25 @@ remollGenHyperon::remollGenHyperon()
   fRUnit(cm),fPUnit(GeV),fWUnit(barn)
 {
   // Add to generic messenger
-  fThisGenMessenger.DeclareProperty("debug",fDebugLevel,"Debug level");
-  fThisGenMessenger.DeclareProperty("file",fFile,"Input filename");
-  fThisGenMessenger.DeclareProperty("skip",fSkip,"Number of lines to skip");
-  fThisGenMessenger.DeclareProperty("particle",fParticle,"Particle name");
-  fThisGenMessenger.DeclarePropertyWithUnit("runit","cm",fRUnit,"Units of position");
-  fThisGenMessenger.DeclarePropertyWithUnit("punit","GeV",fPUnit,"Units of momentum");
-  fThisGenMessenger.DeclarePropertyWithUnit("wunit","barn",fWUnit,"Units of weight");
+  fThisGenMessenger->DeclareProperty("debug",fDebugLevel,"Debug level");
+  fThisGenMessenger->DeclareProperty("file",fFile,"Input filename");
+  fThisGenMessenger->DeclareProperty("skip",fSkip,"Number of lines to skip");
+  fThisGenMessenger->DeclareProperty("particle",fParticle,"Particle name");
+  fThisGenMessenger->DeclarePropertyWithUnit("runit","cm",fRUnit,"Units of position");
+  fThisGenMessenger->DeclarePropertyWithUnit("punit","GeV",fPUnit,"Units of momentum");
+  fThisGenMessenger->DeclarePropertyWithUnit("wunit","barn",fWUnit,"Units of weight");
 }
 
 remollGenHyperon::~remollGenHyperon()
 {
   G4AutoLock lock(&remollGenHyperonMutex);
-  if (fFileReader != nullptr) { delete fFileReader; fFileReader = 0; }
+  if (fFileReader) { delete fFileReader; fFileReader = 0; }
 }
 
 remollFileReader* remollGenHyperon::GetFileReader() const
 {
   G4AutoLock lock(&remollGenHyperonMutex);
-  if (fFileReader == nullptr) {
+  if (! fFileReader) {
     fFileReader = new remollFileReader(fFile,fSkip,fDebugLevel);
   }
   return fFileReader;
@@ -57,7 +58,7 @@ void remollGenHyperon::SamplePhysics(remollVertex* /*vert*/, remollEvent* evt)
   remollFileEvent event;
 
   // Limit scope of mutex to read from buffered file
-  if (GetFileReader() != nullptr) {
+  if (GetFileReader()) {
     G4AutoLock lock(&remollGenHyperonMutex);
     event = fFileReader->GetAnEvent(); // don't use GetFileReader, race condition
   }

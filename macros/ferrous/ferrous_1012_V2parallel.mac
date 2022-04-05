@@ -1,0 +1,53 @@
+# This is the current working geometry
+/remoll/setgeofile geometry/mollerMother.gdml
+/remoll/parallel/setfile geometry/mollerParallel.gdml 
+/remoll/physlist/parallel/enable 
+#/remoll/physlist/register QGSP_BERT_HP
+/run/initialize
+/remoll/addfield map_directory/V2DSg.9.75cm.parallel.txt
+/remoll/addfield map_directory/V2U.1a.50cm.parallel.txt
+#/remoll/addfield map_directory/V2DSg.9.75cm.txt
+#/remoll/addfield map_directory/V2U.1a.50cm.txt
+/remoll/SD/disable_all
+
+/remoll/SD/enable 1012
+/remoll/SD/detect lowenergyneutral 1012
+/remoll/SD/detect secondaries 1012
+/remoll/SD/detect boundaryhits 1012
+
+/remoll/SD/enable 28
+/remoll/SD/detect lowenergyneutral 28
+/remoll/SD/detect secondaries 28
+/remoll/SD/detect boundaryhits 28
+/remoll/SD/enable 29
+/remoll/SD/detect lowenergyneutral 29
+/remoll/SD/detect secondaries 29
+/remoll/SD/detect boundaryhits 29
+/remoll/SD/enable 30
+/remoll/SD/detect lowenergyneutral 30
+/remoll/SD/detect secondaries 30
+/remoll/SD/detect boundaryhits 30
+/remoll/SD/enable 35
+/remoll/SD/detect lowenergyneutral 35
+/remoll/SD/detect secondaries 35
+/remoll/SD/detect boundaryhits 35
+/remoll/SD/enable 1007
+/remoll/SD/detect lowenergyneutral 1007
+/remoll/SD/detect secondaries 1007
+/remoll/SD/detect boundaryhits 1007
+
+
+## External Generator
+/remoll/evgen/set external
+#/remoll/evgen/copyRate 1
+#/remoll/evgen/external/startEvent 0
+
+/remoll/evgen/external/file rootfiles/o_remollSkimTree1012.root
+/remoll/evgen/external/detid 1012
+/remoll/evgen/external/zOffset 0.001
+/remoll/filename o_ferrous_extgen_1012_V2parallel_100k.root
+
+/remoll/kryptonite/enable
+
+/run/beamOn 100000
+

@@ -3,25 +3,23 @@
 
 // geant4 includes
 #include "G4Types.hh"
-#include "G4GenericMessenger.hh"
 #include "G4UserTrackingAction.hh"
+
+// forward declares
+class G4GenericMessenger;
 
 class remollTrackingAction : public G4UserTrackingAction
 {
   public:
     remollTrackingAction();
-    virtual ~remollTrackingAction() = default;
+    virtual ~remollTrackingAction();
 
     void  PreUserTrackingAction(const G4Track* aTrack);
     void PostUserTrackingAction(const G4Track* aTrack);
 
   private:
-    G4GenericMessenger fMessenger{
-        this,
-        "/remoll/tracking/",
-        "Remoll tracking properties"};
-
-    G4int fTrackingFlag{3};
+    G4GenericMessenger* fMessenger;
+    G4int fTrackingFlag;
 };
 
 #endif

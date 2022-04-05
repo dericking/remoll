@@ -5,6 +5,7 @@
 #include <TClonesArray.h>
 
 #include "G4ParticleDefinition.hh"
+#include "G4GenericMessenger.hh"
 
 #include "remollGenericDetectorHit.hh"
 #include "remollGenericDetectorSum.hh"
@@ -18,10 +19,6 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-#ifdef __APPLE__
-#include <unistd.h>
-#endif
-
 #include <xercesc/parsers/XercesDOMParser.hpp>
 #include <xercesc/dom/DOMEntityReference.hpp>
 #include <xercesc/dom/DOMEntity.hpp>
@@ -34,43 +31,47 @@ ClassImp(remollSeed_t)
 
 // Singleton
 remollIO* remollIO::gInstance = 0;
-remollIO* remollIO::GetInstance(const G4String& outputfile) {
+remollIO* remollIO::GetInstance() {
   if (gInstance == 0) {
-    gInstance = new remollIO(outputfile);
+    gInstance = new remollIO();
   }
   return gInstance;
 }
 
-remollIO::remollIO(const G4String& outputfile)
-: fFile(0),fTree(0),fFilename(outputfile),fRate(0)
+remollIO::remollIO()
+: fFile(0),fTree(0),fFilename("remollout.root"),fRate(0)
 {
-    fMessenger.DeclareProperty("filename",fFilename,"Output filename");
+    // Create generic messenger
+    fMessenger = new G4GenericMessenger(this,"/remoll/","Remoll properties");
+    fMessenger->DeclareProperty("filename",fFilename,"Output filename");
 }
 
 remollIO::~remollIO()
 {
     // Delete tree
-    if (fTree != nullptr) {
+    if (fTree) {
         delete fTree;
         fTree = NULL;
     }
     // Delete file
-    if (fFile != nullptr) {
+    if (fFile) {
         delete fFile;
         fFile = NULL;
     }
+
+    delete fMessenger;
 }
 
 void remollIO::InitializeTree()
 {
-    if (fFile != nullptr) {
+    if (fFile) {
         fFile->Close();
         delete fFile;
         fFile = NULL;
         fTree = NULL;
     }
 
-    if (fTree != nullptr) {
+    if (fTree) {
         delete fTree;
         fTree = NULL;
     }
@@ -105,7 +106,7 @@ void remollIO::InitializeTree()
 
 void remollIO::FillTree()
 {
-    if( fTree == nullptr ){
+    if( !fTree ){
         G4cerr << "Error " << __PRETTY_FUNCTION__ << ": "
             << __FILE__ <<  " line " << __LINE__
             << " - Trying to fill non-existent tree" << G4endl;
@@ -132,7 +133,7 @@ void remollIO::Flush()
 
 void remollIO::WriteTree()
 {
-    if (fFile == nullptr)
+    if (!fFile)
       return;
 
     if (!fFile->IsOpen()) {
@@ -166,7 +167,7 @@ void remollIO::WriteTree()
 
 void remollIO::SetEventData(const remollEvent *ev)
 {
-  if (ev == nullptr) return;
+  if (! ev) return;
 
   fRate   = ev->fRate*s;
 
@@ -177,7 +178,7 @@ void remollIO::SetEventData(const remollEvent *ev)
 
   // Beam data
   const remollBeamTarget* bt = ev->GetBeamTarget();
-  if (bt != nullptr)
+  if (bt)
     fBm = bt->GetBeamTargetIO();
 }
 
@@ -267,15 +268,15 @@ void remollIO::SearchGDMLforFiles(G4String fn)
     str_docURI.erase(str_docURI.find_last_of('/') + 1);
     // remove cwd at begin
     char cwd[MAXPATHLEN];
-    if ((getcwd(cwd,MAXPATHLEN) != nullptr) && str_docURI.find(cwd) == 0) {
+    if (getcwd(cwd,MAXPATHLEN) && str_docURI.find(cwd) == 0) {
       str_docURI.erase(0, strlen(cwd) + 1);
     }
 
     // Get doctype and entities
     xercesc::DOMDocumentType* xmlDocType = xmlDoc->getDoctype();
-    if (xmlDocType != nullptr) {
+    if (xmlDocType) {
         xercesc::DOMNamedNodeMap* xmlNamedNodeMap = xmlDocType->getEntities();
-        if (xmlNamedNodeMap != nullptr) {
+        if (xmlNamedNodeMap) {
             for (XMLSize_t xx = 0; xx < xmlNamedNodeMap->getLength(); ++xx) {
                 xercesc::DOMNode* currentNode = xmlNamedNodeMap->item(xx);
                 if (currentNode->getNodeType() == xercesc::DOMNode::ENTITY_NODE) { // is entity
@@ -309,7 +310,7 @@ void remollIO::TraverseChildren( xercesc::DOMElement *thisel )
 
     for( XMLSize_t xx = 0; xx < nodeCount; ++xx ){
         xercesc::DOMNode* currentNode = children->item(xx);
-        if( currentNode->getNodeType() != 0u ){   // true is not NULL
+        if( currentNode->getNodeType() ){   // true is not NULL
 
             if (currentNode->getNodeType() == xercesc::DOMNode::ELEMENT_NODE) { // is element
                 xercesc::DOMElement* currentElement

@@ -1,0 +1,4 @@
+  <volume name="test_logic">
+    <materialref ref="G4_Al"/>
+    <solidref ref="multiUnion"/>
+  </volume>

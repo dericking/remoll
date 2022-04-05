@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY matrices SYSTEM "../../../matrices.xml">
+<!ENTITY fasteners_matrix SYSTEM "fasteners_matrix.xml">
+<!ENTITY fasteners_positions SYSTEM "fasteners_positions.xml">
+<!ENTITY fasteners_rotations SYSTEM "fasteners_rotations.xml">
+<!ENTITY fasteners_solids SYSTEM "fasteners_solids.xml">
+<!ENTITY fasteners_volumes SYSTEM "fasteners_volumes.xml">
+<!ENTITY materials SYSTEM "../../../materials.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &matrices;
+ &fasteners_matrix;
+ &fasteners_positions;
+ &fasteners_rotations;
+</define>
+
+&materials;
+<!--<materials>
+</materials>
+-->
+
+<solids>
+ &fasteners_solids;
+</solids>
+
+<structure>
+ &fasteners_volumes;
+</structure>
+
+<setup name="fasteners_bracket_setup" version="1.0">
+  <world ref="fasteners_bracket_logic"/>
+</setup>
+
+
+</gdml>

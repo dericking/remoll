@@ -4,19 +4,16 @@
 #include "G4GDMLParser.hh"
 #include "G4GDMLAuxStructType.hh"
 #include "G4VUserDetectorConstruction.hh"
-#include "G4GenericMessenger.hh"
 #include "G4Types.hh"
-#include "G4Version.hh"
 
 #include <vector>
 #include <set>
-
-#include "remollSearchPath.hh"
 
 class G4Tubs;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class G4VSensitiveDetector;
+class G4GenericMessenger;
 class G4UserLimits;
 
 class remollGlobalField;
@@ -51,7 +48,7 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
 
   private:
 
-    G4GDMLParser fGDMLParser;
+    G4GDMLParser *fGDMLParser;
 
     G4bool fGDMLValidate;
     G4bool fGDMLOverlapCheck;
@@ -60,7 +57,6 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
     G4String fGDMLFile;
 
     void SetGDMLFile(G4String gdmlfile) {
-      gdmlfile = remollSearchPath::resolve(gdmlfile);
       size_t i = gdmlfile.rfind('/');
       if (i != std::string::npos) {
         fGDMLPath = gdmlfile.substr(0,i);
@@ -68,14 +64,8 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
       fGDMLFile = gdmlfile.substr(i + 1);
     }
 
-    G4GenericMessenger fMessenger{
-        this,
-        "/remoll/",
-        "Remoll properties"};
-    G4GenericMessenger fGeometryMessenger{
-        this,
-        "/remoll/geometry/",
-        "Remoll geometry properties"};
+    G4GenericMessenger* fMessenger;
+    G4GenericMessenger* fGeometryMessenger;
 
     void ReloadGeometry(const G4String gdmlfile);
 
@@ -94,10 +84,8 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
 
   private:
 
-    G4GenericMessenger fUserLimitsMessenger{
-        this,
-        "/remoll/geometry/userlimits/",
-        "Remoll geometry properties"};
+    G4GenericMessenger* fUserLimitsMessenger;
+
 
   public:
 
@@ -110,10 +98,7 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
 
   private:
 
-    G4GenericMessenger fKryptoniteMessenger{
-        this,
-        "/remoll/kryptonite/",
-        "Remoll kryptonite properties"};
+    G4GenericMessenger* fKryptoniteMessenger;
     static G4UserLimits* fKryptoniteUserLimits;
     G4bool fKryptoniteEnable;
     G4int fKryptoniteVerbose;
@@ -124,11 +109,6 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
 
     void InitKryptoniteMaterials();
 
-  private:
-
-    std::vector<G4VPhysicalVolume*> fMeshPVs;
-
-    void AddMesh(const G4String& filename);
 
   public:
 
@@ -179,16 +159,9 @@ class remollDetectorConstruction : public G4VUserDetectorConstruction
         const G4GDMLAuxListType::const_iterator& end,
         const G4String& type)
     {
-      auto icompare = [](const G4String& lhs, const G4String& rhs) {
-        #if G4VERSION_NUMBER < 1100
-          return lhs.compareTo(rhs, G4String::ignoreCase);
-        #else
-          return G4StrUtil::icompare(lhs, rhs);
-        #endif
-      };
       return std::find_if(begin, end,
-        [icompare,type](const G4GDMLAuxStructType& element) {
-          return (icompare(element.type, type) == 0);} );
+        [type](const G4GDMLAuxStructType& element) {
+          return element.type.compareTo(type, G4String::ignoreCase) == 0;} );
     }
 
     void PrintAuxiliaryInfo() const;

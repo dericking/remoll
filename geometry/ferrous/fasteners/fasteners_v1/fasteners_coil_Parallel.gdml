@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY fastenersParallel_matrix SYSTEM "fasteners_matrix.xml">
+<!ENTITY fastenersParallel_positions SYSTEM "fasteners_positions.xml">
+<!ENTITY fastenersParallel_rotations SYSTEM "fasteners_rotations.xml">
+<!ENTITY fastenersParallel_solids SYSTEM "fasteners_solids.xml">
+<!ENTITY fastenersParallel_volumes SYSTEM "fastenersParallel_volumes.xml">
+<!ENTITY materials SYSTEM "../../../materials.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &fastenersParallel_matrix;
+ &fastenersParallel_positions;
+ &fastenersParallel_rotations;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+ &fastenersParallel_solids;
+</solids>
+
+<structure>
+    &fastenersParallel_volumes; 
+</structure>
+
+<!-- NOTE CAN ONLY HAVE ONE SETUP -->
+
+<setup name="fastenersParallel_coil_setup" version="1.0">
+  <world ref="fastenersParallel_coil_logic"/>
+</setup>
+
+</gdml>
+

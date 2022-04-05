@@ -1,0 +1,176 @@
+ <box lunit="mm" name="driftpipemount_solid_top1" x="driftpipemount_m[1,3]" y="driftpipemount_m[1,1]" z="driftpipemount_m[1,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_center1" x="driftpipemount_m[1,2]" y="driftpipemount_m[1,4]" z="driftpipemount_m[1,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_bottom1" x="driftpipemount_m[1,3]" y="driftpipemount_m[1,1]" z="driftpipemount_m[1,5]"/> 
+
+ <box lunit="mm" name="driftpipemount_solid_top2" x="driftpipemount_m[2,3]" y="driftpipemount_m[2,1]" z="driftpipemount_m[2,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_center2" x="driftpipemount_m[2,2]" y="driftpipemount_m[2,4]" z="driftpipemount_m[2,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_bottom2" x="driftpipemount_m[2,3]" y="driftpipemount_m[2,1]" z="driftpipemount_m[2,5]"/> 
+
+ <box lunit="mm" name="driftpipemount_solid_top3" x="driftpipemount_m[3,3]" y="driftpipemount_m[3,1]" z="driftpipemount_m[3,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_center3" x="driftpipemount_m[3,2]" y="driftpipemount_m[3,4]" z="driftpipemount_m[3,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_bottom3" x="driftpipemount_m[3,3]" y="driftpipemount_m[3,1]" z="driftpipemount_m[3,5]"/> 
+
+ <box lunit="mm" name="driftpipemount_solid_top4" x="driftpipemount_m[4,3]" y="driftpipemount_m[4,1]" z="driftpipemount_m[4,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_center4" x="driftpipemount_m[4,2]" y="driftpipemount_m[4,4]" z="driftpipemount_m[4,5]"/> 
+ <box lunit="mm" name="driftpipemount_solid_bottom4" x="driftpipemount_m[4,3]" y="driftpipemount_m[4,1]" z="driftpipemount_m[4,5]"/> 
+
+<union name="driftpipemount_solid_topcenter1" >
+    <first ref="driftpipemount_solid_center1" />
+    <second ref="driftpipemount_solid_top1" />
+    <position x="0" y="(driftpipemount_m[1,4]-driftpipemount_m[1,1])/2" z="0"/>
+</union>
+<union name="driftpipemount_1union" >
+    <first ref="driftpipemount_solid_topcenter1" />
+    <second ref="driftpipemount_solid_bottom1" />
+    <position x="0" y="-(driftpipemount_m[1,4]-driftpipemount_m[1,1])/2" z="0"/>
+</union>
+
+<union name="driftpipemount_solid_topcenter2" >
+    <first ref="driftpipemount_solid_center2" />
+    <second ref="driftpipemount_solid_top2" />
+    <position x="0" y="(driftpipemount_m[2,4]-driftpipemount_m[2,1])/2" z="0"/>
+</union>
+<union name="driftpipemount_2union" >
+    <first ref="driftpipemount_solid_topcenter2" />
+    <second ref="driftpipemount_solid_bottom2" />
+    <position x="0" y="-(driftpipemount_m[2,4]-driftpipemount_m[2,1])/2" z="0"/>
+</union>
+
+<union name="driftpipemount_solid_topcenter3" >
+    <first ref="driftpipemount_solid_center3" />
+    <second ref="driftpipemount_solid_top3" />
+    <position x="0" y="(driftpipemount_m[3,4]-driftpipemount_m[3,1])/2" z="0"/>
+</union>
+<union name="driftpipemount_3union" >
+    <first ref="driftpipemount_solid_topcenter3" />
+    <second ref="driftpipemount_solid_bottom3" />
+    <position x="0" y="-(driftpipemount_m[3,4]-driftpipemount_m[3,1])/2" z="0"/>
+</union>
+
+<union name="driftpipemount_solid_topcenter4" >
+    <first ref="driftpipemount_solid_center4" />
+    <second ref="driftpipemount_solid_top4" />
+    <position x="0" y="(driftpipemount_m[4,4]-driftpipemount_m[4,1])/2" z="0"/>
+</union>
+<union name="driftpipemount_4union" >
+    <first ref="driftpipemount_solid_topcenter4" />
+    <second ref="driftpipemount_solid_bottom4" />
+    <position x="0" y="-(driftpipemount_m[4,4]-driftpipemount_m[4,1])/2" z="0"/>
+</union>
+
+
+<multiUnion name="driftpipemount_multiUnion" >
+  <multiUnionNode name="node-1">
+    <solid ref="driftpipemount_1union" />
+    <positionref ref="driftpipemount_position1"/>
+    <rotationref ref="driftpipemount_rotation1"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-2">
+    <solid ref="driftpipemount_2union" />
+    <positionref ref="driftpipemount_position2"/>
+<!--    <position x="-1098.7" y="-1615.3"  z="15991.45"/>-->
+    <rotationref ref="driftpipemount_rotation2"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-3">
+    <solid ref="driftpipemount_3union" />
+    <positionref ref="driftpipemount_position3"/>
+    <rotationref ref="driftpipemount_rotation3"/>
+  </multiUnionNode>
+
+  <multiUnionNode name="node-4">
+    <solid ref="driftpipemount_4union" />
+    <positionref ref="driftpipemount_position4"/>
+    <rotationref ref="driftpipemount_rotation4"/>
+  </multiUnionNode>
+</multiUnion>
+
+
+<!--
+<union name="driftpipemount_solid_topbottom1" >
+    <first ref="driftpipemount_solid_bottom1" />
+    <second ref="driftpipemount_solid_top1" />
+    <position x="0" y="(driftpipemount_m[1,4]-driftpipemount_m[1,1])" z="0"/>
+</union>
+<union name="driftpipemount_1" >
+    <first ref="driftpipemount_solid_topbottom1" />
+    <second ref="driftpipemount_solid_center1" />
+    <position x="0" y="(driftpipemount_m[1,4]-driftpipemount_m[1,1])/2" z="0"/>
+</union>
+-->
+
+<!--<union name="driftpipemount_multiUnion2" >
+    <first ref="driftpipemount_1" />
+    <positionref ref="driftpipemount_position1"/>
+    <rotationref ref="driftpipemount_rotation1"/>
+    <second ref="driftpipemount_2" />
+    <positionref ref="driftpipemount_position2"/>
+    <rotationref ref="driftpipemount_rotation2"/>
+</union>
+-->
+<!--
+<multiUnion name="driftpipemount_1" >
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_center1" />
+    <position x="0" y="0" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top1" />
+    <position x="0" y="(driftpipemount_m[1,4]-driftpipemount_m[1,1])/2" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top1" />
+    <position x="0" y="-(driftpipemount_m[1,4]-driftpipemount_m[1,1])/2" z="0"/>
+  </multiUnionNode>
+</multiUnion>
+
+<multiUnion name="driftpipemount_2" >
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_center2" />
+    <position x="0" y="0" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top2" />
+    <position x="0" y="(driftpipemount_m[2,4]-driftpipemount_m[2,1])/2" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top2" />
+    <position x="0" y="-(driftpipemount_m[2,4]-driftpipemount_m[2,1])/2" z="0"/>
+  </multiUnionNode>
+</multiUnion>
+
+<multiUnion name="driftpipemount_3" >
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_center3" />
+    <position x="0" y="0" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top3" />
+    <position x="0" y="(driftpipemount_m[3,4]-driftpipemount_m[3,1])/2" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top3" />
+    <position x="0" y="-(driftpipemount_m[3,4]-driftpipemount_m[3,1])/2" z="0"/>
+  </multiUnionNode>
+</multiUnion>
+
+<multiUnion name="driftpipemount_4" >
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_center4" />
+    <position x="0" y="0" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top4" />
+    <position x="0" y="(driftpipemount_m[4,4]-driftpipemount_m[4,1])/2" z="0"/>
+  </multiUnionNode>
+  <multiUnionNode>
+    <solid ref="driftpipemount_solid_top4" />
+    <position x="0" y="-(driftpipemount_m[4,4]-driftpipemount_m[4,1])/2" z="0"/>
+  </multiUnionNode>
+</multiUnion>
+-->
+<!--<union name="driftpipemount_12">
+<first ref="driftpipemount_1"/>
+<second ref="driftpipemount_2"/>
+-->

@@ -2,7 +2,6 @@
 
 # This must be called before initialize
 /remoll/geometry/setfile geometry/pion/Lucite/pionDetectorLucite_world.gdml
-/remoll/parallel/setfile
 
 # Enable optical physics
 /remoll/physlist/parallel/disable

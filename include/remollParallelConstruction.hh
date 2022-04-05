@@ -2,13 +2,11 @@
 #define __REMOLLPARALLELCONSTRUCTION_HH 1
 
 #include <G4VUserParallelWorld.hh>
-#include <G4GenericMessenger.hh>
-#include <G4GDMLParser.hh>
-
-#include "remollSearchPath.hh"
 
 class G4LogicalVolume;
 class G4VPhysicalVolume;
+class G4GDMLParser;
+class G4GenericMessenger;
 
 //
 /// A parallel world construction class
@@ -32,7 +30,6 @@ class remollParallelConstruction : public G4VUserParallelWorld
     G4String fGDMLFile;
 
     void SetGDMLFile(G4String gdmlfile) {
-      gdmlfile = remollSearchPath::resolve(gdmlfile);
       size_t i = gdmlfile.rfind('/');
       if (i != std::string::npos) {
         fGDMLPath = gdmlfile.substr(0,i);
@@ -40,17 +37,14 @@ class remollParallelConstruction : public G4VUserParallelWorld
       fGDMLFile = gdmlfile.substr(i + 1);
     }
 
-    G4GDMLParser fGDMLParser;
+    G4GDMLParser *fGDMLParser;
 
     G4bool fGDMLValidate;
     G4bool fGDMLOverlapCheck;
 
     G4int fVerboseLevel;
 
-    G4GenericMessenger fParallelMessenger{
-      this,
-      "/remoll/parallel/",
-      "Remoll parallel geometry properties"};
+    G4GenericMessenger* fParallelMessenger;
 
     G4VPhysicalVolume* fWorldVolume;
     G4String           fWorldName;

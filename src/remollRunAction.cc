@@ -1,5 +1,6 @@
 #include "remollRunAction.hh"
 
+#include "G4GenericMessenger.hh"
 #include "G4RunManager.hh"
 #include "G4Timer.hh"
 
@@ -13,22 +14,31 @@
 namespace { G4Mutex remollRunActionMutex = G4MUTEX_INITIALIZER; }
 
 remollRunAction::remollRunAction()
+: fInterval(10)
 {
-  fMessenger.DeclareMethod(
+  // Create messenger to set the seed with single long int
+  fMessenger = new G4GenericMessenger(this,"/remoll/","Remoll properties");
+  fMessenger->DeclareMethod(
       "seed",
       &remollRunAction::UpdateSeed,
       "Set random engine seed")
       .SetParameterName("seed", false)
       .SetStates(G4State_PreInit,G4State_Idle);
-  fMessenger.DeclareMethod(
+  fMessenger->DeclareMethod(
       "interval",
       &remollRunAction::SetUpdateInterval,
       "Print this many progress points (i.e. 100 -> every 1%)")
       .SetParameterName("interval", false)
       .SetStates(G4State_PreInit,G4State_Idle);
 
-  // Store random status before primary particle generation
-  G4RunManager::GetRunManager()->StoreRandomNumberStatusToG4Event(1);
+  // Create timer
+  fTimer = new G4Timer();
+}
+
+remollRunAction::~remollRunAction()
+{
+  delete fMessenger;
+  delete fTimer;
 }
 
 void remollRunAction::UpdateSeed(const G4long seed)
@@ -58,7 +68,7 @@ void remollRunAction::BeginOfRunAction(const G4Run* run)
   {
     G4cout << "### Run " << aRun->GetRunID() << " start." << G4endl;
 
-    fTimer.Start();
+    fTimer->Start();
 
     G4AutoLock lock(&remollRunActionMutex);
     remollIO* io = remollIO::GetInstance();
@@ -76,10 +86,10 @@ void remollRunAction::EndOfRunAction(const G4Run* run)
 
   if (IsMaster())
   {
-      fTimer.Stop();
+      fTimer->Stop();
 
       G4cout << "### Run " << aRun->GetRunID() << " ended "
-             << "(" << fTimer.GetUserElapsed() << "s)." << G4endl;
+             << "(" << fTimer->GetUserElapsed() << "s)." << G4endl;
 
       G4AutoLock lock(&remollRunActionMutex);
       remollIO* io = remollIO::GetInstance();

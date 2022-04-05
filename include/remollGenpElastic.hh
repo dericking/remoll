@@ -11,6 +11,8 @@
 
 #include "remollVEventGen.hh"
 
+class remollBeamTarget;
+
 class remollGenpElastic : public remollVEventGen {
     public:
 	remollGenpElastic();

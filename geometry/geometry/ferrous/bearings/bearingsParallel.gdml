@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY bearingsParallel_matrix SYSTEM "bearings_matrix.xml">
+<!ENTITY bearingsParallel_positions SYSTEM "bearings_positions.xml">
+<!ENTITY bearingsParallel_rotations SYSTEM "bearings_rotations.xml">
+<!ENTITY bearingsParallel_solids SYSTEM "bearings_solids.xml">
+<!ENTITY bearingsParallel_volumes SYSTEM "bearingsParallel_volumes.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &bearingsParallel_matrix;
+ &bearingsParallel_positions;
+ &bearingsParallel_rotations;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+ &bearingsParallel_solids;
+</solids>
+
+<structure>
+ &bearingsParallel_volumes;
+</structure>
+
+<setup name="bearingsParallel_setup" version="1.0">
+  <world ref="bearingsParallel_logic"/>
+</setup>
+
+
+</gdml>

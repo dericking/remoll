@@ -1,0 +1,245 @@
+ <tube name="bearings_solid" rmin="bearings_m_dim[1]" rmax="bearings_m_dim[2]" z="bearings_m_dim[3]" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/> 
+
+<multiUnion name="bearings_multiUnion" >
+  <multiUnionNode name="node-1">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position1" />
+    <rotationref ref="bearings_rotation1"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-2">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position2" />
+    <rotationref ref="bearings_rotation2"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-3">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position3" />
+    <rotationref ref="bearings_rotation3"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-4">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position4" />
+    <rotationref ref="bearings_rotation4"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-5">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position5" />
+    <rotationref ref="bearings_rotation5"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-6">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position6" />
+    <rotationref ref="bearings_rotation6"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-7">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position7" />
+    <rotationref ref="bearings_rotation7"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-8">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position8" />
+    <rotationref ref="bearings_rotation8"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-9">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position9" />
+    <rotationref ref="bearings_rotation9"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-10">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position10" />
+    <rotationref ref="bearings_rotation10"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-11">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position11" />
+    <rotationref ref="bearings_rotation11"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-12">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position12" />
+    <rotationref ref="bearings_rotation12"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-13">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position13" />
+    <rotationref ref="bearings_rotation13"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-14">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position14" />
+    <rotationref ref="bearings_rotation14"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-15">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position15" />
+    <rotationref ref="bearings_rotation15"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-16">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position16" />
+    <rotationref ref="bearings_rotation16"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-17">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position17" />
+    <rotationref ref="bearings_rotation17"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-18">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position18" />
+    <rotationref ref="bearings_rotation18"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-19">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position19" />
+    <rotationref ref="bearings_rotation19"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-20">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position20" />
+    <rotationref ref="bearings_rotation20"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-21">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position21" />
+    <rotationref ref="bearings_rotation21"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-22">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position22" />
+    <rotationref ref="bearings_rotation22"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-23">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position23" />
+    <rotationref ref="bearings_rotation23"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-24">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position24" />
+    <rotationref ref="bearings_rotation24"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-25">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position25" />
+    <rotationref ref="bearings_rotation25"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-26">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position26" />
+    <rotationref ref="bearings_rotation26"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-27">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position27" />
+    <rotationref ref="bearings_rotation27"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-28">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position28" />
+    <rotationref ref="bearings_rotation28"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-29">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position29" />
+    <rotationref ref="bearings_rotation29"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-30">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position30" />
+    <rotationref ref="bearings_rotation30"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-31">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position31" />
+    <rotationref ref="bearings_rotation31"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-32">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position32" />
+    <rotationref ref="bearings_rotation32"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-33">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position33" />
+    <rotationref ref="bearings_rotation33"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-34">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position34" />
+    <rotationref ref="bearings_rotation34"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-35">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position35" />
+    <rotationref ref="bearings_rotation35"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-36">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position36" />
+    <rotationref ref="bearings_rotation36"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-37">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position37" />
+    <rotationref ref="bearings_rotation37"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-38">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position38" />
+    <rotationref ref="bearings_rotation38"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-39">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position39" />
+    <rotationref ref="bearings_rotation39"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-40">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position40" />
+    <rotationref ref="bearings_rotation40"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-41">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position41" />
+    <rotationref ref="bearings_rotation41"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-42">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position42" />
+    <rotationref ref="bearings_rotation42"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-43">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position43" />
+    <rotationref ref="bearings_rotation43"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-44">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position44" />
+    <rotationref ref="bearings_rotation44"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-45">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position45" />
+    <rotationref ref="bearings_rotation45"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-46">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position46" />
+    <rotationref ref="bearings_rotation46"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-47">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position47" />
+    <rotationref ref="bearings_rotation47"/> 
+  </multiUnionNode>
+  <multiUnionNode name="node-48">
+    <solid ref="bearings_solid" />
+    <positionref ref="bearings_position48" />
+    <rotationref ref="bearings_rotation48"/> 
+  </multiUnionNode>
+</multiUnion>
+
