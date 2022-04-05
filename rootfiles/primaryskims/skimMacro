@@ -1,6 +1,0 @@
-{
-  //.L skimTree.C;
-  skimTree("remoll_ferrous_fasteners_250M__2022_03_17_files.list",9010,1);
-  skimTree("remoll_ferrous_fasteners_250M__2022_03_17_files.list",9020,1);
-  skimTree("remoll_ferrous_fasteners_250M__2022_03_17_files.list",9030,1);
-}
