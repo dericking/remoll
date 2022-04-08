@@ -1,5 +1,0 @@
-<position name="driftpipemount_position_zero" x="0" y="0" z="0" unit="mm"/>
-<position name="driftpipemount_position1" x="driftpipemount_m[1,6]" y="driftpipemount_m[1,7]" z="driftpipemount_m[1,8]" unit="mm"/>
-<position name="driftpipemount_position2" x="driftpipemount_m[2,6]" y="driftpipemount_m[2,7]" z="driftpipemount_m[2,8]" unit="mm"/>
-<position name="driftpipemount_position3" x="driftpipemount_m[3,6]" y="driftpipemount_m[3,7]" z="driftpipemount_m[3,8]" unit="mm"/>
-<position name="driftpipemount_position4" x="driftpipemount_m[4,6]" y="driftpipemount_m[4,7]" z="driftpipemount_m[4,8]" unit="mm"/>

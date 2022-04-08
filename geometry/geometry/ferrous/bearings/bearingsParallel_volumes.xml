@@ -1,6 +1,0 @@
-  <volume name="bearingsParallel_logic">
-    <materialref ref="G4_Galactic"/>
-    <solidref ref="bearings_multiUnion"/>
-    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-    <auxiliary auxtype="DetNo" auxvalue="1008"/>
-  </volume>

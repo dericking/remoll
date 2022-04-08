@@ -679,34 +679,82 @@
       <positionref ref="pivot_pos"/>
     </physvol>
 
+    <physvol name="fasteners_coil_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_coil_Parallel.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="fasteners_bracket_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket_Parallel.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="fasteners_clamp_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp_Parallel.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="driftpipeionpump_PV">
+      <file name="ferrous/driftpipeionpump/driftpipeionpump_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_driftpipe_ionpump"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
+    <physvol name="watercooledleads_dsmag_tm1s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1s_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm1r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1r_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2s_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2r_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3s_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3r_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4s_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4r_parallel.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
     <physvol name="tierodends_phys">
       <file name="ferrous/tierodends/tierodendsParallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
 
-    <physvol name="fasteners_coil_parallel_PV">
-      <file name="ferrous/fasteners/fasteners_v3/fasteners_coil_Parallel.gdml"/>
-      <positionref ref="ferrous_pos"/>
-    </physvol>
-
-    <physvol name="fasteners_bracket_parallel_PV">
-      <file name="ferrous/fasteners/fasteners_v3/fasteners_bracket_Parallel.gdml"/>
-      <positionref ref="ferrous_pos"/>
-    </physvol>
-
-    <physvol name="fasteners_clamp_parallel_PV">
-      <file name="ferrous/fasteners/fasteners_v3/fasteners_clamp_Parallel.gdml"/>
-      <positionref ref="ferrous_pos"/>
-    </physvol>
-
     <!-- INACTIVE FERROUS COPY AS NEEDED
-    <physvol name="bearings_phys">
-      <file name="ferrous/bearings/bearingsParallel.gdml"/>
-      <positionref ref="ferrous_pos"/>
-    </physvol>
 
     <physvol name="driftpipemount_phys">
       <file name="ferrous/driftpipemount/driftpipemountParallel.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="bearings_phys">
+      <file name="ferrous/bearings/bearingsParallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
 

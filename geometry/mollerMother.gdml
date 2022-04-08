@@ -51,7 +51,8 @@
 
     <!-- Hybrid region -->
     <physvol>
-      <file name="hybrid/hybridDaughter_merged.gdml"/>
+      <file name="hybrid/hybridDaughter_merged.gdml" />
+      <!--<file name="hybrid/hybridDaughter_unified.gdml"/>-->
       <positionref ref="hybridCenter"/>
     </physvol>
 
@@ -61,12 +62,15 @@
 
     <!-- Downstream beampipe -->
   <!--turned on to see if ferrous bellows ok here-->
-<!--    <physvol>
+<!--
+    <physvol>
       <file name="beampipe/downstream/beampipeDSMother.gdml"/>
     </physvol>
 -->
-    <!-- Front Tracking Detectors -->
-<!--       <physvol>
+
+  <!-- Front Tracking Detectors -->
+<!--
+    <physvol>
       <file name="tracking/trackingDaughter.gdml"/>
       <positionref ref="trackingDetectorVirtualPlaneFront1_pos"/>
     </physvol>
@@ -119,6 +123,8 @@
     </physvol>-->
 
     <!-- ferrous materials --> 
+
+<!-- INACTIVE FERROUS COPY AS NEEDED
     <physvol name="fasteners_coil_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
       <positionref ref="ferrous_pos"/>
@@ -134,8 +140,53 @@
       <positionref ref="ferrous_pos"/>
     </physvol>
 
-    
-    <!-- INACTIVE FERROUS COPY AS NEEDED
+    <physvol name="watercooledleads_dsmag_tm1s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm1r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
+    <physvol name="driftpipeionpump_PV">
+      <file name="ferrous/driftpipeionpump/driftpipeionpump_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_driftpipe_ionpump"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
     <physvol name="bearings_PV">
       <file name="ferrous/bearings/bearings.gdml"/>
       <positionref ref="ferrous_pos"/>
@@ -165,9 +216,7 @@
       <file name="ferrous/pivot/pivot.gdml"/>
      <positionref ref="pivot_pos"/>
     </physvol>
-
-
-    -->
+-->
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
   </volume>

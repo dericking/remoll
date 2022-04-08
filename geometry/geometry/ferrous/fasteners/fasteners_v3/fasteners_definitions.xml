@@ -1,7 +1,0 @@
-<variable name="iP" value="1" /> <!-- (clamp) plate fastener iteration -->
-<variable name="iB" value="1" /> <!-- coil fastener iteration -->
-<variable name="iC" value="1" /> <!-- bracket fastener iteration -->
-
-<variable name="sP" value="1" /> <!-- (clamp) plate fastener section -->
-<variable name="sB" value="1" /> <!-- coil fastener section -->
-<variable name="sC" value="1" /> <!-- bracket fastener section -->

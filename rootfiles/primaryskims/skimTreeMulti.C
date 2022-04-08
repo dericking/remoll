@@ -18,7 +18,7 @@
 #include <algorithm>
 using namespace std;
 
-TFile *ofile;
+TFile          *ofile;
 vector<Int_t>   detectorNumbers;
 vector<Int_t>   detectorHitN;
 vector<TFile *> outputFiles;
@@ -34,7 +34,7 @@ Long_t          getEvents(string);
 
 vector<remollGenericDetectorHit_t>  *newhit=0;
 
-void skimTreeMulti(string fileList, string DetNums, int beamGen, int test=0){
+void skimTreeMulti(string fileList, string DetNums, int beamGen=1, int test=0){
   testRun = test;
 
   //////////////////////////////////////////////////////////////

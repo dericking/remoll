@@ -1,5 +1,0 @@
-  <volume name="tierodends_logic">
-    <materialref ref="G4_Fe"/>
-    <solidref ref="tierodends_union"/> 
-<!--    <rotation x="1*360/7.0" unit="deg" /> -->
-  </volume>

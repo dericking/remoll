@@ -1,7 +1,0 @@
-  <volume name="pivotParallel_logic">
-    <materialref ref="G4_Galactic"/>
-    <solidref ref="pivot_solid1"/>
-    <!-- <positionref ref="pivot_position1"/> -->
-    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-    <auxiliary auxtype="DetNo" auxvalue="9001"/>
-  </volume>

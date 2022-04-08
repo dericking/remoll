@@ -73,4 +73,13 @@
 <position name="rebarus_pos" x="0.0" y="-942" z="2475-4500" unit="mm"/>
 <position name="rebards_pos" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 +2000" unit="mm"/>
 <position name="detectorsupport_pos" x="0.0" y="0" z="23551.5" unit="mm"/>
+<position name="ferrous_driftpipe_ionpump" x="0.0" y="-2123.0" z="14955"/>
 
+<position name="ferrous_watercooledleads_ds_tm1s" x="1033.77" y="-1819.81" z="5246.6"/>
+<position name="ferrous_watercooledleads_ds_tm1r" x="1033.77" y="-1819.81" z="5592.9"/>
+<position name="ferrous_watercooledleads_ds_tm2s" x="1033.77" y="-1819.81" z="6275.0"/>
+<position name="ferrous_watercooledleads_ds_tm2r" x="1033.77" y="-1819.81" z="6621.1"/>
+<position name="ferrous_watercooledleads_ds_tm3s" x="1033.77" y="-1819.81" z="7322.6"/>
+<position name="ferrous_watercooledleads_ds_tm3r" x="1033.77" y="-1819.81" z="7668.9"/>
+<position name="ferrous_watercooledleads_ds_tm4s" x="1033.77" y="-1819.81" z="8930.1"/>
+<position name="ferrous_watercooledleads_ds_tm4r" x="1033.77" y="-1819.81" z="9275.9"/>

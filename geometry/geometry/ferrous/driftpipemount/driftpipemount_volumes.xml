@@ -1,5 +1,0 @@
-  <volume name="driftpipemount_logic">
-    <materialref ref="G4_STAINLESS-STEEL"/>
-    <solidref ref="driftpipemount_multiUnion"/> 
-<!--    <position x="0" y="0" z="0"/>-->
-  </volume>

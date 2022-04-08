@@ -11,5 +11,5 @@ primaryskims/*
 !extgen/ferrous_analysis.C
 !extgen/ferrous_analysis.h
 !extgen/ferrous_gettable.C
-!primaryskims/skimTree.C
+!primaryskims/skimTreeMulti.C
 !primaryskims/skimMacro

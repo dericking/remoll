@@ -1,6 +1,0 @@
-  <volume name="gemsupportParallel_logic">
-    <materialref ref="G4_Galactic"/>
-    <solidref ref="gemsupport_multiUnion"/> 
-    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-    <auxiliary auxtype="DetNo" auxvalue="1004"/>
-  </volume>
