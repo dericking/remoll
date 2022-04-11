@@ -1,11 +1,11 @@
 <!--
 
-  Master positions file 
+  Master positions file
 
   This file contains the positions of all included detector systems.
 
 -->
-     
+
 <!-- Hall center position (MOLLER target is upstream of pivot) -->
 <position name="hallCenter" x="0.0" y="0.0" z="0.0" unit="mm"/>
 
@@ -29,10 +29,10 @@
 
 <!--position of right electronics shield hut -->
 <position name="righthut_pos" x="-5000" y="-3000.+3600./2+20" z="22000"/> <!--Beam height from hall floor is 3m; 3600mm is det hut height.-->
-	
+
 <!--position of left electronics shield hut -->
 <position name="lefthut_pos" x="5000" y="-3000.+3600./2+20" z="22000"/> <!--Beam height from hall floor is 3m; 3600mm is det hut height.-->
-	
+
 <!-- Virtual planes in the parallel world -->
 <position name="mainDetectorVirtualPlane_pos" z="22200.00" unit="mm"/>
 
@@ -66,20 +66,3 @@
 <!-- Sieve position -->
 <position name="sieveActualCenter_pos" z="-1375.00" x="200" unit="mm"/>
 <position name="sieveVirtualPlane_pos" z="-1375.00" unit="mm"/>
-
-<!-- ferrous materials positon -->
-<position name="ferrous_pos" x="0.0" y="0.0" z="0.0" unit="mm"/>
-<position name="pivot_pos" x="0.0" y="-1700.0" z="1162.5" unit="mm"/> <!-- Upstream at z 2000 --> 
-<position name="rebarus_pos" x="0.0" y="-942" z="2475-4500" unit="mm"/>
-<position name="rebards_pos" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 +2000" unit="mm"/>
-<position name="detectorsupport_pos" x="0.0" y="0" z="23551.5" unit="mm"/>
-<position name="ferrous_driftpipe_ionpump" x="0.0" y="-2123.0" z="14955"/>
-
-<position name="ferrous_watercooledleads_ds_tm1s" x="1033.77" y="-1819.81" z="5246.6"/>
-<position name="ferrous_watercooledleads_ds_tm1r" x="1033.77" y="-1819.81" z="5592.9"/>
-<position name="ferrous_watercooledleads_ds_tm2s" x="1033.77" y="-1819.81" z="6275.0"/>
-<position name="ferrous_watercooledleads_ds_tm2r" x="1033.77" y="-1819.81" z="6621.1"/>
-<position name="ferrous_watercooledleads_ds_tm3s" x="1033.77" y="-1819.81" z="7322.6"/>
-<position name="ferrous_watercooledleads_ds_tm3r" x="1033.77" y="-1819.81" z="7668.9"/>
-<position name="ferrous_watercooledleads_ds_tm4s" x="1033.77" y="-1819.81" z="8930.1"/>
-<position name="ferrous_watercooledleads_ds_tm4r" x="1033.77" y="-1819.81" z="9275.9"/>
