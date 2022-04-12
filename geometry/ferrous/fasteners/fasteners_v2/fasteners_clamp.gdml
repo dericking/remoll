@@ -10,7 +10,7 @@
 <!ENTITY materials SYSTEM "../../../materials.xml">
 ]>
 
-<gdml 
+<gdml
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
@@ -22,9 +22,6 @@
 </define>
 
 &materials;
-<!--<materials>
-</materials>
--->
 
 <solids>
  &fasteners_solids;
