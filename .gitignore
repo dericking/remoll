@@ -10,6 +10,9 @@ currentRun.rndm
 *.state
 *.rndm
 
+#ignore macros in base directory
+*.mac
+
 # output from createHTML
 _remoll_*.html
 

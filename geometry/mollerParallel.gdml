@@ -2,13 +2,15 @@
 
 <!DOCTYPE gdml [
 <!ENTITY world SYSTEM "solids/world.xml">
-<!ENTITY positions SYSTEM "positions.xml">
+<!ENTITY positions         SYSTEM "positions.xml">
+<!ENTITY positions_ferrous SYSTEM "positions_ferrous.xml">
 ]>
 
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
 <define>
   &positions;
+  &positions_ferrous;
 </define>
 
 <materials>
@@ -673,33 +675,36 @@
 
 
 
-    <!-- ACTIVE FERROUS MATERIALS --> 
+    <!-- ACTIVE FERROUS MATERIALS -->
+
+<!--
     <physvol name="pivot_parallel_PV">
       <file name="ferrous/pivot/pivotParallel.gdml"/>
       <positionref ref="pivot_pos"/>
     </physvol>
+-->
 
     <physvol name="fasteners_coil_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_coil_Parallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
-
     <physvol name="fasteners_bracket_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket_Parallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
-
     <physvol name="fasteners_clamp_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp_Parallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
 
+<!--
     <physvol name="driftpipeionpump_PV">
       <file name="ferrous/driftpipeionpump/driftpipeionpump_geometry_full_parallel.gdml"/>
       <positionref ref="ferrous_driftpipe_ionpump"/>
       <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
     </physvol>
-
+-->
+<!--
     <physvol name="watercooledleads_dsmag_tm1s_PV">
       <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1s_parallel.gdml"/>
       <positionref ref="ferrous_watercooledleads_ds_tm1s"/>
@@ -740,6 +745,7 @@
       <positionref ref="ferrous_watercooledleads_ds_tm4r"/>
       <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
     </physvol>
+-->
 
     <physvol name="tierodends_phys">
       <file name="ferrous/tierodends/tierodendsParallel.gdml"/>
