@@ -1,22 +1,16 @@
-9001     : PIVOT
-
-9010     : Fasteners Plate      (9 Sections along beamline)
-
-9020     : Fasteners Coil       (9 Sections along beamline)
-
-9030     : Fasteners Brackets : (9 Sections along beamline)
-
-9040     : Fasteners Outer      (9 Sections along beamline)
-
-9060     : Tierod Ends          (This will break into 9060-60 and 9070-79)
-
+9001,"PIVOT"
+9010,"Fasteners Plate (this will become 9 Sections along beamline)"
+9020,"Fasteners Coil (this will become 9 Sections along beamline)"
+9030,"Fasteners Brackets (this will become 9 Sections along beamline)"
+9040,"Fasteners Outer (this will become 9 Sections along beamline)"
+9060,"Tierod Ends (this will break into 9060-60 (inner) and 9070-79 (outer))""
 9099,"Drift Pipe Mount"
 9100,"Drift Pipe Ion Pump Pipe"
 9101,"Water-cooled Leads DS Mag T1 Supply"
-9102,"Water-cooled Leads DS Mag T1 Returns"
+9102,"Water-cooled Leads DS Mag T1 Return"
 9103,"Water-cooled Leads DS Mag T2 Supply"
-9104,"Water-cooled Leads DS Mag T2 Returns"
+9104,"Water-cooled Leads DS Mag T2 Return"
 9105,"Water-cooled Leads DS Mag T3 Supply"
-9106,"Water-cooled Leads DS Mag T3 Returns"
+9106,"Water-cooled Leads DS Mag T3 Return"
 9107,"Water-cooled Leads DS Mag T4 Supply"
 9108,"Water-cooled Leads DS Mag T4 Return"
