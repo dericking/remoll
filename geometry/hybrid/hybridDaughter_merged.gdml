@@ -641,7 +641,24 @@
       <positionref ref="PhotonBlocker_pos"/>
     </physvol>
 
-<!-- Downstream ferrous materials -->
+<!-- DOWNSTREAM FERROUS MATERIALS -->
+    <physvol name="fasteners_coil_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
+      <positionref ref="hybricCenter_minus_pos"/>
+    </physvol>
+    <physvol name="fasteners_bracket_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket.gdml"/>
+      <positionref ref="hybricCenter_minus_pos"/>
+    </physvol>
+    <physvol name="fasteners_clamp_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp.gdml"/>
+      <positionref ref="hybricCenter_minus_pos"/>
+    </physvol>
+
+    <physvol name="tierodends_PV">
+      <file name="ferrous/tierodends/tierodends.gdml"/>
+      <positionref ref="hybricCenter_minus_pos"/>
+    </physvol>
 
     <physvol name="watercooledleads_dsmag_tm1s_PV">
       <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1s.gdml"/>
@@ -689,6 +706,13 @@
       <positionref ref="ferrous_driftpipe_ionpump"/>
       <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
     </physvol>
+
+    <physvol name="driftpipemount_PV">
+      <file name="ferrous/driftpipemount/driftpipemount_geometry.gdml"/>
+     <positionref ref="hybricCenter_minus_pos"/>
+    </physvol>
+
+<!-- END FERROUS MATERIALS -->
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
    </volume>

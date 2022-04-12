@@ -4,10 +4,12 @@
 <!-- Hybrid spectrometer position -->
 <constant name="hybridCenter" value="11016.865-8.73/2+75.+200"/>
 
-<position name="ferrous_pos" x="0.0" y="0.0" z="0.0" unit="mm"/>
-<position name="pivot_pos" x="0.0" y="-1700.0" z="1162.5" unit="mm"/> <!-- Upstream at z 2000 -->
-<position name="rebarus_pos" x="0.0" y="-942" z="2475-4500" unit="mm"/>
-<position name="rebards_pos" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 +2000" unit="mm"/>
+<position name="hybricCenter_minus_pos" x="0" y="0" z="-1*hybridCenter"/>
+
+<position name="ferrous_pos"    x="0.0" y="0.0"     z="0.0"       unit="mm"/>
+<position name="pivot_pos"      x="0.0" y="-1700.0" z="1162.5"    unit="mm"/> <!-- Upstream at z 2000 -->
+<position name="rebarus_pos"    x="0.0" y="-942"    z="2475-4500" unit="mm"/>
+<position name="rebards_pos"    x="0.0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 +2000" unit="mm"/>
 <position name="detectorsupport_pos" x="0.0" y="0" z="23551.5" unit="mm"/>
 
 <constant name="ferrous_watercooledleads_ds_tm1s_z" value="5246.6-hybridCenter"/>
