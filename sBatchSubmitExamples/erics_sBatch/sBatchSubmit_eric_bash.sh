@@ -197,7 +197,8 @@ for I in ${!DETNUMA[@]}; do
   echo "/remoll/evgen/external/file        o_remollSkimTree${DETNUMA[$I]}.root"      >> ${FILE};
   echo "/remoll/evgen/external/detid       ${DETNUMA[$I]}"                           >> ${FILE};
   echo "/remoll/evgen/external/zOffset     0.001"                                    >> ${FILE};
-  echo "/remoll/filename                   o_ferrous_extgen_9010_V2parallel.root"    >> ${FILE};
+#  echo "/remoll/filename                   o_ferrous_extgen_9010_V2parallel.root"    >> ${FILE};
+  echo "/remoll/filename                   o_ferrous_extgen_9010_V2.root"    >> ${FILE};
   echo "/remoll/kryptonite/enable"                                                   >> ${FILE};
   echo "/run/beamOn                        ${SECSIMN}"                               >> ${FILE};
 
@@ -225,7 +226,7 @@ sbatch --wait slurm_secondary.sh;
 wait;
 
 ################## The remaining task will be analyzing the secondary outputs with the ferrous_analysis.C script.
-root -b -q ferrous_analysis.C+'(${TPRIEVT},"'${DETLIST}'")';
+root -b -q run_ferrous_analysis.C+'('${TPRIEVT}',"'${DETLIST}'")';
 
 ############################################################################################
 # LET'S CLEAN EVERYTHING UP
