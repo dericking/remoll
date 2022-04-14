@@ -7,6 +7,7 @@
 
 //#define ferrous_analysis_cxx
 #include"ferrous_analysis.h"
+#include<TSystem.h>
 #include<TH2.h>
 #include<TStyle.h>
 #include<TCanvas.h>
