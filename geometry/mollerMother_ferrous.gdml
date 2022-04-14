@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY world SYSTEM "solids/world.xml">
+<!ENTITY positions SYSTEM "positions.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define> 
+  &positions;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+  &world;
+</solids>
+
+<structure>
+
+  <volume name="logicMother">
+    <materialref ref="G4_AIR"/>
+    <solidref ref="world_solid"/>
+
+    <!-- Target region -->
+    <physvol>
+      <file name="target/subTargetRegion.gdml"/>
+      <positionref ref="targetCenter"/>
+    </physvol>
+
+    <!-- Hall -->
+   <physvol>
+	    <file name="hall/hallDaughter_merged.gdml"/>
+      <positionref ref="hallCenter"/>
+    </physvol>
+
+    <!-- SBS Bunker -->
+    <physvol>
+      <file name="electronics/subSBSbunker.gdml"/>
+      <position name="sbsBunker_pos" x="8740" y="-3000 + 2000" z="-15180."/>
+      <rotation name="rot_y30" unit="deg" y="30"/>
+    </physvol>
+ 
+    <!-- Upstream region -->
+    <physvol>
+      <file name="upstream/upstreamDaughter_merged.gdml"/>
+      <positionref ref="upstreamCenter"/>
+    </physvol>
+
+    <!-- Hybrid region -->
+    <physvol>
+      <file name="hybrid/hybridDaughter_merged_ferrous.gdml" />
+      <!--<file name="hybrid/hybridDaughter_unified.gdml"/>-->
+      <positionref ref="hybridCenter"/>
+    </physvol>
+
+    <physvol>
+      <file name="beampipe/premoller/beampipeRaster.gdml"/>
+    </physvol>
+
+    <!-- Downstream beampipe -->
+  <!--turned on to see if ferrous bellows ok here-->
+<!--
+    <physvol>
+      <file name="beampipe/downstream/beampipeDSMother.gdml"/>
+    </physvol>
+-->
+
+  <!-- Front Tracking Detectors -->
+<!--
+    <physvol>
+      <file name="tracking/trackingDaughter.gdml"/>
+      <positionref ref="trackingDetectorVirtualPlaneFront1_pos"/>
+    </physvol>
+-->
+<!--     Back Tracking Detectors -->
+<!--      <physvol>
+      <file name="tracking/trackingDaughter.gdml"/>
+      <positionref ref="trackingDetectorVirtualPlaneBack1_pos"/>
+    </physvol>
+-->
+    <!-- Main Detectors -->
+  <!--
+    <physvol>
+      <file name="detector/detector.gdml"/>
+      <positionref ref="detectorCenter"/>
+      <rotation name="detectorRot" x="0" y="90" z="0" unit="deg"/>
+    </physvol>
+    -->
+
+
+    <!-- electronics hut for left side --> 
+    <physvol>
+      <file name="huts/lefthut.gdml"/>
+      <positionref ref="lefthut_pos"/>
+      <rotation name="lefthut_rot" unit="deg" y="-45"/>
+    </physvol>
+
+    <!-- PMT region shielding
+    <physvol>
+      <file name="shielding/shielding.gdml"/>
+      <position name="PMTShield" x="0" y="0" z="22521.3"/>
+    </physvol>-->
+
+    <!-- ShowerMax Detectors
+    <physvol>
+      <file name="showermax/showerMaxGen.gdml"/>
+      <positionref ref="showerMaxDetectorCenter"/>
+    </physvol> -->
+    
+    <!-- Lead Donut
+    <physvol>
+      <file name="donut/donutConcreteLead.gdml"/>
+      <positionref ref="donutConcreteLeadFaceUS"/>
+    </physvol> -->
+   
+    <!-- Pion Detectors
+    <physvol>
+      <file name="pion/pionDetectorSystem.gdml"/>
+      <positionref ref="pionDetectorSystemFaceUS"/>
+    </physvol>-->
+
+    <!-- ferrous materials --> 
+
+<!-- INACTIVE FERROUS COPY AS NEEDED
+    <physvol name="fasteners_coil_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="fasteners_bracket_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="fasteners_clamp_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="watercooledleads_dsmag_tm1s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm1r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
+    <physvol name="driftpipeionpump_PV">
+      <file name="ferrous/driftpipeionpump/driftpipeionpump_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_driftpipe_ionpump"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
+    <physvol name="bearings_PV">
+      <file name="ferrous/bearings/bearings.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="tierodends_PV">
+      <file name="ferrous/tierodends/tierodends.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="driftpipemount_PV">
+      <file name="ferrous/driftpipemount/driftpipemount.gdml"/>
+     <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="bellows_PV">
+      <file name="ferrous/bellows/bellows.gdml"/>
+     <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="gemsupport_PV">
+      <file name="ferrous/gemsupport/gemsupport.gdml"/>
+     <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="pivot_PV">
+      <file name="ferrous/pivot/pivot.gdml"/>
+     <positionref ref="pivot_pos"/>
+    </physvol>
+-->
+
+    <auxiliary auxtype="Alpha" auxvalue="0.1"/>
+  </volume>
+</structure>
+
+<setup name="Default" version="1.0">
+  <world ref="logicMother"/>
+</setup>
+ 
+</gdml> 

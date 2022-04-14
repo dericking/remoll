@@ -24,6 +24,10 @@ DETLIST=$(IFS=, ; echo "${DETNUMA[*]}");
 echo Detector List: ${DETLIST};
 echo ${#DETNUMA[@]}
 
+#TOTAL PRIMARY EVENTS
+TPRIEVT=$( bc -l <<< "${NUMSIMS} * ${NEVENTS}" )
+echo "Total primary events: $TPRIEVT";
+
 ############################################################################################
 #CREATE SLURM WORK DIRECTORIES, REMOLL JOBS DIRECTORY (AS A RECORD)
 ############################################################################################
@@ -221,7 +225,7 @@ sbatch --wait slurm_secondary.sh;
 wait;
 
 ################## The remaining task will be analyzing the secondary outputs with the ferrous_analysis.C script.
-
+root -b -q ferrous_analysis.C+'(${TPRIEVT},"${DETLIST}")'
 
 ############################################################################################
 # LET'S CLEAN EVERYTHING UP
