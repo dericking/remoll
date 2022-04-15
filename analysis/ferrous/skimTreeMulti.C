@@ -38,7 +38,6 @@ Long_t          getEvents(string);
 Long_t          eventsSum(0);
 std::clock_t    startTime;
 std::clock_t    endTime;
-Long_t          eventsSum;
 
 vector<remollGenericDetectorHit_t>  *newhit=0;
 vector< vector<Int_t> >             detectorHitN;
