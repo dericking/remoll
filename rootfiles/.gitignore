@@ -1,4 +1,21 @@
 *
+<<<<<<< Updated upstream
 
 # Except this file
 !.gitignore
+=======
+#extgen/*
+#extgen/*/
+#primaryskims/*/
+#primaryskims/*
+
+# Except this file
+!.gitignore
+#!extgen/
+#!primaryskims/
+#!extgen/ferrous_analysis.C
+#!extgen/ferrous_analysis.h
+#!extgen/ferrous_gettable.C
+#!primaryskims/skimTreeMulti.C
+#!primaryskims/skimMacro
+>>>>>>> Stashed changes
