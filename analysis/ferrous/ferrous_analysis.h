@@ -515,17 +515,17 @@ Bool_t ferrous_analysis::IsInBoundingBox(const Double_t* p) {
     fZoffset = 0.;
     //cout << __PRETTY_FUNCTION__ << "p: (" << p[0] << "," << p[1] << "," << p[2] << ")" << endl;
     if ( (p[2] - fZoffset < fMin[kZ]) || (p[2] - fZoffset > fMax[kZ]) ){
-        cout << "Failed condition 1" << endl;
+        //cout << "Failed condition 1" << endl;
         return false;
     }
     if (p[0] < -1.*fMax[kR] || p[0] > fMax[kR]){
-        cout << "Failed condition 2" << endl;
+        //cout << "Failed condition 2" << endl;
         return false;
     }
     if (p[1] < -1.*fMax[kR] || p[1] > fMax[kR]){
-        cout << "Failed condition 3" << endl;
-        cout << ">>> if(p[1] < -1.*fMax[kR] || p[1] > fMax[kR])" << endl;
-        cout << ">>> if(" << p[1] << "<" << -1.*fMax[kR] << " || " << p[1] << ">" << fMax[kR] << ")" << endl;
+        //cout << "Failed condition 3" << endl;
+        //cout << ">>> if(p[1] < -1.*fMax[kR] || p[1] > fMax[kR])" << endl;
+        //cout << ">>> if(" << p[1] << "<" << -1.*fMax[kR] << " || " << p[1] << ">" << fMax[kR] << ")" << endl;
         return false;
     }
     return true;
@@ -852,7 +852,7 @@ void ferrous_analysis::GetFieldValue(const Double_t Point[4], Double_t *Bfield )
 {
     //cout << "Checking field at vertex point: " << Point[0] << "," << Point[1] << "," << Point[2] << ")" << endl;
     // Check the bounding box
-    if (! IsInBoundingBox(Point)){cerr << "Point outside of bounding box!!!" << endl; return;}
+    if (! IsInBoundingBox(Point)){/*cerr << "Point outside of bounding box!!!" << endl;*/ return;}
 
     // First we have to translate into polar or cylindric coordinates
     // since the field maps are given in cylindric coordinates and the

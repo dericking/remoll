@@ -10,11 +10,13 @@
 #include<TH2.h>
 #include<TStyle.h>
 #include<TCanvas.h>
+#include<TSystem.h>
 #include<cstdio>
 #include<cstdlib>
 #include<iostream>
 #include<string>
 #include<sstream>
+#include<fstream>
 using namespace std;
 
 Bool_t firstPDFpage(true);
@@ -38,8 +40,12 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
   Int_t   lineColors[Nset] = {kRed,kBlue,kGreen,kMagenta,kCyan,kOrange-3,kBlack};
   TString energyText[Nset] = {"(KE < 1MeV)","(1MeV < KE < 10MeV)","(10MeV < KE < 100MeV)","(100MeV < KE < 1GeV)","(1GeV < KE < 10GeV)","(10GeV < KE)","(ALL KE)"};
 
+  //Text output file
+  std::ofstream fout;
+  fout.open("ferrous_analysis_results.txt");
+
   //THIS WILL BE USED FOR THE ANALYSIS ON THE SERVER.  HERE I'LL JUST REFER TO ONE ABSOLUTE FILE PATH
-  /*
+
   ///////////////////////////////////////////////////////////////  (╯°□°）╯︵ ┻━┻
   //CHECK FOR THE EXISTENCE OF ENVIRONMENTAL VARIABLES
   if(!gSystem->Getenv("REMOLLINSTALL")){ cout <<"Grab environment variable REMOLLINSTALL\n" << endl; exit(1); }
@@ -51,13 +57,13 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
 
   if(parallel==0){
     magfieldext="V2";
-    //sUSFieldMapLocation = sRemollInstall + "/map_directory/V2U.1a.50cm.txt";
-    //sDSFieldMapLocation = sRemollInstall + "/map_directory/V2DSg.9.75cm.txt";
+    sUSFieldMapLocation = sRemollInstall + "/map_directory/V2U.1a.50cm.txt";
+    sDSFieldMapLocation = sRemollInstall + "/map_directory/V2DSg.9.75cm.txt";
   }
   if(parallel==1){
     magfieldext="V2parallel";
-    //sUSFieldMapLocation = sRemollInstall + "/map_directory/V2U.1a.50cm.parallel.txt";
-    //sDSFieldMapLocation = sRemollInstall + "/map_directory/V2DSg.9.75cm.parallel.txt";
+    sUSFieldMapLocation = sRemollInstall + "/map_directory/V2U.1a.50cm.parallel.txt";
+    sDSFieldMapLocation = sRemollInstall + "/map_directory/V2DSg.9.75cm.parallel.txt";
   }
 
   cout << "Field Map Locations:" << endl
@@ -65,15 +71,15 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
        << "\tDS:" << sDSFieldMapLocation << endl << endl;
 
   remollMagneticField( sDSFieldMapLocation );
-  */
+  
 
   // USED FOR ANALYSIS ON TEMPLE WORKSTATION
-  TString magfieldext;
-  if(parallel==0){ magfieldext="V2"; }
-  if(parallel==1){ magfieldext="V2parallel"; }
-  TString sUSFieldMapLocation = "/home/tup89084/Remoll/CarynRemoll/remoll/map_directory/V2U.1a.50cm.txt";
-  TString sDSFieldMapLocation = "/home/tup89084/Remoll/CarynRemoll/remoll/map_directory/V2DSg.9.75cm.txt";
-  remollMagneticField( sDSFieldMapLocation );
+  //TString magfieldext;
+  //if(parallel==0){ magfieldext="V2"; }
+  //if(parallel==1){ magfieldext="V2parallel"; }
+  //TString sUSFieldMapLocation = "/home/tup89084/Remoll/CarynRemoll/remoll/map_directory/V2U.1a.50cm.txt";
+  //TString sDSFieldMapLocation = "/home/tup89084/Remoll/CarynRemoll/remoll/map_directory/V2DSg.9.75cm.txt";
+  //remollMagneticField( sDSFieldMapLocation );
 
 
   ///////////////////////////////////////////////////////////////  (╯°□°）╯︵ ┻━┻
@@ -118,7 +124,7 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
                    };
 
   for(Int_t jj=0; jj<Ndet; jj++){
-    TString fname = "o_ferrous_extgen_" + to_string(DetNo[jj]) + "_" + magfieldext.Data() + "_100k.root";
+    TString fname = "o_ferrous_extgen_" + to_string(DetNo[jj]) + "_" + magfieldext.Data() + ".root";// "_100k.root";
     const char * filename = fname.Data();
 
     TH1F * h1Ee[Nset];
@@ -305,61 +311,63 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
   }
 
   ////////////////// PRINT EVENTS
-  cout << ">>> Parallel: " << parallel << endl;
-  cout << ">>> Primary Sim Events: " << primSimEvents << endl;
+  fout << ">>> Parallel: " << parallel << endl;
+  fout << ">>> Primary Sim Events: " << primSimEvents << endl;
 
-  cout << endl;
-  cout << "'Charges(e+e-) [Count]'" << endl;
-  cout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
+  fout << endl;
+  fout << "'Charges(e+e-) [Count]'" << endl;
+  fout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
        << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
   for(int jj = 0; jj < Ndet; jj++){
-    cout << defaultfloat << std::setw(6) << DetNo[jj] << " ";
-    cout << std::setw(8) << Nevents[jj] << " ";
+    fout << defaultfloat << std::setw(6) << DetNo[jj] << " ";
+    fout << std::setw(8) << Nevents[jj] << " ";
     for(int ii = 0; ii < Nset; ii++){
-      cout << std::setw(8) << Ncharge[ii][jj] <<" ";
+      fout << std::setw(8) << Ncharge[ii][jj] <<" ";
     }
-    cout << endl;
+    fout << endl;
   }
 
-  cout << endl;
-  cout << "Gammas [Count]" << endl;
-  cout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
+  fout << endl;
+  fout << "Gammas [Count]" << endl;
+  fout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
        << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
   for(int jj = 0; jj < Ndet; jj++){
-    cout << defaultfloat << std::setw(6) << DetNo[jj] << " ";
-    cout << std::setw(8) << Nevents[jj] << " ";
+    fout << defaultfloat << std::setw(6) << DetNo[jj] << " ";
+    fout << std::setw(8) << Nevents[jj] << " ";
     for(int ii = 0; ii < Nset; ii++){
-      cout << std::setw(8) << Nph[ii][jj] <<" ";
+      fout << std::setw(8) << Nph[ii][jj] <<" ";
     }
-    cout << endl;
+    fout << endl;
   }
 
-  cout << endl;
-  cout << "Charges(e+e-) [Normalized by Primary*ExtendedGen]" << endl;
-  cout <<  " DetNo "   << " Prim*Ext" << "   <1MeV" << "    1-10M" << "  10-100M"
+  fout << endl;
+  fout << "Charges(e+e-) [Normalized by Primary*ExtendedGen]" << endl;
+  fout <<  " DetNo "   << " Prim*Ext" << "   <1MeV" << "    1-10M" << "  10-100M"
        << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
   for(int jj = 0; jj < Ndet; jj++){
-    cout << std::defaultfloat << std::fixed << std::setprecision(0) << std::setw(6) << (Double_t)DetNo[jj] << " ";
-    cout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
+    fout << std::defaultfloat << std::fixed << std::setprecision(0) << std::setw(6) << (Double_t)DetNo[jj] << " ";
+    fout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
     for(int ii = 0; ii < Nset; ii++){
-      cout << std::scientific << std::setprecision(1) << std::setw(8) << Ncharge[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
+      fout << std::scientific << std::setprecision(1) << std::setw(8) << Ncharge[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
     }
-    cout << endl;
+    fout << endl;
   }
 
-  cout << endl;
-  cout << "Gammas [Normalized by Primary*ExtendedGen]" << endl;
-  cout <<  " DetNo "   << " Prim*Ext" << "   <1MeV" << "    1-10M" << "  10-100M"
+  fout << endl;
+  fout << "Gammas [Normalized by Primary*ExtendedGen]" << endl;
+  fout <<  " DetNo "   << " Prim*Ext" << "   <1MeV" << "    1-10M" << "  10-100M"
        << "    .1-1G"  << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
   for(int jj = 0; jj < Ndet; jj++){
-    cout << std::defaultfloat << std::fixed << std::setprecision(0) << std::setw(6) << (Double_t)DetNo[jj] << " ";
-    cout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
+    fout << std::defaultfloat << std::fixed << std::setprecision(0) << std::setw(6) << (Double_t)DetNo[jj] << " ";
+    fout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
     for(int ii = 0; ii < Nset; ii++){
-      cout << std::scientific << std::setprecision(1) << std::setw(8) << Nph[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
+      fout << std::scientific << std::setprecision(1) << std::setw(8) << Nph[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
     }
-    cout << endl;
+    fout << endl;
   }
 
   //^^^COULD OUTPUT AS A TPAVETEXT ON A PAGE.
+
+  fout.close();
 
 }//end script
