@@ -51,10 +51,6 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
   testRun    = test;
   generation = gencut;
 
-  std::ofstream fout;
-  fout.open("ferrous_skimTree_results.txt");
-
-
   //////////////////////////////////////////////////////////////
   //// Detectors to be looked at
   std::stringstream ss(DetNums);
