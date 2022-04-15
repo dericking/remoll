@@ -23,10 +23,10 @@
 # Geometry menu :
 /gui/addMenu   geom "1. Geometry"
 /gui/addButton geom geometry/mollerMother.gdml               "/remoll/geometry/setfile geometry/mollerMother.gdml"
-/gui/addButton geom geometry/mollerMother_merged.gdml        "/remoll/geometry/setfile geometry/mollerMother_merged.gdml"
-/gui/addButton geom geometry/pionDetectorLucite.gdml         "/remoll/geometry/setfile geometry/pion/Lucite/pionDetectorLucite_world.gdml"
-/gui/addButton geom geometry/showerMaxDetector.gdml          "/remoll/geometry/setfile geometry/showerMaxDetector.gdml"
+/gui/addButton geom geometry/mollerMother_ferrous.gdml               "/remoll/geometry/setfile geometry/mollerMother_ferrous.gdml"
+#/gui/addButton geom geometry/mollerMother_merged.gdml        "/remoll/geometry/setfile geometry/mollerMother_merged.gdml"
 /gui/addButton geom geometry/mollerParallel.gdml             "/remoll/parallel/setfile geometry/mollerParallel.gdml"
+/gui/addButton geom geometry/mollerParallel_ferrous.gdml             "/remoll/parallel/setfile geometry/mollerParallel_ferrous.gdml"
 #
 # Initialize menu :
 /gui/addMenu   phys "2. Physics"
