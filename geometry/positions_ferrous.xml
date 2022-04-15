@@ -21,6 +21,15 @@
 <constant name="ferrous_watercooledleads_ds_tm4s_z" value="8930.1-hybridCenter"/>
 <constant name="ferrous_watercooledleads_ds_tm4r_z" value="9275.9-hybridCenter"/>
 
+<constant name="ferrous_watercooledleads_ds_tm1s_z_parallel" value="5246.6"/>
+<constant name="ferrous_watercooledleads_ds_tm1r_z_parallel" value="5592.9"/>
+<constant name="ferrous_watercooledleads_ds_tm2s_z_parallel" value="6275.0"/>
+<constant name="ferrous_watercooledleads_ds_tm2r_z_parallel" value="6621.1"/>
+<constant name="ferrous_watercooledleads_ds_tm3s_z_parallel" value="7322.6"/>
+<constant name="ferrous_watercooledleads_ds_tm3r_z_parallel" value="7668.9"/>
+<constant name="ferrous_watercooledleads_ds_tm4s_z_parallel" value="8930.1"/>
+<constant name="ferrous_watercooledleads_ds_tm4r_z_parallel" value="9275.9"/>
+
 <position name="ferrous_watercooledleads_ds_tm1s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1s_z"/>
 <position name="ferrous_watercooledleads_ds_tm1r" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1r_z"/>
 <position name="ferrous_watercooledleads_ds_tm2s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2s_z"/>
@@ -30,6 +39,16 @@
 <position name="ferrous_watercooledleads_ds_tm4s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4s_z"/>
 <position name="ferrous_watercooledleads_ds_tm4r" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4r_z"/>
 
-<constant name="ferrous_driftpipe_ionpump_z" value="14955-hybridCenter"/>
+<position name="ferrous_watercooledleads_ds_tm1s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm1r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1r_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm2s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm2r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2r_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm3s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm3s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm3r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm3r_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm4s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm4r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4r_z_parallel"/>
 
+<constant name="ferrous_driftpipe_ionpump_z" value="14955-hybridCenter"/>
+<constant name="ferrous_driftpipe_ionpump_z_parallel" value="14955"/>
 <position name="ferrous_driftpipe_ionpump" x="0.0" y="-2123.0" z="ferrous_driftpipe_ionpump_z"/>
+<position name="ferrous_driftpipe_ionpump_parallel" x="0.0" y="-2123.0" z="ferrous_driftpipe_ionpump_z_parallel"/>

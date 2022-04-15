@@ -683,7 +683,7 @@
       <positionref ref="pivot_pos"/>
     </physvol>
 -->
-
+<!--
     <physvol name="fasteners_coil_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_coil_Parallel.gdml"/>
       <positionref ref="ferrous_pos"/>
@@ -696,7 +696,7 @@
       <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp_Parallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
-
+-->
 <!--
     <physvol name="driftpipeionpump_PV">
       <file name="ferrous/driftpipeionpump/driftpipeionpump_geometry_full_parallel.gdml"/>
@@ -745,13 +745,12 @@
       <positionref ref="ferrous_watercooledleads_ds_tm4r"/>
       <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
     </physvol>
--->
 
     <physvol name="tierodends_phys">
       <file name="ferrous/tierodends/tierodendsParallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
-
+-->
     <!-- INACTIVE FERROUS COPY AS NEEDED
 
     <physvol name="driftpipemount_phys">

@@ -125,6 +125,7 @@
     <!-- ferrous materials --> 
 
 <!-- INACTIVE FERROUS COPY AS NEEDED
+
     <physvol name="fasteners_coil_parallel_PV">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
       <positionref ref="ferrous_pos"/>
@@ -187,11 +188,6 @@
       <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
     </physvol>
 
-    <physvol name="bearings_PV">
-      <file name="ferrous/bearings/bearings.gdml"/>
-      <positionref ref="ferrous_pos"/>
-    </physvol>
-
     <physvol name="tierodends_PV">
       <file name="ferrous/tierodends/tierodends.gdml"/>
       <positionref ref="ferrous_pos"/>
@@ -200,6 +196,14 @@
     <physvol name="driftpipemount_PV">
       <file name="ferrous/driftpipemount/driftpipemount.gdml"/>
      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+
+
+
+    <physvol name="bearings_PV">
+      <file name="ferrous/bearings/bearings.gdml"/>
+      <positionref ref="ferrous_pos"/>
     </physvol>
 
     <physvol name="bellows_PV">
