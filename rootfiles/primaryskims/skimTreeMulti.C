@@ -16,13 +16,8 @@
 #include <iomanip>
 #include <sstream>
 #include <fstream>
-<<<<<<< Updated upstream
 #include <vector>
 #include <string>
-=======
-#include "remolltypes.hh"
-#include <algorithm>
->>>>>>> Stashed changes
 #include <ctime>
 #include "remolltypes.hh"
 using namespace std;
