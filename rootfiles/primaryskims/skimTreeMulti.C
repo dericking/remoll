@@ -17,6 +17,7 @@
 #include <sstream>
 #include <algorithm>
 #include <ctime>
+#include <iostream>
 using namespace std;
 
 TFile          *ofile;
@@ -32,6 +33,7 @@ Int_t           generation(0);
 Double_t        scaleRate(1);
 Long_t          processOne(string fnm);
 Long_t          getEvents(string);
+Long_t          eventsSum(0);
 std::clock_t    startTime;
 std::clock_t    endTime;
 
@@ -40,6 +42,8 @@ vector< vector<Int_t> >             detectorHitN;
 
 void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=1, int test=0){
   startTime = std::clock();
+  std::ofstream fout;
+  fout.open("ferrous_skimTree_results.txt");
 
   testRun    = test;
   generation = gencut;
@@ -123,28 +127,33 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
     }
   }
 
-  cout << "Ferrout Detector Hits (e- only):" << endl;
+  fout << "Total events counted: " << eventsSum << endl;
+  fout << "(Be sure this matches events run)" << endl << endl;
+
+  fout << "Ferrout Detector Hits (e- only):" << endl;
   for(Int_t g=0; g<=generation; g++){
-    if(g==0) cout << std::setw(10) << "Det\\mTrid";
-    cout << fixed << std::setw(7) << g;
+    if(g==0) fout << std::setw(10) << "Det\\mTrid";
+    fout << fixed << std::setw(7) << g;
   }
-  cout << fixed << std::setw(7) << "TOTAL" << endl;
+  fout << fixed << std::setw(7) << "TOTAL" << endl;
   for(Int_t d=0; d<detectorNumbers.size(); d++){
     outputFiles[d]->cd();
     outputTrees[d]->Write();
     outputFiles[d]->Close();
     Int_t gTotal(0);
     for(Int_t g=0; g<=generation; g++){
-      if(g==0) cout << fixed << std::setw(10) << detectorNumbers[d];
-      cout << fixed << std::setw(7) << detectorHitN[d][g];
+      if(g==0) fout << fixed << std::setw(10) << detectorNumbers[d];
+      fout << fixed << std::setw(7) << detectorHitN[d][g];
       gTotal+=detectorHitN[d][g];
-      if(g==generation) cout << fixed << std::setw(7) << gTotal << endl;
+      if(g==generation) fout << fixed << std::setw(7) << gTotal << endl;
     }
   }
 
   endTime = std::clock();
 
-  cout << "Total time elapsed for analysis: " << (endTime-startTime)/(double)CLOCKS_PER_SEC << " seconds." << endl;
+  fout << "Total time elapsed for analysis: " << (endTime-startTime)/(double)CLOCKS_PER_SEC << " seconds." << endl;
+
+  fout.close();
 
 }
 
@@ -167,6 +176,7 @@ long processOne(string fnm){
   if(itree == nullptr) return 0;
 
   long nEntries = itree->GetEntries();
+  eventsSum += itree->GetEntries();
   //cout<<"\tTotal events: "<<nEntries<<endl;
 
   Double_t rate;
