@@ -38,6 +38,7 @@ Long_t          getEvents(string);
 Long_t          eventsSum(0);
 std::clock_t    startTime;
 std::clock_t    endTime;
+Long_t          eventsSum;
 
 vector<remollGenericDetectorHit_t>  *newhit=0;
 vector< vector<Int_t> >             detectorHitN;
@@ -49,6 +50,10 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
 
   testRun    = test;
   generation = gencut;
+
+  std::ofstream fout;
+  fout.open("ferrous_skimTree_results.txt");
+
 
   //////////////////////////////////////////////////////////////
   //// Detectors to be looked at
@@ -180,6 +185,7 @@ long processOne(string fnm){
   long nEntries = itree->GetEntries();
   eventsSum += itree->GetEntries();
   //cout<<"\tTotal events: "<<nEntries<<endl;
+  eventsSum+=nEntries;
 
   Double_t rate;
   vector<remollGenericDetectorHit_t>  *hit=0;
