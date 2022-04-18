@@ -220,8 +220,17 @@ wait;
 find ${SOUTDIR}/remollout_*.root -maxdepth 1 -type f | tee ${SOUTDIR}/rootfiles.list;
 
 #Skim the root files for the detectors; this creates a bunch of root files
+#SkimTreeMulti outputs a text file with stats called ferrous_skimTree_results.txt with total hits as last entry
 #./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",0)';
 ./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",1)';
+
+while read -r line ; do
+    DETECT=$(echo $line | awk '{print $1}')
+    TOTHIT=$(echo $line | awk '{print $NF}')
+    if [ "$TOTHIT" -eq "0" ]; then
+      DETNUMA=( "${DETNUMA[@]/$DETECT}" )
+    fi
+done < <(grep "^[^#;]" ferrous_skimTree_results.txt)
 
 #This will execute slurm batch array for secondary simulations
 sbatch --wait slurm_secondary.sh;
