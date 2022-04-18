@@ -162,6 +162,7 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
 long getEvents(string fnm){
   TFile* ifile = new TFile(fnm.c_str(),"READ");
   TTree* itree = (TTree*)ifile->Get("T");
+  if(itree == nullptr) return 0;
   long evn = itree->GetEntries();
   ifile->Close();
   delete ifile;

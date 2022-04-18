@@ -19,7 +19,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
-#include "remolltypes.hh"
+//#include "remolltypes.hh"
 using namespace std;
 
 TFile          *ofile;
