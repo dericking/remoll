@@ -181,7 +181,6 @@ long processOne(string fnm){
   long nEntries = itree->GetEntries();
   eventsSum += itree->GetEntries();
   //cout<<"\tTotal events: "<<nEntries<<endl;
-  eventsSum+=nEntries;
 
   Double_t rate;
   vector<remollGenericDetectorHit_t>  *hit=0;
