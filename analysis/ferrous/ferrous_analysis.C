@@ -21,7 +21,7 @@ using namespace std;
 
 Bool_t firstPDFpage(true);
 
-void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
+void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums, string primHits)
 {
   const Int_t primSimEvents = prim;
   const Int_t parallel = par;
@@ -85,6 +85,17 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
 
 
   ///////////////////////////////////////////////////////////////  (╯°□°）╯︵ ┻━┻
+  //PUSH RECORDED PRIMARY HITS INTO VECTOR
+  std::vector<Int_t> PrimHits;
+  std::stringstream ssPH(primHits);
+  while(ssPH.good()){
+    string ss_parse;
+    getline(ssPH,ss_parse,',');
+    PrimHits.push_back( std::atoi(ss_parse.c_str()) );
+  }
+
+
+  ///////////////////////////////////////////////////////////////  (╯°□°）╯︵ ┻━┻
   //SET DETECTORS
   std::vector<Int_t> DetNo;
   std::stringstream ss(DetNums);
@@ -116,6 +127,14 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
   Double_t Nve[7][Ndet];
   Double_t pidother[7][Ndet];
   Double_t Nother[7][Ndet];
+
+  for(Int_t d=0; d<Ndet; d++){
+    Nevents[d]=0;
+    for(Int_t s=0; s<Nset; s++){
+      Echarge[s][d]=0; Ncharge[s][d]=0; NchargeBWtd[s][d]=0; NchargeBWtd2[s][d]=0; Eph[s][d]=0; Nph[s][d]=0;
+    }
+  }
+
 
 
   TString Ecut[7]={"hit.e<1&&hit.r>500&&hit.r<1300",
@@ -410,6 +429,19 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
     fout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
     for(int ii = 0; ii < Nset; ii++){
       fout << std::scientific << std::setprecision(1) << std::setw(8) << NchargeBWtd2[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
+    }
+    fout << endl;
+  }
+
+  fout << endl;
+  fout << "BField Weighted Charges(e+e-) [Normalized by PrimHits/Primary*ExtendedGen]" << endl;
+  fout <<  " DetNo "   << " Prim*Ext" << "   <1MeV" << "    1-10M" << "  10-100M"
+       << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
+  for(int jj = 0; jj < Ndet; jj++){
+    fout << std::defaultfloat << std::fixed << std::setprecision(0) << std::setw(6) << (Double_t)DetNo[jj] << " ";
+    fout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
+    for(int ii = 0; ii < Nset; ii++){
+      fout << std::scientific << std::setprecision(1) << std::setw(8) << NchargeBWtd2[ii][jj]*PrimHits[jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
     }
     fout << endl;
   }

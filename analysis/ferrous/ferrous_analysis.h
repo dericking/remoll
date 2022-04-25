@@ -296,13 +296,13 @@ public :
    TBranch        *b_sum_vid;   //!
    TBranch        *b_sum_n;   //!
 
-   ferrous_analysis(Int_t nPrimaries, string detectors);
+   ferrous_analysis(Int_t nPrimaries, string detectors, string primaryhits);
    virtual ~ferrous_analysis();
    virtual Int_t    Cut(Long64_t entry);
    virtual Int_t    GetEntry(Long64_t entry);
    virtual Long64_t LoadTree(Long64_t entry);
    virtual void     Init(TTree *tree);
-   virtual void     Loop(Int_t par, Int_t prim, string DetNums);
+   virtual void     Loop(Int_t par, Int_t prim, string DetNums, string primHits);
    virtual Bool_t   Notify();
    virtual void     Show(Long64_t entry = -1);
 
@@ -354,8 +354,8 @@ public:
 //#endif
 
 //#ifdef ferrous_analysis_cxx
-ferrous_analysis::ferrous_analysis(Int_t nPrimaries, string detectors){
-  Loop(1,nPrimaries,detectors);
+ferrous_analysis::ferrous_analysis(Int_t nPrimaries, string detectors, string primaryhits){
+  Loop(1,nPrimaries,detectors,primaryhits);
 }
 
 ferrous_analysis::~ferrous_analysis()
