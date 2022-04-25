@@ -29,6 +29,8 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
   Double_t detRmin = 500.;
   Double_t detRmax = 1300.;
 
+  Double_t ambientB= 1.; // a 1G ambient/stray field strength.
+
   const Int_t Nset = 7; //six energy divisions + all
 
   //General for cycling through files.
@@ -96,6 +98,8 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
   Double_t Nevents[Ndet];
   Double_t Echarge[7][Ndet];
   Double_t Ncharge[7][Ndet];
+  Double_t NchargeBWtd[7][Ndet];
+  Double_t NchargeBWtd2[7][Ndet];
   Double_t Eph[7][Ndet];
   Double_t Nph[7][Ndet];
   Double_t Eall[7][Ndet];
@@ -130,6 +134,7 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
     TH1F * h1Ee[Nset];
     TH1F * h1Re[Nset];
     TH1F * h1Be[Nset];
+    TH1F * h1NeWtd[Nset]; //Weights Bfield recordings, later take integral
     TH1F * h1Eg[Nset];
     TH1F * h1Rg[Nset];
     TH1F * h1Bg[Nset];
@@ -138,14 +143,15 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
     TH2F * h2BRe = new TH2F( Form("h2BRe_%i",DetNo[jj]),Form("e-e+ DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),2000,0,2000,100,0,700 );
     TH2F * h2BRg = new TH2F( Form("h2BRg_%i",DetNo[jj]),Form("gammas DetNo=%i Field.Radius (ALL); BField.Mag (For now) [log10(B.Mag/Gauss)];Radius from Beamline [mm]",DetNo[jj]),2000,0,2000,100,0,700 );
     for(Int_t i=0; i<Nset; i++){
-      h1Ee[i] = new TH1F( Form("hEe%i",i), Form("e-e+ DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
-      h1Re[i] = new TH1F( Form("hRe%i",i), Form("e-e+ DetNo=%i hit.r %s",DetNo[jj],energyText[i].Data()),80,detRmin,detRmax);
-      //h1Be[i] = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
-      h1Be[i] = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),2000,0,2000);
-      h1Eg[i] = new TH1F( Form("hEg%i",i), Form("gammas DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
-      h1Rg[i] = new TH1F( Form("hRg%i",i), Form("gammas DetNo=%i hit.r %s",DetNo[jj],energyText[i].Data()),80,detRmin,detRmax);
-      //h1Bg[i] = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
-      h1Bg[i] = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),2000,0,2000);
+      h1Ee[i]    = new TH1F( Form("hEe%i",i), Form("e-e+ DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
+      h1NeWtd[i] = new TH1F( Form("hNeBWtd%i",i), Form("#vec{B} Wtd e-e+ DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
+      h1Re[i]    = new TH1F( Form("hRe%i",i), Form("e-e+ DetNo=%i hit.r %s",DetNo[jj],energyText[i].Data()),80,detRmin,detRmax);
+      //h1Be[i]   = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
+      h1Be[i]    = new TH1F( Form("hBe%i",i), Form("e-e+ DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),2000,0,2000);
+      h1Eg[i]    = new TH1F( Form("hEg%i",i), Form("gammas DetNo=%i hit.e %s",DetNo[jj],energyText[i].Data()),60,-1,5);
+      h1Rg[i]    = new TH1F( Form("hRg%i",i), Form("gammas DetNo=%i hit.r %s",DetNo[jj],energyText[i].Data()),80,detRmin,detRmax);
+      //h1Bg[i]   = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),80,-2,4);
+      h1Bg[i]    = new TH1F( Form("hBg%i",i), Form("gammas DetNo=%i ExtGenVertex.B.mag %s",DetNo[jj],energyText[i].Data()),2000,0,2000);
     }
 
     fThis = new TFile(filename);
@@ -170,9 +176,10 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
       //Initialize field object
       Double_t field[3]={0.0,0.0,0.0};
       GetFieldValue(point,field);
-      //Convert these to gauss
+      //Convert these to gauss and add 'ambient' field for points outside maps.
       for(Int_t i = 0; i < 3; i++){
         field[i] *= 10000.;
+        field[i] += ambientB;
       }
       Double_t vertexRad= sqrt( part_vx[0]*part_vx[0]+part_vy[0]*part_vy[0] );
       Double_t fieldMag = sqrt( field[0]*field[0]+field[1]*field[1]+field[2]*field[2] );
@@ -189,36 +196,50 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
             h1Ee[0]->Fill( log10(hit_e[n]) );
             h1Re[0]->Fill( hit_r[n] );
             h1Be[0]->Fill( (fieldMag) );
+            h1NeWtd[0]->Fill( 1 , fieldMag );
+            NchargeBWtd2[0][jj] += fieldMag;
           }
           if(hit_e[n] >= 1.    && hit_e[n] < 10.   ){
             h1Ee[1]->Fill( log10(hit_e[n]) );
             h1Re[1]->Fill( hit_r[n] );
             h1Be[1]->Fill( (fieldMag) );
+            h1NeWtd[1]->Fill( 1 , fieldMag );
+            NchargeBWtd2[1][jj] += fieldMag;
           }
           if(hit_e[n] >= 10.   && hit_e[n] < 100.  ){
             h1Ee[2]->Fill( log10(hit_e[n]) );
             h1Re[2]->Fill( hit_r[n] );
             h1Be[2]->Fill( (fieldMag) );
+            h1NeWtd[2]->Fill( 1 , fieldMag );
+            NchargeBWtd2[2][jj] += fieldMag;
           }
           if(hit_e[n] >= 100.  && hit_e[n] < 1000. ){
             h1Ee[3]->Fill( log10(hit_e[n]) );
             h1Re[3]->Fill( hit_r[n] );
             h1Be[3]->Fill( (fieldMag) );
+            h1NeWtd[3]->Fill( 1 , fieldMag );
+            NchargeBWtd2[3][jj] += fieldMag;
           }
           if(hit_e[n] >= 1000. && hit_e[n] < 10000.){
             h1Ee[4]->Fill( log10(hit_e[n]) );
             h1Re[4]->Fill( hit_r[n] );
             h1Be[4]->Fill( (fieldMag) );
+            h1NeWtd[4]->Fill( 1 , fieldMag );
+            NchargeBWtd2[4][jj] += fieldMag;
           }
           if(hit_e[n] >= 10000.){
             h1Ee[5]->Fill( log10(hit_e[n]) );
             h1Re[5]->Fill( hit_r[n] );
             h1Be[5]->Fill( (fieldMag) );
+            h1NeWtd[5]->Fill( 1 , fieldMag );
+            NchargeBWtd2[5][jj] += fieldMag;
           }
           h1Ee[6]->Fill( log10(hit_e[n]) ); //Seventh histogram is all hits.
           h1Re[6]->Fill( hit_r[n] );
           h1Be[6]->Fill( (fieldMag) );
           h2BRe->Fill( (fieldMag) , vertexRad );
+          h1NeWtd[6]->Fill( 1 , fieldMag );
+          NchargeBWtd2[6][jj] += fieldMag;
         }//end if(part==11)
         if( hit_pid[n]==22 && hit_r[n] > detRmin && hit_r[n] < detRmax && hit_det[n] == 28){
           if(hit_e[n] < 1.){
@@ -262,8 +283,9 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
     }//end for(nentries)
 
     for(Int_t s = 0; s < Nset; s++){
-      Ncharge[s][jj] = h1Ee[s]->GetEntries(); //FIX ME: WILL NEED TO FIX FOR LOOPS
-      Nph[s][jj]     = h1Eg[s]->GetEntries(); //FIX ME: WILL NEED TO FIX FOR LOOPS
+      Ncharge[s][jj]    = h1Ee[s]->GetEntries();
+      NchargeBWtd[s][jj]= h1NeWtd[s]->Integral();
+      Nph[s][jj]        = h1Eg[s]->GetEntries();
     }
 
     TCanvas * CRe = new TCanvas(Form("CRe_%i",DetNo[jj]),"CRe",800,464);
@@ -328,6 +350,32 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
   }
 
   fout << endl;
+  fout << "'BField-Wtd Charges(e+e-) [Count]'" << endl;
+  fout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
+       << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
+  for(int jj = 0; jj < Ndet; jj++){
+    fout << defaultfloat << std::setw(6) << DetNo[jj] << " ";
+    fout << std::setw(8) << Nevents[jj] << " ";
+    for(int ii = 0; ii < Nset; ii++){
+      fout << std::setw(8) << NchargeBWtd[ii][jj] <<" ";
+    }
+    fout << endl;
+  }
+
+  fout << endl;
+  fout << "'(2) BField-Wtd Charges(e+e-) [Count]'" << endl;
+  fout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
+       << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
+  for(int jj = 0; jj < Ndet; jj++){
+    fout << defaultfloat << std::setw(6) << DetNo[jj] << " ";
+    fout << std::setw(8) << Nevents[jj] << " ";
+    for(int ii = 0; ii < Nset; ii++){
+      fout << std::setw(8) << NchargeBWtd2[ii][jj] <<" ";
+    }
+    fout << endl;
+  }
+
+  fout << endl;
   fout << "Gammas [Count]" << endl;
   fout <<  " DetNo "   << "  ExtGenN" << "   <1MeV" << "    1-10M" << "  10-100M"
        << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
@@ -349,6 +397,19 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums)
     fout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
     for(int ii = 0; ii < Nset; ii++){
       fout << std::scientific << std::setprecision(1) << std::setw(8) << Ncharge[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
+    }
+    fout << endl;
+  }
+
+  fout << endl;
+  fout << "BField Weighted Charges(e+e-) [Normalized by Primary*ExtendedGen]" << endl;
+  fout <<  " DetNo "   << " Prim*Ext" << "   <1MeV" << "    1-10M" << "  10-100M"
+       << "    .1-1G" << "    1-10G" << "   >10GeV" << "    TOTAL" << endl;
+  for(int jj = 0; jj < Ndet; jj++){
+    fout << std::defaultfloat << std::fixed << std::setprecision(0) << std::setw(6) << (Double_t)DetNo[jj] << " ";
+    fout << std::scientific << std::setprecision(1) << std::setw(8) << Nevents[jj]*primSimEvents << " ";
+    for(int ii = 0; ii < Nset; ii++){
+      fout << std::scientific << std::setprecision(1) << std::setw(8) << NchargeBWtd2[ii][jj]/(Double_t)Nevents[jj]/(Double_t)primSimEvents <<" ";
     }
     fout << endl;
   }
