@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #CONFIG="2022-04-13--remoll-ferrous-larger-test-use-with-analysis-test";
-CONFIG="2022-04-15_remoll-ferrous-full";
-NUMSIMS=1000;
+CONFIG="remoll-ferrous_2022-04-19_sm-test";
+NUMSIMS=20;
 DETNUMA=(9010 9020 9030 9060 9099 9100 9101 9102 9103 9104 9105 9106 9107 9108) #TODO: WILL EVENTUALLY WANT TO READ FROM FERROUS DET.LIST
 RANDOMN=1234567;         #DO WE WANT TO RANDOMIZE THIS???
 SEQNUMB=1;               #FIXME: IS THIS USED???
-NEVENTS=400000;
+NEVENTS=500000;
 SECSIMN=100000;
 
 MYUSER="ericking@jlab.org"; #IF WANT TO SUBMIT VIA XML THEN NEED THIS
@@ -127,32 +127,7 @@ for THISSIM in $(seq 1 ${NUMSIMS}); do
 done;
 
 ############################################################################################
-# WRITE SLURM FILE FOR SECONDARY EXTGEN SIMULATIONS
-############################################################################################
-FILE="slurm_secondary.sh";
-touch ${FILE}
-echo "#!/bin/bash"                                   >> ${FILE};
-echo "#SBATCH --partition=production"                >> ${FILE};
-echo "#SBATCH --job-name=${CONFIG}"                  >> ${FILE};
-echo "#SBATCH --ntasks=1"                            >> ${FILE};
-echo "#SBATCH --output=${SOUTDIR}/secsim_%a.out"     >> ${FILE};
-echo "#SBATCH --error=${SOUTDIR}/secsim_%a.err"      >> ${FILE};
-echo "#SBATCH --array=${DETLIST}"                    >> ${FILE};
-echo "#SBATCH --account=halla"                       >> ${FILE};
-echo "#SBATCH --mem-per-cpu=5000"                    >> ${FILE};
-echo " "                                             >> ${FILE};
-echo "cd ${SOUTDIR}"                                 >> ${FILE};
-echo " "                                             >> ${FILE};
-#echo "DETS=("${\!DETNUMA[@]}")"                      >> ${FILE};
-#echo "for I in \${DETS[@]}; do"                      >> ${FILE};
-echo "  ./remoll ferrous_\${SLURM_ARRAY_TASK_ID}_V2parallel.mac"       >> ${FILE};
-#echo "done;"                                         >> ${FILE};
-
-cp ${FILE} ${SRCDIR}/jobs/${CONFIG}/ ;
-mv ${FILE} ${SOUTDIR}/ ;
-
-############################################################################################
-# CREATE THE FERROUS MACROS FOR SECOND EXTGEN SIMULATIONS
+# CREATE THE FERROUS MACROS FOR SECOND EXTGEN SIMULATIONS -- THEY MAY NOT ALL BE USED
 ############################################################################################
 for I in ${!DETNUMA[@]}; do
   FILE="ferrous_${DETNUMA[$I]}_V2parallel.mac";
@@ -224,20 +199,64 @@ find ${SOUTDIR}/remollout_*.root -maxdepth 1 -type f | tee ${SOUTDIR}/rootfiles.
 #./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",0)';
 ./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",1)';
 
+############################################################################################
+# GET SKIMMED DATA INFORMATION TO PREP FOR SECONDARY EXTGEN SIMULATIONS
+############################################################################################
+skimDataLine=$(head -n 1 ferrous_skimTree_results.txt) # How many good events were there
+successfulEv=$(cut -d ":" -f2 <<< ${skimDataLine})
+
+PRIMEVT=() # Blank array to be filled with primary events for each detector
+REGEXP='^[0-9]+$'
+{
+read
 while read -r line ; do
-    DETECT=$(echo $line | awk '{print $1}')
-    TOTHIT=$(echo $line | awk '{print $NF}')
-    if [ "$TOTHIT" -eq "0" ]; then
-      DETNUMA=( "${DETNUMA[@]/$DETECT}" )
+    DETECT=$(echo $line | awk '{print $1}');
+    TOTHIT=$(echo $line | awk '{print $NF}');
+    if [[ ${TOTHIT} =~ ${REGEXP} ]]; then
+      if [[ "$TOTHIT" -eq "0" ]]; then
+        DETNUMA=( "${DETNUMA[@]/$DETECT}" )
+      else
+	PRIMEVT+=(${TOTHIT})
+      fi
     fi
-done < <(grep "^[^#;]" ferrous_skimTree_results.txt)
+done
+} < <(grep "^[^#;]" ferrous_skimTree_results.txt)
+
+EVTLIST=$(IFS=, ; echo "${PRIMEVT[*]}"); # Create EVTLIST primary event list to pass to analysis 
+
+DETLIST=$(IFS=, ; echo "${DETNUMA[*]}"); # Create new DETLIST for secondary slurm batch script
+
+
+############################################################################################
+# WRITE SLURM FILE FOR SECONDARY EXTGEN SIMULATIONS
+############################################################################################
+FILE="slurm_secondary.sh";
+touch ${FILE}
+echo "#!/bin/bash"                                   >> ${FILE};
+echo "#SBATCH --partition=production"                >> ${FILE};
+echo "#SBATCH --job-name=${CONFIG}"                  >> ${FILE};
+echo "#SBATCH --ntasks=1"                            >> ${FILE};
+echo "#SBATCH --output=${SOUTDIR}/secsim_%a.out"     >> ${FILE};
+echo "#SBATCH --error=${SOUTDIR}/secsim_%a.err"      >> ${FILE};
+echo "#SBATCH --array=${DETLIST}"                    >> ${FILE};
+echo "#SBATCH --account=halla"                       >> ${FILE};
+echo "#SBATCH --mem-per-cpu=5000"                    >> ${FILE};
+echo " "                                             >> ${FILE};
+echo "cd ${SOUTDIR}"                                 >> ${FILE};
+echo " "                                             >> ${FILE};
+#echo "DETS=("${\!DETNUMA[@]}")"                      >> ${FILE};
+#echo "for I in \${DETS[@]}; do"                      >> ${FILE};
+echo "  ./remoll ferrous_\${SLURM_ARRAY_TASK_ID}_V2parallel.mac"       >> ${FILE};
+#echo "done;"                                         >> ${FILE};
+
+cp ${FILE} ${SRCDIR}/jobs/${CONFIG}/ ;
 
 #This will execute slurm batch array for secondary simulations
 sbatch --wait slurm_secondary.sh;
 wait;
 
 ################## The remaining task will be analyzing the secondary outputs with the ferrous_analysis.C script.
-root -b -q run_ferrous_analysis.C+'('${TPRIEVT}',"'${DETLIST}'")';
+root -b -q run_ferrous_analysis.C+'('${TPRIEVT}',"'${DETLIST}','${PRIMEVT}'")';
 
 ############################################################################################
 # LET'S CLEAN EVERYTHING UP
@@ -245,7 +264,8 @@ root -b -q run_ferrous_analysis.C+'('${TPRIEVT}',"'${DETLIST}'")';
 mkdir primaryMacros;
 mkdir secondaryMacros;
 mkdir primaryRootFiles;
-mkdir secondaryRootFies;
+mkdir secondaryRootFiles;
+mkdir skimmedRootFiles
 mkdir slurmOutputFiles;
 mkdir slurmShellScripts;
 
@@ -253,7 +273,8 @@ mkdir slurmShellScripts;
 mv remoll_*.mac    primaryMacros;
 mv ferrous_*.mac   secondaryMacros;
 #mv remollout_*.root   primaryRootFiles;
-#mv o_ferrous*.root secondaryRootFiles;
+#mv o_ferrous*.root    secondaryRootFiles;
+#mv o_remollSkim*.root skimmedRootFiles;
 mv *err            slurmOutputFiles;
 mv *out            slurmOutputFiles;
 mv slurm_*.sh      slurmShellScripts;
