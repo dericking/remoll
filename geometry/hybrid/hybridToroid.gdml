@@ -283,7 +283,7 @@
                 <section zOrder="1" zPosition="-76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
- 
+
 	<!-- SubCoil2 support -->
         <xtru name="SubCoil2_Clamp_S1" lunit="mm">
                 <twoDimVertex x="-323.85" y="12.31"/>
@@ -315,7 +315,7 @@
                 <section zOrder="1" zPosition="-76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
- 
+
 	<!-- SubCoil3 support -->
         <xtru name="SubCoil3_Clamp_S1" lunit="mm">
                 <twoDimVertex x="-323.85" y="12.70"/>
@@ -364,7 +364,7 @@
                 <section zOrder="1" zPosition="-76.245" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="76.245" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
- 
+
 	<!-- SubCoil4 support -->
 	<!-- Clamp 1 -->
         <xtru name="SubCoil4_Clamp1_S1" lunit="mm">
@@ -489,7 +489,7 @@
                 <section zOrder="1" zPosition="-76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
                 <section zOrder="2" zPosition="76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
         </xtru>
- 
+
 	<xtru name="solid_C1_mid"  lunit="mm">
 		<twoDimVertex x="88.989" y="856.309" />
 		<twoDimVertex x="66.292" y="0.0" />
@@ -884,7 +884,7 @@
         </polycone>
 
 
-        
+
 </solids>
 
 
@@ -1112,7 +1112,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3001"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_1">
 				<volumeref ref="logic_inner_E1_1"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1123,9 +1123,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3008"/>
-			<physvol name="C1">
+			<physvol name="C1_1">
 				<volumeref ref="logic_C1_1"/>
 			</physvol>
 
@@ -1145,7 +1146,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3001"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_1">
 				<volumeref ref="logic_inner_E2_1"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1156,9 +1157,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3008"/>
-			<physvol name="C2">
+			<physvol name="C2_1">
 				<volumeref ref="logic_C2_1"/>
 			</physvol>
 
@@ -1178,7 +1180,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3001"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_1">
 				<volumeref ref="logic_inner_E3_1"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1189,9 +1191,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3008"/>
-			<physvol name="C3">
+			<physvol name="C3_1">
 				<volumeref ref="logic_C3_1"/>
 			</physvol>
 
@@ -1243,6 +1246,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3008"/>
 			<physvol name="C4_topmid">
@@ -1271,7 +1275,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3002"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_2">
 				<volumeref ref="logic_inner_E1_2"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1282,9 +1286,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3009"/>
-			<physvol name="C1">
+			<physvol name="C1_2">
 				<volumeref ref="logic_C1_2"/>
 			</physvol>
 
@@ -1304,7 +1309,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3002"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_2">
 				<volumeref ref="logic_inner_E2_2"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1315,9 +1320,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3009"/>
-			<physvol name="C2">
+			<physvol name="C2_2">
 				<volumeref ref="logic_C2_2"/>
 			</physvol>
 
@@ -1337,7 +1343,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3002"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_2">
 				<volumeref ref="logic_inner_E3_2"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1348,9 +1354,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3009"/>
-			<physvol name="C3">
+			<physvol name="C3_2">
 				<volumeref ref="logic_C3_2"/>
 			</physvol>
 
@@ -1402,6 +1409,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3009"/>
 			<physvol name="C4_topmid">
@@ -1430,7 +1438,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3003"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_3">
 				<volumeref ref="logic_inner_E1_3"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1441,9 +1449,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3010"/>
-			<physvol name="C1">
+			<physvol name="C1_3">
 				<volumeref ref="logic_C1_3"/>
 			</physvol>
 
@@ -1463,7 +1472,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3003"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_3">
 				<volumeref ref="logic_inner_E2_3"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1474,9 +1483,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3010"/>
-			<physvol name="C2">
+			<physvol name="C2_3">
 				<volumeref ref="logic_C2_3"/>
 			</physvol>
 
@@ -1486,6 +1496,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_inner_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3010"/>
 	</volume>
@@ -1496,7 +1507,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3003"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_3">
 				<volumeref ref="logic_inner_E3_3"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1507,9 +1518,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3010"/>
-			<physvol name="C3">
+			<physvol name="C3_3">
 				<volumeref ref="logic_C3_3"/>
 			</physvol>
 
@@ -1519,6 +1531,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_inner_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3010"/>
 	</volume>
@@ -1561,6 +1574,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3010"/>
 			<physvol name="C4_topmid">
@@ -1589,7 +1603,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3004"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_4">
 				<volumeref ref="logic_inner_E1_4"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1600,9 +1614,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3011"/>
-			<physvol name="C1">
+			<physvol name="C1_4">
 				<volumeref ref="logic_C1_4"/>
 			</physvol>
 
@@ -1612,6 +1627,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_inner_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3011"/>
 	</volume>
@@ -1622,7 +1638,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3004"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_4">
 				<volumeref ref="logic_inner_E2_4"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1633,9 +1649,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3011"/>
-			<physvol name="C2">
+			<physvol name="C2_4">
 				<volumeref ref="logic_C2_4"/>
 			</physvol>
 
@@ -1655,7 +1672,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3004"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_4">
 				<volumeref ref="logic_inner_E3_4"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1666,9 +1683,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3011"/>
-			<physvol name="C3">
+			<physvol name="C3_4">
 				<volumeref ref="logic_C3_4"/>
 			</physvol>
 
@@ -1720,6 +1738,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3011"/>
 			<physvol name="C4_topmid">
@@ -1748,7 +1767,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3005"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_5">
 				<volumeref ref="logic_inner_E1_5"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1759,9 +1778,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3012"/>
-			<physvol name="C1">
+			<physvol name="C1_5">
 				<volumeref ref="logic_C1_5"/>
 			</physvol>
 
@@ -1781,7 +1801,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3005"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_5">
 				<volumeref ref="logic_inner_E2_5"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1792,9 +1812,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3012"/>
-			<physvol name="C2">
+			<physvol name="C2_5">
 				<volumeref ref="logic_C2_5"/>
 			</physvol>
 
@@ -1814,7 +1835,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3005"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_5">
 				<volumeref ref="logic_inner_E3_5"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1825,9 +1846,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3012"/>
-			<physvol name="C3">
+			<physvol name="C3_5">
 				<volumeref ref="logic_C3_5"/>
 			</physvol>
 
@@ -1879,6 +1901,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3012"/>
 			<physvol name="C4_topmid">
@@ -1907,7 +1930,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3006"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_6">
 				<volumeref ref="logic_inner_E1_6"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1918,9 +1941,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3013"/>
-			<physvol name="C1">
+			<physvol name="C1_6">
 				<volumeref ref="logic_C1_6"/>
 			</physvol>
 
@@ -1940,7 +1964,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3006"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_6">
 				<volumeref ref="logic_inner_E2_6"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1951,9 +1975,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3013"/>
-			<physvol name="C2">
+			<physvol name="C2_6">
 				<volumeref ref="logic_C2_6"/>
 			</physvol>
 
@@ -1973,7 +1998,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3006"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_6">
 				<volumeref ref="logic_inner_E3_6"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -1984,9 +2009,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3013"/>
-			<physvol name="C3">
+			<physvol name="C3_6">
 				<volumeref ref="logic_C3_6"/>
 			</physvol>
 
@@ -2038,6 +2064,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3013"/>
 			<physvol name="C4_topmid">
@@ -2066,7 +2093,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3007"/>
-			<physvol name="inner_E1">
+			<physvol name="inner_E1_7">
 				<volumeref ref="logic_inner_E1_7"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -2077,9 +2104,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E1"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3014"/>
-			<physvol name="C1">
+			<physvol name="C1_7">
 				<volumeref ref="logic_C1_7"/>
 			</physvol>
 
@@ -2099,7 +2127,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3007"/>
-			<physvol name="inner_E2">
+			<physvol name="inner_E2_7">
 				<volumeref ref="logic_inner_E2_7"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -2110,9 +2138,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E2"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3014"/>
-			<physvol name="C2">
+			<physvol name="C2_7">
 				<volumeref ref="logic_C2_7"/>
 			</physvol>
 
@@ -2132,7 +2161,7 @@
 		<auxiliary auxtype="Color" auxvalue="magenta"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3007"/>
-			<physvol name="inner_E3">
+			<physvol name="inner_E3_7">
 				<volumeref ref="logic_inner_E3_7"/>
 				<rotation name="rot_inner_E" y="0" unit="rad" />
 			</physvol>
@@ -2143,9 +2172,10 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E3"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3014"/>
-			<physvol name="C3">
+			<physvol name="C3_7">
 				<volumeref ref="logic_C3_7"/>
 			</physvol>
 
@@ -2197,6 +2227,7 @@
 		<materialref ref="G10"/>
 		<solidref ref="solid_outer_E4_mid"/>
 		<auxiliary auxtype="Color" auxvalue="orange"/>
+		<auxiliary auxtype="Alpha" auxvalue="0.25"/>
 		<auxiliary auxtype="SensDet" auxvalue="coilDet"/>
 		<auxiliary auxtype="DetNo" auxvalue="3014"/>
 			<physvol name="C4_topmid">
@@ -2382,7 +2413,7 @@
 			<position name="pos_dcoil4_7" x="117.60856958" y="-147.476481622" z="-235.749"/>
 			<rotation name="rot_dcoil4_7" x="pi/2" y="5.38558740615" z="0"/>
 		</physvol>
-                 
+
                   <!--            <physvol name="SubCoil1EpoxyShield2_pv">
                                                           <volumeref ref="SubCoil1EpoxyShield2_logic"/>
                         <position name="SubCoil1EpoxyShield2_pos" unit="mm" x="0" y="0" z="-3483.744"/>
