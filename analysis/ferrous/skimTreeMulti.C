@@ -129,12 +129,11 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
     }
   }
 
-  fout << "Total events counted: " << eventsSum << endl;
-  fout << "(Be sure this matches events run)" << endl << endl;
+  fout << "# Total events counted: " << eventsSum << endl;
 
-  fout << "Ferrout Detector Hits (e- only):" << endl;
+  fout << "# Ferrout Detector Hits (e- only):" << endl;
   for(Int_t g=0; g<=generation; g++){
-    if(g==0) fout << std::setw(10) << "Det\\mTrid";
+    if(g==0) fout << std::setw(10) << "# Det\\mTrid";
     fout << fixed << std::setw(7) << g;
   }
   fout << fixed << std::setw(7) << "TOTAL" << endl;
@@ -153,7 +152,7 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
 
   endTime = std::clock();
 
-  fout << "Total time elapsed for analysis: " << (endTime-startTime)/(double)CLOCKS_PER_SEC << " seconds." << endl;
+  fout << "# Total time elapsed for analysis: " << (endTime-startTime)/(double)CLOCKS_PER_SEC << " seconds." << endl;
 
   fout.close();
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #CONFIG="2022-04-13--remoll-ferrous-larger-test-use-with-analysis-test";
-CONFIG="remoll-ferrous_2022-04-19_sm-test";
+CONFIG="remoll-ferrous_2022-04-25-test";
 NUMSIMS=20;
 DETNUMA=(9010 9020 9030 9060 9099 9100 9101 9102 9103 9104 9105 9106 9107 9108) #TODO: WILL EVENTUALLY WANT TO READ FROM FERROUS DET.LIST
 RANDOMN=1234567;         #DO WE WANT TO RANDOMIZE THIS???
@@ -197,7 +197,7 @@ find ${SOUTDIR}/remollout_*.root -maxdepth 1 -type f | tee ${SOUTDIR}/rootfiles.
 #Skim the root files for the detectors; this creates a bunch of root files
 #SkimTreeMulti outputs a text file with stats called ferrous_skimTree_results.txt with total hits as last entry
 #./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",0)';
-./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",1)';
+./reroot -b -q skimTreeMulti.C+'("rootfiles.list","'${DETLIST}'",0)';
 
 ############################################################################################
 # GET SKIMMED DATA INFORMATION TO PREP FOR SECONDARY EXTGEN SIMULATIONS
@@ -207,24 +207,22 @@ successfulEv=$(cut -d ":" -f2 <<< ${skimDataLine})
 
 PRIMEVT=() # Blank array to be filled with primary events for each detector
 REGEXP='^[0-9]+$'
-{
-read
+
+# Remove no-hit sims from DETNUMA and create PRIMEVT list
 while read -r line ; do
     DETECT=$(echo $line | awk '{print $1}');
     TOTHIT=$(echo $line | awk '{print $NF}');
     if [[ ${TOTHIT} =~ ${REGEXP} ]]; then
       if [[ "$TOTHIT" -eq "0" ]]; then
-        DETNUMA=( "${DETNUMA[@]/$DETECT}" )
+        DETNUMA=( ${DETNUMA[@]/$DETECT} )
       else
 	PRIMEVT+=(${TOTHIT})
       fi
     fi
-done
-} < <(grep "^[^#;]" ferrous_skimTree_results.txt)
+done < <(grep -v '#' ferrous_skimTree_results.txt)
 
 EVTLIST=$(IFS=, ; echo "${PRIMEVT[*]}"); # Create EVTLIST primary event list to pass to analysis 
-
-DETLIST=$(IFS=, ; echo "${DETNUMA[*]}"); # Create new DETLIST for secondary slurm batch script
+DETLIST=$(IFS=, ; echo "${DETNUMA[*]}"); # Create updated DETLIST for secondary slurm batch script
 
 
 ############################################################################################
@@ -244,10 +242,7 @@ echo "#SBATCH --mem-per-cpu=5000"                    >> ${FILE};
 echo " "                                             >> ${FILE};
 echo "cd ${SOUTDIR}"                                 >> ${FILE};
 echo " "                                             >> ${FILE};
-#echo "DETS=("${\!DETNUMA[@]}")"                      >> ${FILE};
-#echo "for I in \${DETS[@]}; do"                      >> ${FILE};
-echo "  ./remoll ferrous_\${SLURM_ARRAY_TASK_ID}_V2parallel.mac"       >> ${FILE};
-#echo "done;"                                         >> ${FILE};
+echo "./remoll ferrous_\${SLURM_ARRAY_TASK_ID}_V2parallel.mac" >> ${FILE};
 
 cp ${FILE} ${SRCDIR}/jobs/${CONFIG}/ ;
 
