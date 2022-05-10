@@ -319,77 +319,77 @@
 			<section zOrder="1" zPosition="-76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
 			<section zOrder="2" zPosition="76.2" xOffset="0" yOffset="0" scalingFactor="1"/>
 		</xtru>
-		<!--FASTENER CUTOUT; OFFSETS X=0.75mm and Z=-1.5mm NEEDED TO ALIGN GEOMETRY WITH CURRENT VERSION ()-->
+		<!--FASTENER CUTOUTS +1mm offset to align with position of fasteners-->
     <subtraction name="SubCoil2_Clamp_S2_sub1a">
             <first ref="SubCoil2_Clamp_S2_presub" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-139.059" y="0" z="57.0" />
+            <position name="fastener_E1_sub1" x="-139.059" y="0" z="57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub2a">
             <first ref="SubCoil2_Clamp_S2_sub1a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-161.316" y="0" z="57.0" />
+            <position name="fastener_E1_sub1" x="-161.316" y="0" z="57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub3a">
             <first ref="SubCoil2_Clamp_S2_sub2a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-250.145" y="0" z="57.0" />
+            <position name="fastener_E1_sub1" x="-250.145" y="0" z="57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub4a">
             <first ref="SubCoil2_Clamp_S2_sub3a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-301.016" y="0" z="57.0" />
+            <position name="fastener_E1_sub1" x="-301.016" y="0" z="57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub5a">
             <first ref="SubCoil2_Clamp_S2_sub4a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-339.072" y="0" z="57.0" />
+            <position name="fastener_E1_sub1" x="-339.072" y="0" z="57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub6a">
             <first ref="SubCoil2_Clamp_S2_sub5a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-377.226" y="0" z="57.0" />
+            <position name="fastener_E1_sub1" x="-377.226" y="0" z="57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub1b">
             <first ref="SubCoil2_Clamp_S2_sub6a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-139.059" y="0" z="-57.0" />
+            <position name="fastener_E1_sub1" x="-139.059" y="0" z="-57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub2b">
             <first ref="SubCoil2_Clamp_S2_sub1b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-161.316" y="0" z="-57.0" />
+            <position name="fastener_E1_sub1" x="-161.316" y="0" z="-57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub3b">
             <first ref="SubCoil2_Clamp_S2_sub2b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-250.145" y="0" z="-57.0" />
+            <position name="fastener_E1_sub1" x="-250.145" y="0" z="-57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub4b">
             <first ref="SubCoil2_Clamp_S2_sub3b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-301.016" y="0" z="-57.0" />
+            <position name="fastener_E1_sub1" x="-301.016" y="0" z="-57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2_sub5b">
             <first ref="SubCoil2_Clamp_S2_sub4b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-339.072" y="0" z="-57.0" />
+            <position name="fastener_E1_sub1" x="-339.072" y="0" z="-57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
     <subtraction name="SubCoil2_Clamp_S2">
             <first ref="SubCoil2_Clamp_S2_sub5b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="-377.226" y="0" z="-57.0" />
+            <position name="fastener_E1_sub1" x="-377.226" y="0" z="-57.0+1.0" />
             <rotation name="fastener_SubClamp1_rot" x="-pi/2" y="0" z="0" />
     </subtraction>
 
@@ -752,8 +752,8 @@
             <second ref="solid_clamp_fastener"/>
             <position name="fastener_E1_sub1" x="31.366" y="-182.773+0.86+0.4" z="0" />
     </subtraction>
-
 		<!--THIS ENDS THE FIRST TOROID COIL CONSTRUCTION (SORT OF)-->
+
 		<xtru name="solid_C2_mid"  lunit="mm">
 			<twoDimVertex x="107.547" y="836.42" />
 			<twoDimVertex x="86.935" y="0.0" />
@@ -784,37 +784,37 @@
 		<subtraction name="solid_C2_2a">
 			<first ref="solid_C2_1a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-635.459+0.33-0.5" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-635.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_C2_1b">
 			<first ref="solid_C2_2a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-521.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-521.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_C2_2b">
 			<first ref="solid_C2_1b" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-521.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-521.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_C2_3a">
 			<first ref="solid_C2_2b" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-276.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-276.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_C2_3b">
 			<first ref="solid_C2_3a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-276.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-276.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_C2_4a">
 			<first ref="solid_C2_3b" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-162.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-162.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_C2">
 			<first ref="solid_C2_4a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-162.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-162.459+0.33+0.5" z="0" />
 		</subtraction>
 
 
@@ -844,42 +844,42 @@
 		<subtraction name="solid_outer_E2_1a">
 			<first ref="solid_outer_E2_presub" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-635.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-635.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2_2a">
 			<first ref="solid_outer_E2_1a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-635.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-635.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2_1b">
 			<first ref="solid_outer_E2_2a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-521.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-521.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2_2b">
 			<first ref="solid_outer_E2_1b" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-521.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-521.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2_3a">
 			<first ref="solid_outer_E2_2b" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-276.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-276.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2_3b">
 			<first ref="solid_outer_E2_3a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-276.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-276.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2_4a">
 			<first ref="solid_outer_E2_3b" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="7.624" y="-162.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="7.624" y="-162.459+0.33+0.5" z="0" />
 		</subtraction>
 		<subtraction name="solid_outer_E2">
 			<first ref="solid_outer_E2_4a" />
 			<second ref="solid_clamp_fastener"/>
-			<position name="fastener_E1_sub1" x="29.881" y="-162.459+0.33+0.05" z="0" />
+			<position name="fastener_E1_sub1" x="29.881" y="-162.459+0.33+0.5" z="0" />
 		</subtraction>
 
 
@@ -908,44 +908,44 @@
 		<subtraction name="solid_inner_E2_1a">
             <first ref="solid_inner_E2_presub" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="7.624" y="-635.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="7.624" y="-635.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2_2a">
             <first ref="solid_inner_E2_1a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="29.881" y="-635.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="29.881" y="-635.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2_1b">
             <first ref="solid_inner_E2_2a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="7.624" y="-521.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="7.624" y="-521.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2_2b">
             <first ref="solid_inner_E2_1b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="29.881" y="-521.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="29.881" y="-521.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2_3a">
             <first ref="solid_inner_E2_2b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="7.624" y="-276.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="7.624" y="-276.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2_3b">
             <first ref="solid_inner_E2_3a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="29.881" y="-276.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="29.881" y="-276.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2_4a">
             <first ref="solid_inner_E2_3b" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="7.624" y="-162.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="7.624" y="-162.459+0.33+0.5" z="0" />
     </subtraction>
     <subtraction name="solid_inner_E2">
             <first ref="solid_inner_E2_4a" />
             <second ref="solid_clamp_fastener"/>
-            <position name="fastener_E1_sub1" x="29.881" y="-162.459+0.33+0.05" z="0" />
+            <position name="fastener_E1_sub1" x="29.881" y="-162.459+0.33+0.5" z="0" />
     </subtraction>
-
+    <!-- END C2 -->
 
 
 		<xtru name="solid_C3_mid"  lunit="mm">
@@ -964,12 +964,53 @@
 			<position name="position_node_solid_C3_frontmid" y="0"/>
 			<rotation name="rotation_node_solid_C3_frontmid" x="pi" />
 		</union>
-		<union name="solid_C3">
+		<union name="solid_C3_presub">
 			<first ref="node_solid_C3_frontmid"/>
 			<second ref="solid_C3_back"/>
 			<position name="position_node_solid_C3" x="5.335" y="-747.81"/>
 			<rotation name="rotation_node_solid_C3_back" x="-pi" />
 		</union>
+		<subtraction name="solid_c3_sub_1a">
+						<first ref="solid_C3_presub" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-626.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_c3_sub_2a">
+						<first ref="solid_c3_sub_1a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-626.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_c3_sub_1b">
+						<first ref="solid_c3_sub_2a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-512.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_c3_sub_2b">
+						<first ref="solid_c3_sub_1b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-512.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_c3_sub_3a">
+						<first ref="solid_c3_sub_2b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-268.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_c3_sub_3b">
+						<first ref="solid_c3_sub_3a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-268.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_c3_sub_4a">
+						<first ref="solid_c3_sub_3b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-153.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_C3">
+						<first ref="solid_c3_sub_4a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-153.0+0.33+0.5" z="0" />
+		</subtraction>
+
 		<xtru name="solid_outer_E3_mid"  lunit="mm">
 			<twoDimVertex x="120.94" y="747.81" />
 			<twoDimVertex x="110.27" y="0.0" />
@@ -986,12 +1027,53 @@
 			<position name="position_node_solid_outer_E3_frontmid" y="0"/>
 			<rotation name="rotation_node_solid_outer_E3_frontmid" x="pi" />
 		</union>
-		<union name="solid_outer_E3">
+		<union name="solid_outer_E3_presub">
 			<first ref="node_solid_outer_E3_frontmid"/>
 			<second ref="solid_outer_E3_back"/>
 			<position name="position_node_solid_outer_E3" x="5.335" y="-747.81"/>
 			<rotation name="rotation_node_solid_outer_E3_back" x="-pi" />
 		</union>
+		<subtraction name="solid_outer_E3_sub_1a">
+						<first ref="solid_outer_E3_presub" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-626.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3_sub_2a">
+						<first ref="solid_outer_E3_sub_1a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-626.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3_sub_1b">
+						<first ref="solid_outer_E3_sub_2a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-512.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3_sub_2b">
+						<first ref="solid_outer_E3_sub_1b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-512.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3_sub_3a">
+						<first ref="solid_outer_E3_sub_2b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-268.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3_sub_3b">
+						<first ref="solid_outer_E3_sub_3a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-268.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3_sub_4a">
+						<first ref="solid_outer_E3_sub_3b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-153.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_outer_E3">
+						<first ref="solid_outer_E3_sub_4a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-153.0+0.33+0.5" z="0" />
+		</subtraction>
+
 		<xtru name="solid_inner_E3_mid"  lunit="mm">
 			<twoDimVertex x="58.19" y="747.81" />
 			<twoDimVertex x="47.52" y="0.0" />
@@ -1008,12 +1090,54 @@
 			<position name="position_node_solid_inner_E3_frontmid" y="0"/>
 			<rotation name="rotation_node_solid_inner_E3_frontmid" x="pi" />
 		</union>
-		<union name="solid_inner_E3">
+		<union name="solid_inner_E3_presub">
 			<first ref="node_solid_inner_E3_frontmid"/>
 			<second ref="solid_inner_E3_back"/>
 			<position name="position_node_solid_inner_E3" x="5.335" y="-747.81"/>
 			<rotation name="rotation_node_solid_inner_E3_back" x="-pi" />
 		</union>
+		<subtraction name="solid_inner_E3_sub_1a">
+						<first ref="solid_inner_E3_presub" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-626.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3_sub_2a">
+						<first ref="solid_inner_E3_sub_1a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-626.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3_sub_1b">
+						<first ref="solid_inner_E3_sub_2a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-512.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3_sub_2b">
+						<first ref="solid_inner_E3_sub_1b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-512.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3_sub_3a">
+						<first ref="solid_inner_E3_sub_2b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-268.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3_sub_3b">
+						<first ref="solid_inner_E3_sub_3a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-268.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3_sub_4a">
+						<first ref="solid_inner_E3_sub_3b" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="8.881" y="-153.0+0.33+0.5" z="0" />
+		</subtraction>
+		<subtraction name="solid_inner_E3">
+						<first ref="solid_inner_E3_sub_4a" />
+						<second ref="solid_clamp_fastener"/>
+						<position name="fastener_E1_sub1" x="30.425" y="-153.0+0.33+0.5" z="0" />
+		</subtraction>
+
+
 		<xtru name="solid_C4_mid_mid"  lunit="mm">
 			<twoDimVertex x="203.1575" y="3567.258" />
 			<twoDimVertex x="187.1895" y="3006.591" />
