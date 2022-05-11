@@ -754,6 +754,15 @@
       <positionref ref="ferrous_pos"/>
     </physvol>
 
+    <physvol name="rebar-DS_phys">
+      <file name="ferrous/rebards/rebardsParallel.gdml"/>
+      <positionref ref="rebards_pos"/>
+    </physvol>
+
+    <physvol name="rebar-US_phys">
+      <file name="ferrous/rebarus/rebarusParallel.gdml"/>
+      <positionref ref="rebarus_pos"/>
+    </physvol>
 
     <!-- INACTIVE FERROUS COPY AS NEEDED
 
@@ -770,16 +779,6 @@
     <physvol name="gemsupport_phys">
       <file name="ferrous/gemsupport/gemsupportParallel.gdml"/>
       <positionref ref="ferrous_pos"/>
-    </physvol>
-
-    <physvol name="rebarus_phys">
-      <file name="ferrous/rebarus/rebarusParallel.gdml"/>
-      <positionref ref="rebarus_pos"/>
-    </physvol>
-
-    <physvol name="rebards_phys">
-      <file name="ferrous/rebards/rebardsParallel.gdml"/>
-      <positionref ref="rebards_pos"/>
     </physvol>
 
     <physvol name="detectorsupport_phys">
