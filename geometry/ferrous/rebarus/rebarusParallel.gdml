@@ -43,7 +43,7 @@
       <materialref ref="G4_Galactic"/>
       <solidref ref="rebarus_sub"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="1005"/>
+      <auxiliary auxtype="DetNo" auxvalue="9115"/>
     </volume>
 
 <!-- <volume name="rebarusParallel_logic">

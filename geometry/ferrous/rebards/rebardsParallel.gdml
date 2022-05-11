@@ -45,7 +45,7 @@
       <materialref ref="G4_Galactic"/>
       <solidref ref="rebards_sub"/>
       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="1006"/>
+      <auxiliary auxtype="DetNo" auxvalue="9110"/>
     </volume>
 </structure>
 
