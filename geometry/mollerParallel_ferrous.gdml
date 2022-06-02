@@ -290,7 +290,6 @@
       <file name="ferrous/gemsupport/gemSupport_parallel_9204.gdml"/>
       <positionref ref="ferrous_pos_gemsupport_4"/>
     </physvol>
-
     <physvol name="GemSupport_parallel_9205">
       <file name="ferrous/gemsupport/gemSupport_parallel_9201.gdml"/>
       <positionref ref="ferrous_pos_gemsupport_5"/>

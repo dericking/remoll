@@ -189,14 +189,14 @@
     </volume>
     
     <volume name="GemRotatorSupport1_log">
-      <materialref ref="G4_Fe"/>
+      <materialref ref="G4_Galactic"/>
       <solidref ref="GemRotatorSupport_sub1"/>
       <auxiliary auxtype="Color" auxvalue="gray"/>
       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
     </volume>
     
     <volume name="GemRotatorSupport2_log">
-      <materialref ref="G4_Fe"/>
+      <materialref ref="G4_Galactic"/>
       <solidref ref="GemRotatorSupport_sub2"/>
       <auxiliary auxtype="Color" auxvalue="gray"/>
       <auxiliary auxtype="Alpha" auxvalue="0.8"/>

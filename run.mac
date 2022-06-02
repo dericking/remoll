@@ -26,6 +26,41 @@
 /remoll/SD/detect                secondaries        9201
 /remoll/SD/detect                boundaryhits       9201
 
+/remoll/SD/enable                                   9202
+/remoll/SD/detect                lowenergyneutral   9202
+/remoll/SD/detect                secondaries        9202
+/remoll/SD/detect                boundaryhits       9202
+
+/remoll/SD/enable                                   9203
+/remoll/SD/detect                lowenergyneutral   9203
+/remoll/SD/detect                secondaries        9203
+/remoll/SD/detect                boundaryhits       9203
+
+/remoll/SD/enable                                   9204
+/remoll/SD/detect                lowenergyneutral   9204
+/remoll/SD/detect                secondaries        9204
+/remoll/SD/detect                boundaryhits       9204
+
+/remoll/SD/enable                                   9205
+/remoll/SD/detect                lowenergyneutral   9205
+/remoll/SD/detect                secondaries        9205
+/remoll/SD/detect                boundaryhits       9205
+
+/remoll/SD/enable                                   9206
+/remoll/SD/detect                lowenergyneutral   9206
+/remoll/SD/detect                secondaries        9206
+/remoll/SD/detect                boundaryhits       9206
+
+/remoll/SD/enable                                   9207
+/remoll/SD/detect                lowenergyneutral   9207
+/remoll/SD/detect                secondaries        9207
+/remoll/SD/detect                boundaryhits       9207
+
+/remoll/SD/enable                                   9208
+/remoll/SD/detect                lowenergyneutral   9208
+/remoll/SD/detect                secondaries        9208
+/remoll/SD/detect                boundaryhits       9208
+
 /remoll/kryptonite/enable
 /remoll/kryptonite/add           VacuumKryptonite
 /remoll/kryptonite/add           Tungsten
@@ -36,4 +71,4 @@
 /process/list
 /remoll/seed                     308
 /remoll/filename                 remollout.root
-/run/beamOn                      25
+/run/beamOn                      5000

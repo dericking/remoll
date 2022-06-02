@@ -49,69 +49,6 @@
 
   <structure>
 
-    <volume name="GemRotatorSupport1_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub1_ferrous"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9201"/>
-    </volume>
-
-    <volume name="GemRotatorSupport2_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub2_ferrous"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9202"/>
-    </volume>
-
-    <volume name="GemRotatorSupport3_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub1_ferrous"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9203"/>
-    </volume>
-
-    <volume name="GemRotatorSupport4_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub2_ferrous"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9204"/>
-    </volume>
-
-    <volume name="GemRotatorSupport5_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub1_ferrous"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9205"/>
-    </volume>
-
-    <volume name="GemRotatorSupport6_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub2_ferrous"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9206"/>
-    </volume>
-
-    <volume name="GemRotatorSupport7_log_ferrous">
-      <materialref ref="G4_Galactic"/>
-      <solidref ref="GemRotatorSupport_sub1"/>
-      <auxiliary auxtype="Color" auxvalue="gray"/>
-      <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
-      <auxiliary auxtype="DetNo" auxvalue="9207"/>
-    </volume>
-
     <volume name="GemRotatorSupport8_log_ferrous">
       <materialref ref="G4_Galactic"/>
       <solidref ref="GemRotatorSupport_sub2"/>
