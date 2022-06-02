@@ -1,6 +1,0 @@
-<rotation name="gemsupport_rotation1" x="gemsupport_m[1,9]" y="gemsupport_m[1,10]" unit="deg" />
-<rotation name="gemsupport_rotation2" x="gemsupport_m[2,9]" y="gemsupport_m[2,10]" unit="deg" />
-<rotation name="gemsupport_rotation3" x="gemsupport_m[3,9]" y="gemsupport_m[3,10]" unit="deg" />
-<rotation name="gemsupport_rotation4" x="gemsupport_m[4,9]" y="gemsupport_m[4,10]" unit="deg" />
-<rotation name="gemsupport_rotation5" x="gemsupport_m[5,9]" y="gemsupport_m[5,10]" unit="deg" />
-<rotation name="gemsupport_rotation6" x="gemsupport_m[6,9]" y="gemsupport_m[6,10]" unit="deg" />

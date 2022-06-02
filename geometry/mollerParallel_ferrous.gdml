@@ -48,37 +48,37 @@
     startphi="0" deltaphi="360" aunit="deg"
     rmin="1450" rmax="1460" z="2700" lunit="mm"/>
 
-  <sphere name="targetSphere_solid" 
+  <sphere name="targetSphere_solid"
 	  rmin="700" rmax="701" lunit="mm"
 	  deltaphi="360" deltatheta="180" aunit="deg"/>
 
-  <box lunit="mm" name="targetPbWallDS_solid" 
+  <box lunit="mm" name="targetPbWallDS_solid"
        x="4000" y="3000" z="1"/>
-       
+
   <box lunit="mm" name="skyshineVacuumDet1_solid"
        x="4889" y="1.0" z="3549"/>
-    
+
   <box lunit="mm" name="skyshineVacuumDet2_solid"
        x="8690" y="1.0" z="6350"/>
-       
+
   <box lunit="mm" name="tgtOuterDetyz_solid"
        x="1" y="6700" z="6350"/>
-       
+
   <box lunit="mm" name="VPtgtOuterDetxy_solid"
        x="7690" y="6700" z="1"/>
-       
+
   <box lunit="mm" name="tgtInnerDetyz_solid"
        x="1" y="3000" z="2200"/>
-  
+
   <box lunit="mm" name="tgtInnerDetxy_solid"
        x="2200" y="3000" z="1"/>
-            
-  <box lunit="mm" name="sbsBunkerFrontFace_solid" 
+
+  <box lunit="mm" name="sbsBunkerFrontFace_solid"
        x="11000" y="4500" z="1"/>
 
   <box lunit="mm" name="usHybridVirtualPlane_solid"
        x="5000+2000" y="6000" z="1"/>
-            
+
   <box lunit="mm" name="coll1InnerSideVirtualPlane_solid"
        x="1" y="1286.5*2" z="4335 + 610 + 86 - 186"/>
 
@@ -97,7 +97,7 @@
        z="15000-680+100-1+80"/>
 
   <box lunit="mm" name="dsHybridVirtualPlane_solid"
-       x="8000" 
+       x="8000"
        y="6000"
        z="1"/>
 
@@ -105,12 +105,12 @@
        x="2700"
        y="2700"
        z="1"/>
-       
+
   <box lunit="mm" name="PSbunkerOuterFrontVP_solid"
        x="1"
        y="3429+2571"
        z="9512.3+9541.7"/>
-       
+
   <box lunit="mm" name="PSbunkerOuterSideLeftVP_solid"
        x="11742.42"
        y="3429"
@@ -120,31 +120,31 @@
        x="11742.42"
        y="3429"
        z="1"/>
-   
+
   <box lunit="mm" name="PSbunkerInnerFrontVP_solid"
      x="1"
      y="3429"
      z="6464.3"/>
-  
+
   <box lunit="mm" name="PSbunkerInnerSideLeftVP_solid"
        x="10218.42"
        y="3429"
        z="1"/>
- 
+
   <box lunit="mm" name="PSbunkerInnerSideRightVP_solid"
        x="10218.42"
        y="3429"
        z="1"/>
- 
+
  <box lunit="mm" name="PSbunkerTopVP_solid"
       x="11742.42"
       y="1"
       z="9512.3"/>
-  
+
   <box lunit="mm" name="RasterPS_solid" x="800" y="2500" z="800"/>
- 
+
   <box name="USTorus_VirtualPlane_solid" lunit="mm" x="2000" y="2000" z="1"/>
-  
+
 </solids>
 
 <structure>
@@ -166,7 +166,7 @@
       <positionref ref="mainDetectorVirtualPlane_pos"/>
     </physvol>
 
-    <!-- ferrous materials --> 
+    <!-- ferrous materials -->
 
     <!-- fasteners -->
     <physvol name="fasteners_coil_parallel_PV">
@@ -272,6 +272,40 @@
     <physvol name="rebards_new_parallel_9131">
       <file name="ferrous/rebards_new/rebards_geometry_parallel_9131.gdml"/>
       <positionref ref="ferrous_pos_rebar_ds_anchors_9131"/>
+    </physvol>
+
+    <physvol name="GemSupport_parallel_9201">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9201.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_1"/>
+    </physvol>
+    <physvol name="GemSupport_parallel_9202">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9202.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_2"/>
+    </physvol>
+    <physvol name="GemSupport_parallel_9203">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9203.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_3"/>
+    </physvol>
+    <physvol name="GemSupport_parallel_9204">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9204.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_4"/>
+    </physvol>
+
+    <physvol name="GemSupport_parallel_9205">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9201.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_5"/>
+    </physvol>
+    <physvol name="GemSupport_parallel_9206">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9202.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_6"/>
+    </physvol>
+    <physvol name="GemSupport_parallel_9207">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9203.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_7"/>
+    </physvol>
+    <physvol name="GemSupport_parallel_9208">
+      <file name="ferrous/gemsupport/gemSupport_parallel_9204.gdml"/>
+      <positionref ref="ferrous_pos_gemsupport_8"/>
     </physvol>
 
 <!-- INACTIVE FERROUS COPY AS NEEDED

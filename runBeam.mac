@@ -6,25 +6,28 @@
 /remoll/addfield                  map_directory/V2DSg.9.75cm.parallel.txt
 /remoll/addfield                  map_directory/V2U.1a.50cm.parallel.txt
 /remoll/evgen/beam/origin         0 0 -7.5 m
-/remoll/evgen/beam/rasx           500 mm
-/remoll/evgen/beam/rasy           500 mm
+/remoll/evgen/beam/rasx           5 mm
+/remoll/evgen/beam/rasy           5 mm
 /remoll/evgen/beam/corrx          0.065
 /remoll/evgen/beam/corry          0.065
-/remoll/evgen/beam/rasrefz       -4.5 m
+/remoll/evgen/beam/rasrefz	 -4.5 m
 /remoll/beamene                   11 GeV
 /remoll/evgen/set                 beam
 /remoll/beamcurr                  65 microampere
 /remoll/evgen/beamPolarization   +L
 /remoll/field/equationtype        2
 /remoll/field/steppertype         2
-#/remoll/field/print
+/remoll/field/print
 
-/remoll/SD/print_all
-
-/remoll/SD/enable                                   9201
-/remoll/SD/detect                lowenergyneutral   9201
-/remoll/SD/detect                secondaries        9201
-/remoll/SD/detect                boundaryhits       9201
+/remoll/SD/disable_all
+/remoll/SD/enable                                   9110
+/remoll/SD/detect                lowenergyneutral   9110
+/remoll/SD/detect                secondaries        9110
+/remoll/SD/detect                boundaryhits       9110
+/remoll/SD/enable                                   9115
+/remoll/SD/detect                lowenergyneutral   9115
+/remoll/SD/detect                secondaries        9115
+/remoll/SD/detect                boundaryhits       9115
 
 /remoll/kryptonite/enable
 /remoll/kryptonite/add           VacuumKryptonite
@@ -34,6 +37,6 @@
 /remoll/kryptonite/add           CW95
 /remoll/kryptonite/list
 /process/list
-/remoll/seed                     308
-/remoll/filename                 remollout.root
-/run/beamOn                      25
+/remoll/seed                     999
+/remoll/filename                 remollout_999.root
+/run/beamOn                      50000

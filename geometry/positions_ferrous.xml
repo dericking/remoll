@@ -65,3 +65,12 @@
 
 <position name="ferrous_pos_rebar_ds_anchors_9130" unit="mm" x="0" y="0" z="upstreamCenter"/>
 <position name="ferrous_pos_rebar_ds_anchors_9131" unit="mm" x="0" y="0" z="upstreamCenter"/>
+
+<position name="ferrous_pos_gemsupport_1" unit="mm" x="-248.33*2-248.33/2" y="-2980+1415.481/2" z="19132.69+400/2+1000/2"/>
+<position name="ferrous_pos_gemsupport_2" unit="mm" x="2*(-248.33*2-248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2"/>
+<position name="ferrous_pos_gemsupport_3" unit="mm" x="-(-248.33*2-248.33/2)" y="-2980+1415.481/2" z="19132.69+400/2+1000/2"/>
+<position name="ferrous_pos_gemsupport_4" unit="mm" x="2*(248.33*2+248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2"/>
+<position name="ferrous_pos_gemsupport_5" unit="mm" x="-248.33*2-248.33/2" y="-2980+1415.481/2" z="19132.69+400/2+1000/2+4*248.33"/>
+<position name="ferrous_pos_gemsupport_6" unit="mm" x="2*(-248.33*2-248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2+4*248.33"/>
+<position name="ferrous_pos_gemsupport_7" unit="mm" x="-(-248.33*2-248.33/2)" y="-2980+1415.481/2" z="19132.69+400/2+1000/2+4*248.33"/>
+<position name="ferrous_pos_gemsupport_8" unit="mm" x="2*(248.33*2+248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2+4*248.33"/>

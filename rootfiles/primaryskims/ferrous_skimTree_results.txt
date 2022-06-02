@@ -1,0 +1,9 @@
+Total events counted: 1200000
+(Be sure this matches events run)
+
+Ferrout Detector Hits (e- only):
+ Det\mTrid      0  TOTAL
+      9010      3      3
+      9020      3      3
+      9030      3      3
+Total time elapsed for analysis: 2.640339 seconds.
