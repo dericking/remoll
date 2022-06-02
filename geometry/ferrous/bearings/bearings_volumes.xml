@@ -1,0 +1,4 @@
+  <volume name="bearings_logic">
+    <materialref ref="G4_Fe"/>
+    <solidref ref="bearings_multiUnion"/>
+  </volume>

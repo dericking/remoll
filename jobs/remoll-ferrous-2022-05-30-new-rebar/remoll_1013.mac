@@ -1,0 +1,66 @@
+/remoll/setgeofile                geometry/mollerMother.gdml
+/remoll/parallel/setfile          geometry/mollerParallel_ferrous.gdml
+/remoll/physlist/parallel/enable
+/run/initialize
+/remoll/printgeometry             true
+/remoll/addfield                  map_directory/V2DSg.9.75cm.parallel.txt
+/remoll/addfield                  map_directory/V2U.1a.50cm.parallel.txt
+/remoll/evgen/beam/origin         0 0 -7.5 m
+/remoll/evgen/beam/rasx           5 mm
+/remoll/evgen/beam/rasy           5 mm
+/remoll/evgen/beam/corrx          0.065
+/remoll/evgen/beam/corry          0.065
+/remoll/evgen/beam/rasrefz       -4.5 m
+/remoll/beamene                   11 GeV
+/remoll/evgen/set                 beam
+/remoll/beamcurr                  65 microampere
+/remoll/evgen/beamPolarization   +L
+/remoll/field/equationtype        2
+/remoll/field/steppertype         2
+/remoll/field/print
+ 
+/remoll/SD/disable_all
+/remoll/SD/enable                                   9110
+/remoll/SD/detect                lowenergyneutral   9110
+/remoll/SD/detect                secondaries        9110
+/remoll/SD/detect                boundaryhits       9110
+/remoll/SD/enable                                   9111
+/remoll/SD/detect                lowenergyneutral   9111
+/remoll/SD/detect                secondaries        9111
+/remoll/SD/detect                boundaryhits       9111
+/remoll/SD/enable                                   9112
+/remoll/SD/detect                lowenergyneutral   9112
+/remoll/SD/detect                secondaries        9112
+/remoll/SD/detect                boundaryhits       9112
+/remoll/SD/enable                                   9113
+/remoll/SD/detect                lowenergyneutral   9113
+/remoll/SD/detect                secondaries        9113
+/remoll/SD/detect                boundaryhits       9113
+/remoll/SD/enable                                   9120
+/remoll/SD/detect                lowenergyneutral   9120
+/remoll/SD/detect                secondaries        9120
+/remoll/SD/detect                boundaryhits       9120
+/remoll/SD/enable                                   9121
+/remoll/SD/detect                lowenergyneutral   9121
+/remoll/SD/detect                secondaries        9121
+/remoll/SD/detect                boundaryhits       9121
+/remoll/SD/enable                                   9130
+/remoll/SD/detect                lowenergyneutral   9130
+/remoll/SD/detect                secondaries        9130
+/remoll/SD/detect                boundaryhits       9130
+/remoll/SD/enable                                   9131
+/remoll/SD/detect                lowenergyneutral   9131
+/remoll/SD/detect                secondaries        9131
+/remoll/SD/detect                boundaryhits       9131
+           
+/remoll/kryptonite/enable
+/remoll/kryptonite/add           VacuumKryptonite
+/remoll/kryptonite/add           Tungsten
+/remoll/kryptonite/add           Copper
+/remoll/kryptonite/add           Lead
+/remoll/kryptonite/add           CW95
+/remoll/kryptonite/list
+/process/list
+/remoll/seed                     1013
+/remoll/filename                 remollout_1013.root
+/run/beamOn                      125000

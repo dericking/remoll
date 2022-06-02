@@ -23,7 +23,9 @@
 # Geometry menu :
 /gui/addMenu   geom "1. Geometry"
 /gui/addButton geom "MOLLER Parallel"             "/remoll/parallel/setfile geometry/mollerParallel.gdml"
+/gui/addButton geom "MOLLER Parallel Ferrous"     "/remoll/parallel/setfile geometry/mollerParallel_ferrous.gdml"
 /gui/addButton geom "MOLLER Experiment"           "/remoll/geometry/setfile geometry/mollerMother.gdml"
+/gui/addButton geom "MOLLER Experiment Ferrous"   "/remoll/geometry/setfile geometry/mollerMother_ferrous.gdml"
 /gui/addButton geom "MOLLER Experiment (w. dets)" "/remoll/geometry/setfile geometry/mollerMother_parametrized.gdml"
 /gui/addButton geom "Only pion system"            "/remoll/geometry/setfile geometry/pion/Lucite/pionDetectorLucite_world.gdml"
 /gui/addButton geom "Only showermax"              "/remoll/geometry/setfile geometry/showermax/showerMaxGen.gdml"

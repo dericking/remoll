@@ -1,0 +1,76 @@
+    <box lunit="mm" name="DSconcrete" x="4261" y="5160 + 127.65 + 12.43" z="500 - 86 + 186"/>
+    <box lunit="mm" name="ShieldDS_tube" x="1200*2+1" y="1200*2+1" z="500 - 86 + 186 + 1"/>
+    <box lunit="mm" name="DSconcrete_sub" x="4261+1" y="1400+0.5" z="500 - 86 + 186+1"/>
+
+    <box lunit="mm" name="DSconcrete_rebar_sub" x="4261" y="5160+127.65+12.43" z="25"/>
+
+    <box lunit="mm" name="dsBarite_1" x="1200*2" y="1200*2" z="500 - 86 "/>
+    <box lunit="mm" name="dsBarite_2" x="540*2+1-100" y="540*2+1-100" z="500 - 86 + 1"/>
+    <box lunit="mm" name="dsBarite_sub" x="1200*2+1" y="279.9+1" z="500 - 86 +1"/>
+
+    <box lunit="mm" name="dsBarite_rebar_sub" x="1200*2" y="1200*2" z="rebarWidth"/>
+
+    <box lunit="mm" name="hook_plate_solid_normx" x="12.7"  y="152.4" z="152.4"/>
+    <box lunit="mm" name="hook_plate_solid_normy" x="152.4" y="12.7"  z="152.4"/>
+    <box lunit="mm" name="hook_plate_solid_normz" x="152.4" y="152.4" z="12.7" />
+
+
+  <!--barite rebar solid next two-->
+  <subtraction name="dsBarite_rebar_solid_sub1">
+    <first ref = "dsBarite_rebar_sub"/>
+    <second ref = "dsBarite_2"/>
+    <position name ="dsBarite_solid_sub1_p" lunit="mm" x="0" y="0" z="0" />
+  </subtraction>
+
+  <subtraction name="dsBarite_rebar_solid_1">
+    <first ref = "dsBarite_rebar_solid_sub1"/>
+    <second ref = "dsBarite_sub"/>
+    <position name ="dsBarite_solid_sub2_p" lunit="mm" x="0" y="1200-279.9/2" z="0" />
+  </subtraction>
+  <!--end barite rebar-->
+
+  <!--concrete rebar plate solid-->
+  <subtraction name="DSconcrete_rebar_sub1">
+    <first ref = "DSconcrete_rebar_sub"/>
+    <second ref = "ShieldDS_tube"/>
+    <position name ="DSconcreteRebar_p1" lunit="mm" x="0" y="420-127.65/2 - 18 - 12.43/2" z="0" />
+  </subtraction>
+
+  <subtraction name="dsConcrete_rebar_1">
+    <first ref = "DSconcrete_rebar_sub1"/>
+    <second ref = "DSconcrete_sub"/>
+    <position name ="DSconcreteRebar_p2" lunit="mm" x="0" y="5300.08/2-1400/2" z="0" />
+  </subtraction>
+  <!--end concrete rebar plate solids-->
+
+
+  <multiUnion name="rebards_parallel_9130_union" >
+    <multiUnionNode name="anchor_pxpy">
+      <solid ref="hook_plate_solid_normx"/>
+      <positionref ref="dsBarite_anchor_pxpy_vacuum_pos"/>
+    </multiUnionNode>
+    <multiUnionNode name="anchor_pxmy">
+      <solid ref="hook_plate_solid_normx"/>
+      <positionref ref="dsBarite_anchor_pxmy_vacuum_pos"/>
+    </multiUnionNode>
+    <multiUnionNode name="anchor_mxpy">
+      <solid ref="hook_plate_solid_normx"/>
+      <positionref ref="dsBarite_anchor_mxpy_vacuum_pos"/>
+    </multiUnionNode>
+    <multiUnionNode name="anchor_mxmy">
+      <solid ref="hook_plate_solid_normx"/>
+      <positionref ref="dsBarite_anchor_mxmy_vacuum_pos"/>
+    </multiUnionNode>
+  </multiUnion>
+
+  <multiUnion name="rebards_parallel_9131_union" >
+    <multiUnionNode name="anchor_pxpy">
+      <solid ref="hook_plate_solid_normy"/>
+      <positionref ref="dsBarite_anchor_cxpy_vacuum_pos"/>
+    </multiUnionNode>
+    <multiUnionNode name="anchor_pxmy">
+      <solid ref="hook_plate_solid_normy"/>
+      <positionref ref="dsBarite_anchor_cxmy_vacuum_pos"/>
+    </multiUnionNode>
+  </multiUnion>
+

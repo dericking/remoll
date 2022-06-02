@@ -19,6 +19,8 @@
     <constant name="USBoxmothersubtract_length" value="2225+(USBoxmother_extensionUS)/2"/>
     <position name="boxConcreteShielding_center" unit="mm" x="0" y="0" z="USBoxmother_length/2 - USBoxmothersubtract_length/2 + 1110/2"/>
 
+    <constant name="rebarWidth" value="25.4"/>
+    <constant name="rebarSetIn" value="50.8"/>
     
   </define>
   &materials;
@@ -38,22 +40,117 @@
     <box lunit="mm" name="ShieldDS_tube" x="1200*2+1" y="1200*2+1" z="500 - 86 + 186 + 1"/>
     <box lunit="mm" name="DSconcrete_sub" x="4261+1" y="1400+0.5" z="500 - 86 + 186+1"/>
 
+    <box lunit="mm" name="DSconcrete_rebar_sub" x="4261-rebarSetIn" y="5160+127.65+12.43-rebarSetIn" z="rebarWidth"/>
+
     <box lunit="mm" name="dsBarite_1" x="1200*2" y="1200*2" z="500 - 86 "/>
     <box lunit="mm" name="dsBarite_2" x="540*2+1-100" y="540*2+1-100" z="500 - 86 + 1"/>
     <box lunit="mm" name="dsBarite_sub" x="1200*2+1" y="279.9+1" z="500 - 86 +1"/>
 
-    <subtraction name="dsBarite_sub1">
+    <box lunit="mm" name="dsBarite_rebar_sub" x="1200*2-rebarSetIn" y="1200*2-rebarSetIn" z="rebarWidth"/>
+
+    <box lunit="mm" name="hook_plate_solid_normx" x="12.7"  y="152.4" z="152.4"/>
+    <box lunit="mm" name="hook_plate_solid_normy" x="152.4" y="12.7"  z="152.4"/>
+    <box lunit="mm" name="hook_plate_solid_normz" x="152.4" y="152.4" z="12.7" />
+
+    <!--Barite rebar subtraction next two-->
+    <subtraction name="dsBarite_rebar_sub1">
+      <first ref = "dsBarite_1"/>
+      <second ref = "dsBarite_rebar_sub"/>
+      <position name ="dsBarite_solid_rebar_sub1_p" lunit="mm" x="0" y="0" z="200-186./2." />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_sub2">
+      <first ref = "dsBarite_rebar_sub1"/>
+      <second ref = "dsBarite_rebar_sub"/>
+      <position name ="dsBarite_solid_rebar_sub2_p" lunit="mm" x="0" y="0" z="100-186./2." />
+    </subtraction>
+    <!--barite subtract hooks-->
+    <subtraction name="dsBarite_rebar_sub3">
+      <first ref = "dsBarite_rebar_sub2"/>
+      <second ref = "hook_plate_solid_normx"/>
+      <position name ="barite_hook_sub_pxpy" lunit="mm" x="1200-12.7/2.0" y="700" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_sub4">
+      <first ref = "dsBarite_rebar_sub3"/>
+      <second ref = "hook_plate_solid_normx"/>
+      <position name ="barite_hook_sub_pxmy" lunit="mm" x="1200-12.7/2.0" y="-800" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_sub5">
+      <first ref = "dsBarite_rebar_sub4"/>
+      <second ref = "hook_plate_solid_normx"/>
+      <position name ="barite_hook_sub_mxpy" lunit="mm" x="-1200+12.7/2.0" y="700" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_sub6">
+      <first ref = "dsBarite_rebar_sub5"/>
+      <second ref = "hook_plate_solid_normx"/>
+      <position name ="barite_hook_sub_mxmy" lunit="mm" x="-1200.0+12.7/2.00" y="-800" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_sub7">
+      <first ref = "dsBarite_rebar_sub6"/>
+      <second ref = "hook_plate_solid_normy"/>
+      <position name ="barite_hook_sub_x0py" lunit="mm" x="0" y="1200-12.7/2.0-280.9" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_sub8">
+      <first ref = "dsBarite_rebar_sub7"/>
+      <second ref = "hook_plate_solid_normy"/>
+      <position name ="barite_hook_sub_x0my" lunit="mm" x="0" y="-1200.0+12.7/2.0" z="0" />
+    </subtraction>
+
+    <!--end barite subtract hooks-->
+
+
+    <!--original barite subtraction-->
+    <!--<subtraction name="dsBarite_sub1">
       <first ref = "dsBarite_1"/>
       <second ref = "dsBarite_2"/>
       <position name ="dsBarite_solid_sub1_p" lunit="mm" x="0" y="0" z="0" />
+    </subtraction>-->
+
+    <!--modded-->
+    <subtraction name="dsBarite_sub1">
+      <first ref = "dsBarite_rebar_sub8"/>
+      <second ref = "dsBarite_2"/>
+      <position name ="dsBarite_solid_sub1_p" lunit="mm" x="0" y="0" z="0" />
     </subtraction>
-    
+
     <subtraction name="dsBarite_solid">
       <first ref = "dsBarite_sub1"/>
       <second ref = "dsBarite_sub"/>
       <position name ="dsBarite_solid_sub2_p" lunit="mm" x="0" y="1200-279.9/2" z="0" />
     </subtraction>
-       
+
+    <!--barite rebar solid next two-->
+    <subtraction name="dsBarite_rebar_solid_sub1">
+      <first ref = "dsBarite_rebar_sub"/>
+      <second ref = "dsBarite_2"/>
+      <position name ="dsBarite_solid_sub1_p" lunit="mm" x="0" y="0" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_solid_sub2">
+      <first ref = "dsBarite_rebar_solid_sub1"/>
+      <second ref = "dsBarite_sub"/>
+      <position name ="dsBarite_solid_sub2_p" lunit="mm" x="0" y="1200-279.9/2" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_solid_sub3">
+      <first ref = "dsBarite_rebar_solid_sub2"/>
+      <second ref = "hook_plate_solid_normy"/>
+      <position name ="barite_hook_sub_x0py" lunit="mm" x="0" y="1200-12.7/2.0-280.9" z="0" />
+    </subtraction>
+
+    <subtraction name="dsBarite_rebar_solid_1">
+      <first ref = "dsBarite_rebar_solid_sub3"/>
+      <second ref = "hook_plate_solid_normy"/>
+      <position name ="barite_hook_sub_x0my" lunit="mm" x="0" y="-1200.0+12.7/2.0" z="0" />
+    </subtraction>
+
+    <!--end barite rebar-->
+
     <box lunit="mm" name="dsBarite_3" x="1200*2" y="1200*2" z="186"/>
     <box lunit="mm" name="dsBarite_4" x="540*2+1" y="540*2+1" z="186+1"/>
     <box lunit="mm" name="dsBarite2_sub" x="1200*2+1" y="279.9+1" z="186+1"/>
@@ -69,19 +166,65 @@
       <second ref = "dsBarite2_sub"/>
       <position name ="dsBarite2_solid_sub1_p" lunit="mm" x="0" y="1200-279.9/2" z="0" />
     </subtraction>
-       
+
+    <!--rebar subtraction from concrete next four-->
+    <subtraction name="DSconcreteShielding_rebar_sub1">
+      <first ref = "DSconcrete"/>
+      <second ref = "DSconcrete_rebar_sub"/>
+      <position name ="DSconcreteRebarSub1_p" lunit="mm" x="0" y="0" z="200" />
+    </subtraction>
+
+    <subtraction name="DSconcreteShielding_rebar_sub2">
+      <first ref = "DSconcreteShielding_rebar_sub1"/>
+      <second ref = "DSconcrete_rebar_sub"/>
+      <position name ="DSconcreteRebarSub2_p" lunit="mm" x="0" y="0" z="100" />
+    </subtraction>
+
+    <subtraction name="DSconcreteShielding_rebar_sub3">
+      <first ref = "DSconcreteShielding_rebar_sub2"/>
+      <second ref = "DSconcrete_rebar_sub"/>
+      <position name ="DSconcreteRebarSub3_p" lunit="mm" x="0" y="0" z="-100" />
+    </subtraction>
+
+    <subtraction name="DSconcreteShielding_rebar_sub4">
+      <first ref = "DSconcreteShielding_rebar_sub3"/>
+      <second ref = "DSconcrete_rebar_sub"/>
+      <position name ="DSconcreteRebarSub4_p" lunit="mm" x="0" y="0" z="-200" />
+    </subtraction>
+
+    <subtraction name="DSconcreteShielding_sub1">
+      <first ref = "DSconcreteShielding_rebar_sub4"/>
+      <second ref = "ShieldDS_tube"/>
+      <position name ="DSconcreteSub1_p" lunit="mm" x="0" y="420-127.65/2 - 18 - 12.43/2" z="0" />
+    </subtraction>
+
+    <!--modded
     <subtraction name="DSconcreteShielding_sub1">
       <first ref = "DSconcrete"/>
       <second ref = "ShieldDS_tube"/>
       <position name ="DSconcreteSub1_p" lunit="mm" x="0" y="420-127.65/2 - 18 - 12.43/2" z="0" />
-    </subtraction>
+    </subtraction>-->
 
     <subtraction name="DSconcreteShielding_sub">
       <first ref = "DSconcreteShielding_sub1"/>
       <second ref = "DSconcrete_sub"/>
       <position name ="DSconcreteSub2_p" lunit="mm" x="0" y="5300.08/2-1400/2" z="0" />
     </subtraction>
-    
+
+    <!--concrete rebar plate solid-->
+    <subtraction name="DSconcrete_rebar_sub1">
+      <first ref = "DSconcrete_rebar_sub"/>
+      <second ref = "ShieldDS_tube"/>
+      <position name ="DSconcreteRebar_p1" lunit="mm" x="0" y="420-127.65/2 - 18 - 12.43/2" z="0" />
+    </subtraction>
+
+    <subtraction name="rebar">
+      <first ref = "DSconcrete_rebar_sub1"/>
+      <second ref = "DSconcrete_sub"/>
+      <position name ="DSconcreteRebar_p2" lunit="mm" x="0" y="5300.08/2-1400/2" z="0" />
+    </subtraction>
+    <!--end concrete rebar plate solids-->
+
     <box lunit="mm" name="coll1SideShielding_solid"
 	 x="800"
 	 y="2*(1287.05)"
@@ -102,15 +245,97 @@
         <second ref = "coll1TopShielding_sub"/>
         <position name ="coll1TopShielding_p" lunit="mm" x="0" y="1400/2-507.952/2" z="-(4955+600)/2+2519.172/2" />
       </subtraction>
-      
+
     <box lunit="mm" name="pivotIron_solid"
 	 x="4261"
 	 y="50"
 	 z="USBoxmother_length - USBoxmothersubtract_length - 10 + 610 + 86 - 186"/>
-    
+
   </solids>
 
   <structure>
+
+    <!--rebar volumes-->
+    <volume name="rebar1_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="rebar"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+
+    <volume name="rebar2_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="rebar"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+
+    <volume name="rebar3_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="rebar"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+
+    <volume name="rebar4_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="rebar"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+
+    <volume name="dsBarite_rebar_LV1_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="dsBarite_rebar_solid_1"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+       <auxiliary auxtype="DetNo" auxvalue="9120"/>
+    </volume>
+
+    <volume name="dsBarite_rebar_LV2_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="dsBarite_rebar_solid_1"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+
+    <volume name="dsBarite_hook_pxpy_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="hook_plate_solid_normx"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+    <volume name="dsBarite_hook_pxmy_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="hook_plate_solid_normx"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+    <volume name="dsBarite_hook_mxpy_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="hook_plate_solid_normx"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+    <volume name="dsBarite_hook_mxmy_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="hook_plate_solid_normx"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+    <volume name="dsBarite_hook_cxpy_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="hook_plate_solid_normy"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+    <volume name="dsBarite_hook_cxmy_vacuum">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="hook_plate_solid_normy"/>
+       <auxiliary auxtype="Color" auxvalue="gray"/>
+       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
+    </volume>
+    <!--end rebar volumes-->
 
     <!--Concrete Shielding-->
     <volume name="coll1TopShield_logic">
@@ -127,35 +352,35 @@
     </volume>
 
     <volume name="pivotIron_logic">
-      <materialref ref="G4_Fe"/>
+      <materialref ref="G4_Galactic"/>
       <solidref ref="pivotIron_solid"/>
       <auxiliary auxtype="Color" auxvalue="gray"/>
       <auxiliary auxtype="Alpha" auxvalue="0.8"/>
     </volume>
-    
+
     <volume name="DSconcreteShielding">
       <materialref ref="Concrete"/>
       <solidref ref="DSconcreteShielding_sub"/>
       <auxiliary auxtype="Color" auxvalue="Green"/>
       <auxiliary auxtype="Alpha" auxvalue="1.0"/>
     </volume>
-    
+
     <volume name="dsBarite_logic">
       <materialref ref="barite"/>
       <solidref ref="dsBarite_solid"/>
       <auxiliary auxtype="Color" auxvalue="Brown"/>
       <auxiliary auxtype="Alpha" auxvalue="1.0"/>
     </volume>
-    
+
     <volume name="dsBarite2_logic">
       <materialref ref="barite"/>
       <solidref ref="dsBarite2_solid"/>
       <auxiliary auxtype="Color" auxvalue="Brown"/>
       <auxiliary auxtype="Alpha" auxvalue="1.0"/>
     </volume>
-    
+
     <volume name="upstream">
-      <materialref ref="G4_AIR"/>  
+      <materialref ref="G4_AIR"/>
       <solidref ref="boxConcreteShielding"/>
       <auxiliary auxtype="Alpha" auxvalue="0.1"/>
 
@@ -179,11 +404,71 @@
         <volumeref ref="pivotIron_logic"/>
         <position name="pivotIron_pos" unit="mm" x="0" y="-1700" z="1287.5-250/2 - 2000 + 86/2 - 186/2"/>
       </physvol>
-      
+
       <physvol>
         <volumeref ref="DSconcreteShielding"/>
         <position name="DSconcreteShielding_pos" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1"/>
       </physvol>
+
+      <!--rebar PVs-->
+      <physvol>
+        <volumeref ref="rebar1_vacuum"/>
+        <position name="rebar1" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 + 200"/>
+      </physvol>
+
+      <physvol>
+        <volumeref ref="rebar2_vacuum"/>
+        <position name="rebar2" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 + 100"/>
+      </physvol>
+
+      <physvol>
+        <volumeref ref="rebar3_vacuum"/>
+        <position name="rebar3" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 - 100"/>
+      </physvol>
+
+      <physvol>
+        <volumeref ref="rebar4_vacuum"/>
+        <position name="rebar4" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 - 200"/>
+      </physvol>
+
+      <physvol>
+        <volumeref ref="dsBarite_rebar_LV1_vacuum"/>
+        <position name="dsBarite_rebar1" unit="mm" x="0" y="0" z="4005-250/2 - 2000 + 86/2 + 1 + 200 - 186./2."/>
+      </physvol>
+
+      <physvol>
+        <volumeref ref="dsBarite_rebar_LV2_vacuum"/>
+        <position name="dsBarite_rebar2" unit="mm" x="0" y="0" z="4005-250/2 - 2000 + 86/2 + 1 + 100 - 186./2."/>
+      </physvol>
+      <!--end rebar PVs-->
+      <!--begin hook PVs-->
+      <physvol>
+        <volumeref ref="dsBarite_hook_pxpy_vacuum"/>
+        <position name="dsBarite_hook_pxpy_vacuum_pos" unit="mm" x="1200.0-12.7/2.0" y="700.0" z="4005-250/2 - 2000 + 86/2 + 1 + 0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="dsBarite_hook_pxmy_vacuum"/>
+        <position name="dsBarite_hook_pxmy_vacuum_pos" unit="mm" x="1200.0-12.7/2.0" y="-800.0" z="4005-250/2 - 2000 + 86/2 + 1 + 0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="dsBarite_hook_mxpy_vacuum"/>
+        <position name="dsBarite_hook_mxpy_vacuum_pos" unit="mm" x="-1200.0+12.7/2.0" y="700.0" z="4005-250/2 - 2000 + 86/2 + 1 + 0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="dsBarite_hook_mxmy_vacuum"/>
+        <position name="dsBarite_hook_mxmy_vacuum_pos" unit="mm" x="-1200.0+12.7/2.0" y="-800.0" z="4005-250/2 - 2000 + 86/2 + 1 + 0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="dsBarite_hook_cxpy_vacuum"/>
+        <position name="dsBarite_hook_cxpy_vacuum_pos" unit="mm" x="0" y="1200.0-12.7/2.0-280.9" z="4005-250/2 - 2000 + 86/2 + 1 + 0"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="dsBarite_hook_cxmy_vacuum"/>
+        <position name="dsBarite_hook_cxmy_vacuum_pos" unit="mm" x="0" y="-1200.0+12.7/2.0" z="4005-250/2 - 2000 + 86/2 + 1 + 0"/>
+      </physvol>
+
+      <!--end hook PVs-->
+
 
       <physvol name="dsBarite">
         <volumeref ref="dsBarite_logic"/>

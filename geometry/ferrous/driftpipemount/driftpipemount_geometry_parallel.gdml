@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY driftpipemountParallel_matrix SYSTEM "driftpipemount_matrix.xml">
+<!ENTITY driftpipemountParallel_positions SYSTEM "driftpipemount_positions.xml">
+<!ENTITY driftpipemountParallel_rotations SYSTEM "driftpipemount_rotations.xml">
+<!ENTITY driftpipemountParallel_solids SYSTEM "driftpipemount_solids.xml">
+<!ENTITY driftpipemountParallel_volumes SYSTEM "driftpipemount_volumes_parallel.xml">
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+ &driftpipemountParallel_matrix;
+ &driftpipemountParallel_positions;
+ &driftpipemountParallel_rotations;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+ &driftpipemountParallel_solids;
+</solids>
+
+<structure>
+ &driftpipemountParallel_volumes;
+</structure>
+
+<setup name="driftpipemountParallel_setup" version="1.0">
+  <world ref="driftpipemountParallel_logic"/>
+</setup>
+
+
+</gdml>

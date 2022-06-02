@@ -22,7 +22,7 @@ remollParallelConstruction::remollParallelConstruction(const G4String& name, con
   fGDMLPath(""),fGDMLFile(""),
   fGDMLValidate(false),
   fGDMLOverlapCheck(true),
-  fVerboseLevel(0),
+  fVerboseLevel(1),
   fWorldVolume(0),
   fWorldName(name)
 {

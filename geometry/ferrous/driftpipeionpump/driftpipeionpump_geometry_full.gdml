@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position name="det_163517544inWorld_163515704p" unit="mm" x="0" y="0" z="0" />
+  </define>
+
+  <solids>
+    <polycone aunit="deg" startphi="0" deltaphi="360" lunit="mm" name="driftpipe_solid_poly">
+      <zplane rmin="688.34"   rmax="1272.286" z="0.0"/>
+      <zplane rmin="688.34"   rmax="1272.286" z="22.098"/>
+      <zplane rmin="1249.934" rmax="1272.286" z="22.098"/>
+      <zplane rmin="1249.934" rmax="1272.286" z="5974.08"/>
+    </polycone>
+
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="driftpipeionpump_solid_tube" rmax="200.0" rmin="190.0" startphi="0" z="1720.0"/>
+
+    <subtraction name="driftpipeionpump_solid_sub">
+      <first ref="driftpipeionpump_solid_tube"/>
+      <second ref="driftpipe_solid_poly"/>
+      <position name="driftPipeRel" x="0" y="0" z="2235"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </subtraction>
+
+  </solids>
+
+  <structure>
+    <volume name="driftpipeionpump_tube_logic" >
+      <materialref ref="G4_STAINLESS-STEEL" />
+      <solidref ref="driftpipeionpump_solid_tube" />
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0" >
+    <world ref="driftpipeionpump_tube_logic" />
+  </setup>
+
+</gdml>

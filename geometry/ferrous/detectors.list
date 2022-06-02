@@ -1,0 +1,28 @@
+9001,"PIVOT"
+9010,"Fasteners Plate (this will become 9 Sections along beamline)"
+9020,"Fasteners Coil (this will become 9 Sections along beamline)"
+9030,"Fasteners Brackets (this will become 9 Sections along beamline)"
+9040,"Fasteners Outer (this will become 9 Sections along beamline)"
+9060,"Tierod Ends (this will break into 9060-60 (inner) and 9070-79 (outer))""
+9099,"Drift Pipe Mount"
+9100,"Drift Pipe Ion Pump Pipe"
+9101,"Water-cooled Leads DS Mag T1 Supply"
+9102,"Water-cooled Leads DS Mag T1 Return"
+9103,"Water-cooled Leads DS Mag T2 Supply"
+9104,"Water-cooled Leads DS Mag T2 Return"
+9105,"Water-cooled Leads DS Mag T3 Supply"
+9106,"Water-cooled Leads DS Mag T3 Return"
+9107,"Water-cooled Leads DS Mag T4 Supply"
+9108,"Water-cooled Leads DS Mag T4 Return"
+
+9110,"DS Rebar Most DS 1st Plane"
+9111,"DS Rebar 2nd Plane"
+9112,"DS Rebar 3rd Plane"
+9113,"DS Rebar Farthest US 4th Plane"
+
+9120,"DS Barite Rebar Most DS Plane"
+9121,"DS Barite Rebar Most US Plane"
+
+9130,"DS Barite Anchors Outer"
+9131,"DS Barite Anchors Top and Bottom"
+

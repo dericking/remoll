@@ -1,0 +1,12 @@
+# Total events counted: 25000
+# Ferrout Detector Hits (e- only):
+# Det\mTrid      0      1  TOTAL
+      9110      0      0      0
+      9111      0      0      0
+      9112      0      0      0
+      9113      0      0      0
+      9120      0      1      1
+      9121      0      0      0
+      9130      0      0      0
+      9131      0      0      0
+# Total time elapsed for analysis: 0.510000 seconds.

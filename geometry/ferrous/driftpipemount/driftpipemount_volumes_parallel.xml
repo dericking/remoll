@@ -1,0 +1,6 @@
+  <volume name="driftpipemountParallel_logic">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="driftpipemount_multiUnion"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="9099"/>
+  </volume>

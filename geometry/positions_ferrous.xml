@@ -1,0 +1,67 @@
+<!-- ferrous materials positon -->
+
+<!-- NEEDED VALUES -->
+<!-- Hybrid spectrometer position -->
+<!--<constant name="hybridCenter"   value="11016.865-8.73/2+75.+200"/>-->
+<constant name="hybridCenter"   value="0.0"/>
+<constant name="upstreamCenter" value="2000."/>
+
+<position name="hybricCenter_minus_pos" x="0" y="0" z="-1*hybridCenter"/>
+
+<position name="ferrous_pos"    x="0.0" y="0.0"     z="0.0"       unit="mm"/>
+<position name="pivot_pos"      x="0.0" y="-1700.0" z="1162.5"    unit="mm"/> <!-- Upstream at z 2000 -->
+<position name="rebarus_pos"    x="0.0" y="-942"    z="2475-4500" unit="mm"/>
+<position name="rebards_pos"    x="0.0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 +2000" unit="mm"/>
+<position name="detectorsupport_pos" x="0.0" y="0" z="23551.5" unit="mm"/>
+
+<constant name="ferrous_watercooledleads_ds_tm1s_z" value="5246.6-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm1r_z" value="5592.9-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm2s_z" value="6275.0-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm2r_z" value="6621.1-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm3s_z" value="7322.6-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm3r_z" value="7668.9-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm4s_z" value="8930.1-hybridCenter"/>
+<constant name="ferrous_watercooledleads_ds_tm4r_z" value="9275.9-hybridCenter"/>
+
+<position name="ferrous_watercooledleads_ds_tm1s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1s_z"/>
+<position name="ferrous_watercooledleads_ds_tm1r" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1r_z"/>
+<position name="ferrous_watercooledleads_ds_tm2s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2s_z"/>
+<position name="ferrous_watercooledleads_ds_tm2r" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2r_z"/>
+<position name="ferrous_watercooledleads_ds_tm3s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm3s_z"/>
+<position name="ferrous_watercooledleads_ds_tm3r" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm3r_z"/>
+<position name="ferrous_watercooledleads_ds_tm4s" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4s_z"/>
+<position name="ferrous_watercooledleads_ds_tm4r" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4r_z"/>
+
+<constant name="ferrous_watercooledleads_ds_tm1s_z_parallel" value="5246.6"/>
+<constant name="ferrous_watercooledleads_ds_tm1r_z_parallel" value="5592.9"/>
+<constant name="ferrous_watercooledleads_ds_tm2s_z_parallel" value="6275.0"/>
+<constant name="ferrous_watercooledleads_ds_tm2r_z_parallel" value="6621.1"/>
+<constant name="ferrous_watercooledleads_ds_tm3s_z_parallel" value="7322.6"/>
+<constant name="ferrous_watercooledleads_ds_tm3r_z_parallel" value="7668.9"/>
+<constant name="ferrous_watercooledleads_ds_tm4s_z_parallel" value="8930.1"/>
+<constant name="ferrous_watercooledleads_ds_tm4r_z_parallel" value="9275.9"/>
+
+<position name="ferrous_watercooledleads_ds_tm1s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm1r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm1r_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm2s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm2r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm2r_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm3s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm3s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm3r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm3r_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm4s_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4s_z_parallel"/>
+<position name="ferrous_watercooledleads_ds_tm4r_parallel" x="1033.77" y="-1819.81" z="ferrous_watercooledleads_ds_tm4r_z_parallel"/>
+
+<constant name="ferrous_driftpipe_ionpump_z" value="14955-hybridCenter"/>
+<constant name="ferrous_driftpipe_ionpump_z_parallel" value="14955"/>
+<position name="ferrous_driftpipe_ionpump" x="0.0" y="-2123.0" z="ferrous_driftpipe_ionpump_z"/>
+<position name="ferrous_driftpipe_ionpump_parallel" x="0.0" y="-2123.0" z="ferrous_driftpipe_ionpump_z_parallel"/>
+
+<position name="ferrous_pos_rebar_ds_9120" unit="mm" x="0" y="0" z="4005-250/2 - 2000 + 86/2 + 1 + 200 - 186./2. + upstreamCenter"/>
+<position name="ferrous_pos_rebar_ds_9121" unit="mm" x="0" y="0" z="4005-250/2 - 2000 + 86/2 + 1 + 100 - 186./2. + upstreamCenter"/>
+
+<position name="ferrous_pos_rebar_ds_9110" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 + 200 + upstreamCenter"/>
+<position name="ferrous_pos_rebar_ds_9111" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 + 100 + upstreamCenter"/>
+<position name="ferrous_pos_rebar_ds_9112" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 - 100 + upstreamCenter"/>
+<position name="ferrous_pos_rebar_ds_9113" unit="mm" x="0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 + 86/2 - 186/2 + 1 - 200 + upstreamCenter"/>
+
+<position name="ferrous_pos_rebar_ds_anchors_9130" unit="mm" x="0" y="0" z="upstreamCenter"/>
+<position name="ferrous_pos_rebar_ds_anchors_9131" unit="mm" x="0" y="0" z="upstreamCenter"/>

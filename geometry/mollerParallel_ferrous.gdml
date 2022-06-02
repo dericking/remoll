@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY world SYSTEM "solids/world.xml">
+<!ENTITY positions SYSTEM "positions.xml">
+<!ENTITY positions_ferrous SYSTEM "positions_ferrous.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+  &positions;
+  &positions_ferrous;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+  &world;
+  <tube
+    name="VirtualPlane_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmax="1900" rmin="0" z="1" lunit="mm"/>
+
+  <tube
+    name="trackingVirtualPlane_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmax="2600" rmin="0" z="1" lunit="mm"/>
+
+  <tube
+    name="collarVirtualPlane_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmax="1900" rmin="0" z="1" lunit="mm"/>
+
+  <tube
+    name="dumpVirtualPlane_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmax="307" rmin="0" z="1" lunit="mm"/>
+
+  <tube
+    name="samVirtualPlane_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmax="900" rmin="0" z="1" lunit="mm"/>
+
+  <tube
+    name="VirtualPlane1_solid"
+    startphi="0" deltaphi="360" aunit="deg"
+    rmin="1450" rmax="1460" z="2700" lunit="mm"/>
+
+  <sphere name="targetSphere_solid" 
+	  rmin="700" rmax="701" lunit="mm"
+	  deltaphi="360" deltatheta="180" aunit="deg"/>
+
+  <box lunit="mm" name="targetPbWallDS_solid" 
+       x="4000" y="3000" z="1"/>
+       
+  <box lunit="mm" name="skyshineVacuumDet1_solid"
+       x="4889" y="1.0" z="3549"/>
+    
+  <box lunit="mm" name="skyshineVacuumDet2_solid"
+       x="8690" y="1.0" z="6350"/>
+       
+  <box lunit="mm" name="tgtOuterDetyz_solid"
+       x="1" y="6700" z="6350"/>
+       
+  <box lunit="mm" name="VPtgtOuterDetxy_solid"
+       x="7690" y="6700" z="1"/>
+       
+  <box lunit="mm" name="tgtInnerDetyz_solid"
+       x="1" y="3000" z="2200"/>
+  
+  <box lunit="mm" name="tgtInnerDetxy_solid"
+       x="2200" y="3000" z="1"/>
+            
+  <box lunit="mm" name="sbsBunkerFrontFace_solid" 
+       x="11000" y="4500" z="1"/>
+
+  <box lunit="mm" name="usHybridVirtualPlane_solid"
+       x="5000+2000" y="6000" z="1"/>
+            
+  <box lunit="mm" name="coll1InnerSideVirtualPlane_solid"
+       x="1" y="1286.5*2" z="4335 + 610 + 86 - 186"/>
+
+  <box lunit="mm" name="coll1OuterSideVirtualPlane_solid"
+       x="1" y="6000" z="4335 + 610 + 86 - 186 - 2"/>
+
+  <box lunit="mm" name="coll1InnerTopVirtualPlane_solid"
+       x="2660" y="1" z="4335 + 610 + 86 - 186"/>
+
+  <box lunit="mm" name="coll1OuterTopVirtualPlane_solid"
+       x="4262" y="1" z="4335 + 610 + 86 - 186 - 2"/>
+
+  <box lunit="mm" name="hybridIronVirtualPlane_solid"
+       x="2860"
+       y="1"
+       z="15000-680+100-1+80"/>
+
+  <box lunit="mm" name="dsHybridVirtualPlane_solid"
+       x="8000" 
+       y="6000"
+       z="1"/>
+
+  <box lunit="mm" name="dsCoilVirtualPlane_solid"
+       x="2700"
+       y="2700"
+       z="1"/>
+       
+  <box lunit="mm" name="PSbunkerOuterFrontVP_solid"
+       x="1"
+       y="3429+2571"
+       z="9512.3+9541.7"/>
+       
+  <box lunit="mm" name="PSbunkerOuterSideLeftVP_solid"
+       x="11742.42"
+       y="3429"
+       z="1"/>
+
+  <box lunit="mm" name="PSbunkerOuterSideRightVP_solid"
+       x="11742.42"
+       y="3429"
+       z="1"/>
+   
+  <box lunit="mm" name="PSbunkerInnerFrontVP_solid"
+     x="1"
+     y="3429"
+     z="6464.3"/>
+  
+  <box lunit="mm" name="PSbunkerInnerSideLeftVP_solid"
+       x="10218.42"
+       y="3429"
+       z="1"/>
+ 
+  <box lunit="mm" name="PSbunkerInnerSideRightVP_solid"
+       x="10218.42"
+       y="3429"
+       z="1"/>
+ 
+ <box lunit="mm" name="PSbunkerTopVP_solid"
+      x="11742.42"
+      y="1"
+      z="9512.3"/>
+  
+  <box lunit="mm" name="RasterPS_solid" x="800" y="2500" z="800"/>
+ 
+  <box name="USTorus_VirtualPlane_solid" lunit="mm" x="2000" y="2000" z="1"/>
+  
+</solids>
+
+<structure>
+  <!-- STOP HERE -->
+  <volume name="mainDetectorVirtualPlane_log">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="VirtualPlane_solid"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="28"/>
+  </volume>
+
+  <volume name="ParallelWorld_logical">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="parallel_solid"/>
+
+    <!-- Main detector plane -->
+    <physvol name="mainDetectorVirtualPlane_phys">
+      <volumeref ref="mainDetectorVirtualPlane_log"/>
+      <positionref ref="mainDetectorVirtualPlane_pos"/>
+    </physvol>
+
+    <!-- ferrous materials --> 
+
+    <!-- fasteners -->
+    <physvol name="fasteners_coil_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+    <physvol name="fasteners_bracket_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+    <physvol name="fasteners_clamp_parallel_PV">
+      <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <!-- water-cooled leads -->
+    <physvol name="watercooledleads_dsmag_tm1s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm1r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm1r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm1r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm2r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm2r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm2r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm3r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm3r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm3r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4s_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4s.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4s"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+    <physvol name="watercooledleads_dsmag_tm4r_PV">
+      <file name="ferrous/watercooledleads_dsmags/watercooledleads_dsmags_geometry_full_tm4r.gdml"/>
+      <positionref ref="ferrous_watercooledleads_ds_tm4r"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
+    <physvol name="driftpipeionpump_PV">
+      <file name="ferrous/driftpipeionpump/driftpipeionpump_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_driftpipe_ionpump"/>
+      <rotation name="rotateDrift" unit="deg" x="90" y="0" z="0" />
+    </physvol>
+
+    <physvol name="tierodends_PV">
+      <file name="ferrous/tierodends/tierodends.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="driftpipemount_PV">
+      <file name="ferrous/driftpipemount/driftpipemount_geometry_parallel.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <!-- rebar ds new -->
+    <physvol name="rebards_new_parallel_9110">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9110.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_9110"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9111">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9111.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_9111"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9112">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9112.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_9112"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9113">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9113.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_9113"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9120">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9120.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_9120"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9121">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9121.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_9121"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9130">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9130.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_anchors_9130"/>
+    </physvol>
+    <physvol name="rebards_new_parallel_9131">
+      <file name="ferrous/rebards_new/rebards_geometry_parallel_9131.gdml"/>
+      <positionref ref="ferrous_pos_rebar_ds_anchors_9131"/>
+    </physvol>
+
+<!-- INACTIVE FERROUS COPY AS NEEDED
+
+    <physvol name="bearings_PV">
+      <file name="ferrous/bearings/bearings.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="bellows_PV">
+      <file name="ferrous/bellows/bellows.gdml"/>
+     <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="gemsupport_PV">
+      <file name="ferrous/gemsupport/gemsupport.gdml"/>
+     <positionref ref="ferrous_pos"/>
+    </physvol>
+
+    <physvol name="pivot_PV">
+      <file name="ferrous/pivot/pivot.gdml"/>
+     <positionref ref="pivot_pos"/>
+    </physvol>
+-->
+
+
+    <auxiliary auxtype="Alpha" auxvalue="0.1"/>
+  </volume>
+</structure>
+
+<setup name="Default" version="1.0">
+  <world ref="ParallelWorld_logical"/>
+</setup>
+
+</gdml>

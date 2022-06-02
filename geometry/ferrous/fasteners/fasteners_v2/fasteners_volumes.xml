@@ -1,0 +1,14 @@
+  <volume name="fasteners_coil_logic">
+    <materialref ref="G4_BRASS"/>
+    <solidref ref="fasteners_coil_union"/> 
+  </volume>
+
+  <volume name="fasteners_bracket_logic">
+    <materialref ref="G4_BRASS"/>
+    <solidref ref="fasteners_bracket_union"/> 
+  </volume>
+
+  <volume name="fasteners_clamp_logic">
+    <materialref ref="G4_BRASS"/>
+    <solidref ref="fasteners_clamp_union"/> 
+  </volume>

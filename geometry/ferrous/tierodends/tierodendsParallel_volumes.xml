@@ -1,0 +1,6 @@
+  <volume name="tierodendsParallel_logic">
+    <materialref ref="G4_Galactic"/>
+    <solidref ref="tierodends_union"/>
+    <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+    <auxiliary auxtype="DetNo" auxvalue="9060"/>
+  </volume>
