@@ -1,14 +1,15 @@
 #!/bin/bash
 
-CONFIG="remoll-ferrous-2022-05-30-new-rebar";
-NUMSIMS=1600;
+CONFIG="remoll-ferrous-2022-06-03-test";
+NUMSIMS=3;
 #DETNUMA=(9010 9020 9030 9060 9099 9100 9101 9102 9103 9104 9105 9106 9107 9108) #TODO: WILL EVENTUALLY WANT TO READ FROM FERROUS DET.LIST
-#DETNUMA=(9110 9115)
-DETNUMA=(9110 9111 9112 9113 9120 9121 9130 9131)
+#DETNUMA=(9110 9111 9112 9113 9120 9121 9130 9131) #REBAR NEW
+#DETNUMA=(9201 9202 9203 9204 9205 9206 9207 9208)
+DETNUMA=(28)
 RANDOMN=1234567;         #DO WE WANT TO RANDOMIZE THIS???
 SEQNUMB=1;               #FIXME: IS THIS USED???
-NEVENTS=125000;
-SECSIMN=500000;
+NEVENTS=100;
+SECSIMN=500;
 
 MYUSER="ericking@jlab.org"; #IF WANT TO SUBMIT VIA XML THEN NEED THIS
 SRCDIR="/work/halla/moller12gev/ericking/remoll4/remoll";
@@ -148,22 +149,22 @@ for I in ${!DETNUMA[@]}; do
   echo "/remoll/SD/detect lowenergyneutral 28"                                       >> ${FILE};
   echo "/remoll/SD/detect secondaries      28"                                       >> ${FILE};
   echo "/remoll/SD/detect boundaryhits     28"                                       >> ${FILE};
-  echo "/remoll/SD/enable                  29"                                       >> ${FILE};
-  echo "/remoll/SD/detect lowenergyneutral 29"                                       >> ${FILE};
-  echo "/remoll/SD/detect secondaries      29"                                       >> ${FILE};
-  echo "/remoll/SD/detect boundaryhits     29"                                       >> ${FILE};
-  echo "/remoll/SD/enable                  30"                                       >> ${FILE};
-  echo "/remoll/SD/detect lowenergyneutral 30"                                       >> ${FILE};
-  echo "/remoll/SD/detect secondaries      30"                                       >> ${FILE};
-  echo "/remoll/SD/detect boundaryhits     30"                                       >> ${FILE};
-  echo "/remoll/SD/enable                  35"                                       >> ${FILE};
-  echo "/remoll/SD/detect lowenergyneutral 35"                                       >> ${FILE};
-  echo "/remoll/SD/detect secondaries      35"                                       >> ${FILE};
-  echo "/remoll/SD/detect boundaryhits     35"                                       >> ${FILE};
-  echo "/remoll/SD/enable                  1007"                                     >> ${FILE};
-  echo "/remoll/SD/detect lowenergyneutral 1007"                                     >> ${FILE};
-  echo "/remoll/SD/detect secondaries      1007"                                     >> ${FILE};
-  echo "/remoll/SD/detect boundaryhits     1007"                                     >> ${FILE};
+#  echo "/remoll/SD/enable                  29"                                       >> ${FILE};
+#  echo "/remoll/SD/detect lowenergyneutral 29"                                       >> ${FILE};
+#  echo "/remoll/SD/detect secondaries      29"                                       >> ${FILE};
+#  echo "/remoll/SD/detect boundaryhits     29"                                       >> ${FILE};
+#  echo "/remoll/SD/enable                  30"                                       >> ${FILE};
+#  echo "/remoll/SD/detect lowenergyneutral 30"                                       >> ${FILE};
+#  echo "/remoll/SD/detect secondaries      30"                                       >> ${FILE};
+#  echo "/remoll/SD/detect boundaryhits     30"                                       >> ${FILE};
+#  echo "/remoll/SD/enable                  35"                                       >> ${FILE};
+#  echo "/remoll/SD/detect lowenergyneutral 35"                                       >> ${FILE};
+#  echo "/remoll/SD/detect secondaries      35"                                       >> ${FILE};
+#  echo "/remoll/SD/detect boundaryhits     35"                                       >> ${FILE};
+#  echo "/remoll/SD/enable                  1007"                                     >> ${FILE};
+#  echo "/remoll/SD/detect lowenergyneutral 1007"                                     >> ${FILE};
+#  echo "/remoll/SD/detect secondaries      1007"                                     >> ${FILE};
+#  echo "/remoll/SD/detect boundaryhits     1007"                                     >> ${FILE};
   echo " "                                                                           >> ${FILE};
   echo "## External Generator"                                                       >> ${FILE};
   echo "/remoll/evgen/set                  external"                                 >> ${FILE};
@@ -182,6 +183,21 @@ done;
 # LET'S START DOING THINGS -- MOVE TO THE VOLATILE DIRECTORY
 ############################################################################################
 cd   ${SOUTDIR};
+# make directories
+PRIMMACROS="z_primaryMacros";
+SCNDMACROS="z_secondaryMacros";
+PRIMROOTFILES="z_primaryRootFiles";
+SCNDROOTFILES="z_secondaryRootFiles";
+SKIMROOTFILES="z_skimmedRootFiles";
+SLURMOUTPUTFL="z_slurmOutput";
+mkdir $PRIMMACROS;
+mkdir $SCNDMACROS;
+mkdir $PRIMROOTFILES;
+mkdir $SCNDROOTFILES;
+mkdir $SKIMROOTFILES;
+mkdir $SLURMOUTPUTFL;
+
+# unpack targball
 tar -xzf default.tar.gz
 wait;
 
@@ -189,8 +205,12 @@ wait;
 sbatch --wait slurm_primary.sh;
 wait;
 
+#Cleanup -- Move primary simulation rootfiles to their own directory
+mv remollout_*.root ${PRIMROOTFILES};
+mv remoll_*.mac ${PRIMMACROS};
+
 #Extract list of root files returned
-find ${SOUTDIR}/remollout_*.root -maxdepth 1 -type f | tee ${SOUTDIR}/rootfiles.list;
+find ${SOUTDIR}/${PRIMROOTFILES}/remollout_*.root -maxdepth 1 -type f | tee ${SOUTDIR}/rootfiles.list;
 
 #Skim the root files for the detectors; this creates a bunch of root files
 #SkimTreeMulti outputs a text file with stats called ferrous_skimTree_results.txt with total hits as last entry
@@ -249,25 +269,20 @@ sbatch --wait slurm_secondary.sh;
 wait;
 
 ################## The remaining task will be analyzing the secondary outputs with the ferrous_analysis.C script.
-root -b -q run_ferrous_analysis.C+'('${TPRIEVT}',"'${DETLIST}','${PRIMEVT}'")';
+root -b -q run_ferrous_analysis.C+'('${TPRIEVT}',"'${DETLIST}'","'${PRIMEVT}'")';
 
 ############################################################################################
 # LET'S CLEAN EVERYTHING UP
 ############################################################################################
-mkdir primaryMacros;
-mkdir secondaryMacros;
-mkdir primaryRootFiles;
-mkdir secondaryRootFiles;
-mkdir skimmedRootFiles
-mkdir slurmOutputFiles;
-mkdir slurmShellScripts;
 
 ## REMOVE AFTER TESTING
-mv remoll_*.mac    primaryMacros;
-mv ferrous_*.mac   secondaryMacros;
-#mv remollout_*.root   primaryRootFiles;
-#mv o_ferrous*.root    secondaryRootFiles;
-#mv o_remollSkim*.root skimmedRootFiles;
-mv *err            slurmOutputFiles;
-mv *out            slurmOutputFiles;
-mv slurm_*.sh      slurmShellScripts;
+
+
+mv ferrous_*.mac      secondaryMacros;
+mv o_ferrous*.root    secondaryRootFiles;
+mv o_remollSkim*.root skimmedRootFiles;
+mv {*out,*err}        ${SLURMOUTPUTFL};
+
+rm *.d
+rm *.so
+rm *.pcm
