@@ -1,4 +1,5 @@
 #include "G4Tubs.hh"
+#include "G4Box.hh"
 #include "G4VPhysicalVolume.hh"
 #include "G4LogicalVolume.hh"
 #include "G4VSolid.hh"
@@ -135,13 +136,15 @@ void remollBeamTarget::UpdateInfo()
         G4Material* material = volume->GetMaterial();
         G4VSolid* solid = volume->GetSolid();
         G4Tubs* tubs = dynamic_cast<G4Tubs*>(solid);
+        G4Box* box = dynamic_cast<G4Box*>(solid);
 
         // Assume everything is non-nested tubes
-	if( !tubs ){
-	    G4cerr << "ERROR:  " << __PRETTY_FUNCTION__ << " line " << __LINE__ <<
-		":  Target volume not made of G4Tubs" << G4endl; 
-	    exit(1);
-	}
+	//if( !tubs ){
+	//if( (tubs==nullptr) && (box==nullptr) ){
+	//    G4cerr << "ERROR:  " << __PRETTY_FUNCTION__ << " line " << __LINE__ <<
+	//	":  Target volume not made of G4Tubs" << G4endl; 
+	//    exit(1);
+	//}
 
 	if( (*it)->GetLogicalVolume()->GetName() == fActiveTargetVolume ){
 

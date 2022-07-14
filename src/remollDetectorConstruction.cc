@@ -221,6 +221,12 @@ remollDetectorConstruction::remollDetectorConstruction(const G4String& name, con
       "volume",
       &remollDetectorConstruction::EnableKryptoniteVolume,
       "Treat volume as kryptonite");
+
+  // New units -- Added by Eric
+  new G4UnitDefinition("inch","in","Length",25.4*CLHEP::millimeter);
+
+
+
 }
 
 void remollDetectorConstruction::EnableKryptonite()

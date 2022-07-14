@@ -10,9 +10,9 @@ NEVENTS=500000;
 SECSIMN=100000;
 
 MYUSER="ericking@jlab.org"; #IF WANT TO SUBMIT VIA XML THEN NEED THIS
-SRCDIR="/work/halla/moller12gev/ericking/remoll3/remoll";
+SRCDIR="/work/halla/moller12gev/ericking/remoll5/remoll";
 OUTDIR="/volatile/halla/moller12gev/ericking/${CONFIG}";
-SKIMFL="/w/halla-scshelf2102/moller12gev/ericking/remoll3/remoll/rootfiles/primaryskims/skimTreeMulti.C"
+SKIMFL="/w/halla-scshelf2102/moller12gev/ericking/remoll5/remoll/rootfiles/primaryskims/skimTreeMulti.C"
 #SRCDIR="/home/tup89084/Remoll/EricRemoll/remoll";
 #OUTDIR="./OUTPUT";
 

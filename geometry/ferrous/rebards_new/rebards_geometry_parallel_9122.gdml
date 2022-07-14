@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY rebardsParallel_matrix SYSTEM "rebards_matrix.xml">
+<!ENTITY rebardsSolids SYSTEM "rebards_solids.xml">
+<!ENTITY rebardsStatic SYSTEM "rebards_static.xml">
+]>
+
+<gdml 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+  &rebardsStatic;
+</define>
+
+<materials>
+</materials>
+
+<solids>
+  &rebardsSolids;
+</solids>
+
+<structure>
+    <volume name="rebards_parallel_9122_logic">
+       <materialref ref="G4_Galactic"/>
+       <solidref ref="dsBarite_rebar_solid_1"/>
+       <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+       <auxiliary auxtype="DetNo" auxvalue="9122"/>
+    </volume>
+</structure>
+
+<setup name="rebards_parallel_9122_setup" version="1.0">
+  <world ref="rebards_parallel_9122_logic"/>
+</setup>
+
+
+</gdml>
+
+
+
+
+
+

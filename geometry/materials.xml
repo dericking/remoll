@@ -228,7 +228,7 @@
   </element>
 
 
-<!--add bellows custom material less dense G4_STAINLESS-STEEL like example here, add inconel 625 -->
+<!--add bellows custom material less dense G4_STAINLESS-STEEL like example here -->
   <material name="SSbellows" state="solid">
     <D value="0.896" unit="g/cm3"/>
     <fraction n="1.0" ref="G4_STAINLESS-STEEL"/>
@@ -250,18 +250,6 @@
       <D unit="g/cm3" value="19.3"/>
       <atom unit="g/mole" value="183.85"/>
    </material>
-
-<!--added for ferrous materials inconel -->
-   <material Z="42" name="Molybdenum" state="solid">
-      <D unit="g/cm3" value="10.28"/>
-      <atom unit="g/mole" value="95.95"/>
-   </material>
-
-   <material Z="24" name="Chromium" state="solid">
-      <D unit="g/cm3" value="7.19"/>
-      <atom unit="g/mole" value="51.996"/>
-   </material>
-
 
    <material Z="13" name="Aluminum" state="solid">
       <D unit="g/cm3" value="2.7"/>
@@ -351,17 +339,6 @@
     <fraction n="0.014" ref="Fe"/>
   </material>
 
-<!--ferrous make rebar iron/concrete mixture to approximate 6x6" grid with 1" dia iron rebar in concrete 16% iron, 84% concrete. Dconcrete = 2.3g/cm3 DFe = 7.874g/cm3, D=0.16*7.874+0.84*2.3-->
-  <material name="rebarConcrete" state="solid">
-  <!--  <D value="3.97" unit="g/cm3"/>
-    <fraction n="0.70" ref="Concrete"/>
-    <fraction n="0.30" ref="Fe"/>-->
-    <D value="3.19" unit="g/cm3"/>
-    <fraction n="0.16" ref="Concrete"/>
-    <fraction n="0.84" ref="Fe"/>
-  </material>
-
-
   <!--
      Based on Material:  HD CONCRETE   using "Neutron Shielding Properties of a New High-Density Concrete A. Lorente et. al." density:  3.9 g/cm3   
     -->
@@ -430,7 +407,6 @@
   </element>
 
 
-
   <material Z="29" name="Copper" formula="Cu" state="solid">
     <D unit="g/cm3" value="8.96"/>
     <atom unit="g/mole" value="63.54"/>
@@ -460,14 +436,6 @@
     <fraction n="0.15" ref="Copper"/>
   </material>
 
-<!--Inconel defined for bellows and ferrous materials -->
-  <material name="Inconel625" state="solid">
-    <D value="8.442" unit="g/cm3"/>
-    <fraction n="0.7" ref="Nickel"/>
-    <fraction n="0.2" ref="Chromium"/>
-    <fraction n="0.1" ref="Molybdenum"/>
-  </material>
-
   <!-- Defined for the next material "Water-CW" for Col1 water channel -->
   <material name="Water" state="liquid">
     <D value="1.0" unit="g/cm3"/>
@@ -478,9 +446,9 @@
   <!--The following material is defined to aviod complicated coll1 design
   The matrial is defined by 44% of H2O and 56% of CW95 -->
   <material name="Water_CW" state="solid">
-    <D value="5.65" unit="g/cm3"/>
+    <D value="5.96" unit="g/cm3"/>
     <fraction n="0.69" ref="Water"/>
-    <fraction n="0.31" ref="CW85"/>
+    <fraction n="0.31" ref="CW90"/>
   </material>
   
   <material name="Tyvek" state="solid">
@@ -601,10 +569,25 @@
     <fraction n="0.56" ref="G4_CALCIUM_OXIDE"/>
     <fraction n="0.44" ref="G4_CARBON_DIOXIDE"/>
   </material>
-
-  <material name="Brass" state="solid">
-    <D value ="8.52" unit="g/cm3"/>
-    <fraction n="1.0" ref="G4_BRASS"/>
+  
+  <!-- from hybridToroid.gdml -->
+  <material name="G4_CW95" state="solid">
+    <D value="18.0" unit="g/cm3"/>
+    <fraction n="0.9500" ref="G4_W"/>
+    <fraction n="0.015" ref="G4_Cu"/>
+    <fraction n="0.035" ref="G4_Ni"/>
+  </material>
+  <material name="Epoxy" state="solid">
+    <D value="1.3" unit="g/cm3"/>
+    <fraction n="0.5354" ref="C"/>
+    <fraction n="0.1318" ref="H"/>
+    <fraction n="0.3328" ref="O"/>
+  </material>
+  <material name="G10" state="solid">
+    <D value="1.3" unit="g/cm3"/>
+    <fraction n="0.773" ref="G4_SILICON_DIOXIDE"/>
+    <fraction n="0.147" ref="Epoxy"/>
+    <fraction n="0.080" ref="G4_Cl"/>
   </material>
 
 </materials>

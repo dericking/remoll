@@ -1,11 +1,11 @@
 <!--
 
-  Master positions file
+  Master positions file 
 
   This file contains the positions of all included detector systems.
 
 -->
-
+     
 <!-- Hall center position (MOLLER target is upstream of pivot) -->
 <position name="hallCenter" x="0.0" y="0.0" z="0.0" unit="mm"/>
 
@@ -16,7 +16,10 @@
 <position name="upstreamCenter" x="0.0" y="0.0" z="2000.00" unit="mm"/>
 
 <!-- Hybrid spectrometer position -->
-<position name="hybridCenter" x="0.0" y="0.0" z="11016.865-8.73/2+75.+200" unit="mm"/>
+<position name="hybridCenter" x="0.0" y="0.0" z="11016.865-8.73/2+150/2+400/2" unit="mm"/>
+
+<!-- PS Bunker position -->
+<position name="magnetPSbunker_pos" x="4123.944+5871.21" y="-948.86+75" z="10447.957"/>
 
 <!-- Virtual planes in the parallel world -->
 <position name="trackingDetectorVirtualPlaneFront1_pos" z="19.5029" unit="m"/>
@@ -29,16 +32,15 @@
 
 <!--position of right electronics shield hut -->
 <position name="righthut_pos" x="-5000" y="-3000.+3600./2+20" z="22000"/> <!--Beam height from hall floor is 3m; 3600mm is det hut height.-->
-
+	
 <!--position of left electronics shield hut -->
 <position name="lefthut_pos" x="5000" y="-3000.+3600./2+20" z="22000"/> <!--Beam height from hall floor is 3m; 3600mm is det hut height.-->
-
+	
 <!-- Virtual planes in the parallel world -->
 <position name="mainDetectorVirtualPlane_pos" z="22200.00" unit="mm"/>
 
 <!-- Z position of center of the two arrays of showermax detectors -->
-<position name="showerMaxDetectorFaceUS" z="24000.00" unit="mm"/>
-<position name="showerMaxDetectorCenter" z="23919.4" unit="mm"/>
+<position name="showerMaxDetectorCenter" z="23920.00" unit="mm"/>
 
 <!-- Z position of the US and DS face of the concrete and lead donut (400 mm thick) -->
 <position name="donutConcreteLeadFaceUS" z="24450.00" unit="mm"/>
@@ -64,7 +66,12 @@
 <position name="n2atmoVirtualPlane_pos" z="31525.00" unit="mm"/>
 
 <!-- Sieve position -->
-<position name="sieveActualCenter_pos" z="-1375.00" x="200" unit="mm"/>
-<position name="sieveVirtualPlane_pos" z="-1375.00" unit="mm"/>
+<position name="sieveActualCenter_pos" z="-1895.00" x="200" unit="mm"/>
+<position name="sieveVirtualPlane_pos" z="-1895.00" unit="mm"/>
 
+<!-- Showermax virtual plane detector position -->
+<position name="showerMaxVirtualPlane_pos" z="23920.00-90.00" unit="mm"/>
+
+<!-- Ferrous additions -->
 <position name="pivot_pos"      x="0.0" y="-1700.0" z="1162.5"    unit="mm"/> <!-- Upstream at z 2000 -->
+

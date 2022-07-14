@@ -8,6 +8,7 @@
 #include <G4SDManager.hh>
 #include <G4GenericMessenger.hh>
 #include <G4VisAttributes.hh>
+#include "G4UnitsTable.hh"
 #include <G4Colour.hh>
 
 #include "remollGenericDetector.hh"
@@ -30,6 +31,9 @@ remollParallelConstruction::remollParallelConstruction(const G4String& name, con
 
   // Create GDML parser
   fGDMLParser = new G4GDMLParser();
+
+  // New units -- Added by Eric
+  new G4UnitDefinition("inch","in","Length",25.4*CLHEP::millimeter);
 
   // Create parallel geometry messenger
   fParallelMessenger = new G4GenericMessenger(this,

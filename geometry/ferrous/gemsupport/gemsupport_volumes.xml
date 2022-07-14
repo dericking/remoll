@@ -1,4 +1,0 @@
-  <volume name="gemsupport_logic">
-    <materialref ref="G4_STAINLESS-STEEL"/>
-    <solidref ref="gemsupport_multiUnion"/> 
-  </volume>

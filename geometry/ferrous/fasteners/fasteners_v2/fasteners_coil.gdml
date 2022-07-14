@@ -8,6 +8,7 @@
 <!ENTITY fasteners_solids SYSTEM "fasteners_solids.xml">
 <!ENTITY fasteners_volumes SYSTEM "fasteners_volumes.xml">
 <!ENTITY materials SYSTEM "../../../materials.xml">
+<!ENTITY positions_ferrous SYSTEM "../../../positions_ferrous.xml">
 ]>
 
 <gdml 
@@ -15,6 +16,7 @@
       xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
 <define>
+ &positions_ferrous;
  &matrices;
  &fasteners_matrix;
  &fasteners_positions;
