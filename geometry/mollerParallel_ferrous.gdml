@@ -315,6 +315,11 @@
       <positionref ref="ferrous_pos_gemsupport_8"/>
     </physvol>
 
+    <physvol name="DetectorSupport_parallel_9211">
+      <file name="ferrous/detectorsupport/detectorsupport_geometry_full_parallel_9211.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
 <!-- INACTIVE FERROUS COPY AS NEEDED
 
     <physvol name="bearings_PV">

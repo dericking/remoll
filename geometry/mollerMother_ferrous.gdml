@@ -339,6 +339,13 @@
 	<position name="GemRotatorSupport8_pos" unit="mm" x="2*(248.33*2+248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2+4*248.33"/>
       </physvol>
       
+      <!-- DETECTOR SUPPORTS FERRROS SS, added by Eric -->
+      <physvol>
+        <file name="ferrous/detectorsupport/detectorsupport_geometry_full.gdml"/>
+        <positionref ref="hallCenter"/>
+      </physvol>
+
+
       <!-- Main Detectors -->
       <!--
 	  <physvol>
