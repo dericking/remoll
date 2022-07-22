@@ -21,9 +21,8 @@
     <constant name="support_rod_side_len" value="76.40" />
     <constant name="support_rod_back_len" value="71.82" />
 
-    <rotation name="support_side_rotation" unit="deg" x="23.2" />
+    <rotation name="support_side_rotation" unit="deg" x="-23.2" />
     <rotation name="support_back_rotation" unit="deg" z="17.8" y="90" />
-    <rotation name="support_back_rotation_old" unit="deg" y="90.0" />
     <rotation name="support_vert_rotation" unit="deg" x="90.0" />
   </define>
 
