@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<!--9211,9212,9213,9214,9215,9216-->
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <!--placements derived from barite concrete placement in Conf8 upstream file and upstreamCenter value in positions.xml file -->
+    <position name="concreteNearBeamlinePos" unit="mm" x="0" y="0" z="4005-250/2+86/2+1+2000" />
+    <!-- Values for the inner dims and length taken from Conf8.gdml in upstream -->
+    <constant name="boxThickness" value="100" />
+    <constant name="boxInner" value="540*2+1-100" />
+    <constant name="boxLength" value="500-86" />
+  </define>
+
+  <solids>
+  
+    <box lunit="mm" name="boxConcreteNearBeamlineOuter" x="boxInner+boxThickness" y="boxInner+boxThickness" z="boxLength"/>
+    <box lunit="mm" name="boxConcreteNearBeamlineInner" x="boxInner" y="boxInner" z="boxLength+1"/>
+  
+    <subtraction name="concreteNearBealineDownstream">
+      <first ref="boxConcreteNearBeamlineOuter"/>
+      <second ref="boxConcreteNearBeamlineInner"/>
+      <position name="trivialPositioning" lunit="mm" x="0" y="0" z="0"/>
+    </subtraction>
+
+  </solids>
+
+  <structure>
+    <volume name="concreteNearBealineDownstream_logic" >
+      <materialref ref="G4_Galactic" />
+      <solidref ref="concreteNearBealineDownstream" />
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="9141"/>
+    </volume>
+  </structure>
+
+  <setup name="concreteNearBeamlinePV" version="1.0" >
+    <world ref="concreteNearBealineDownstream_logic" />
+  </setup>
+
+</gdml>
