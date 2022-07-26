@@ -1,0 +1,8 @@
+<tube name="tubeRingAll" rmin="ring1inner" rmax="ring6outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubeRing1"   rmin="ring1inner" rmax="ring1outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubeRing2"   rmin="ring2inner" rmax="ring2outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubeRing3"   rmin="ring3inner" rmax="ring3outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubeRing4"   rmin="ring4inner" rmax="ring4outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubeRing5"   rmin="ring5inner" rmax="ring5outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubeRing6"   rmin="ring6inner" rmax="ring6outer" z="ringThickness" deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>
+<tube name="tubePMTs"    rmin="pmtInnerR"  rmax="pmtOuterR"  z="pmtDeltaZ"     deltaphi="360" startphi="0" aunit="deg" lunit="mm"/>

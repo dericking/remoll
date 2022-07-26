@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials    SYSTEM "../../materials.xml">
+<!ENTITY detConstants SYSTEM "detectorRingsAndPMTs_constants.xml">
+<!ENTITY detSolids    SYSTEM "detectorRingsAndPMTs_solids.xml">
+]>
+
+<!-- Single detector ring 1 through 6 combined at ring 5 position  -->
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    &detConstants;
+  </define>
+
+  <solids>
+    &detSolids;
+  </solids>
+
+  <structure>
+    <volume name="RingAllDet28_logic" >
+      <materialref ref="G4_Galactic" />
+      <solidref ref="tubeRingAll" />
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="9928"/>
+    </volume>
+  </structure>
+
+  <setup name="ringAllDet28" version="1.0" >
+    <world ref="RingAllDet28_logic" />
+  </setup>
+
+</gdml>

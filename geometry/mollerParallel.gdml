@@ -3,12 +3,14 @@
 <!DOCTYPE gdml [
 <!ENTITY world SYSTEM "solids/world.xml">
 <!ENTITY positions SYSTEM "positions.xml">
+<!ENTITY positions_ferrous SYSTEM "positions_ferrous.xml">
 ]>
 
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
 <define>
   &positions;
+  &positions_ferrous;
 </define>
 
 <materials>
@@ -1044,10 +1046,51 @@
     <solidref ref="parallel_solid"/>
 
     <!-- Main detector plane -->
-    <physvol name="mainDetectorVirtualPlane_phys">
+    <!-- Removed in preference of ferrous detector planes -->
+    <!--<physvol name="mainDetectorVirtualPlane_phys">
       <volumeref ref="mainDetectorVirtualPlane_log"/>
       <positionref ref="mainDetectorVirtualPlane_pos"/>
+    </physvol>-->
+    
+    <physvol name="ferrous_ringAll_9928">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_RingAll_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring5pos"/>
     </physvol>
+    
+    <physvol name="ferrous_ring1_9921">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring1_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring1pos"/>
+    </physvol>
+    
+    <physvol name="ferrous_ring2_9922">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring2_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring2pos"/>
+    </physvol>
+
+    <physvol name="ferrous_ring3_9923">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring3_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring3pos"/>
+    </physvol>
+    
+    <physvol name="ferrous_ring4_9924">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring4_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring4pos"/>
+    </physvol>
+    
+    <physvol name="ferrous_ring5_9925">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring5_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring5pos"/>
+    </physvol>
+
+    <physvol name="ferrous_ring6_9926">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring6_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring6pos"/>
+    </physvol>
+    
+    <physvol name="ferrous_pmts_9911">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_PMT_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_pmtPos"/>
+    </physvol>    
 
     <auxiliary auxtype="Alpha" auxvalue="0.1"/>
   </volume>

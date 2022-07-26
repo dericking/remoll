@@ -14,6 +14,9 @@
 <position name="rebards_pos"    x="0.0" y="-420 + 127.65/2 + 18 + 12.43/2" z="4005-250/2- 2000 +2000" unit="mm"/>
 <position name="detectorsupport_pos" x="0.0" y="0" z="23551.5" unit="mm"/>
 
+<!-- placements derived from barite concrete placement in Conf8 upstream file and upstreamCenter value in positions.xml -->
+<position name="concreteNearBeamlinePos" unit="mm" x="0" y="0" z="4005-250/2+86/2+1" />
+
 <constant name="ferrous_watercooledleads_ds_tm1s_z" value="5246.6-hybridCenter"/>
 <constant name="ferrous_watercooledleads_ds_tm1r_z" value="5592.9-hybridCenter"/>
 <constant name="ferrous_watercooledleads_ds_tm2s_z" value="6275.0-hybridCenter"/>
@@ -81,3 +84,12 @@
 <position name="ferrous_pos_gemsupport_6" unit="mm" x="2*(-248.33*2-248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2+4*248.33"/>
 <position name="ferrous_pos_gemsupport_7" unit="mm" x="-(-248.33*2-248.33/2)" y="-2980+1415.481/2" z="19132.69+400/2+1000/2+4*248.33"/>
 <position name="ferrous_pos_gemsupport_8" unit="mm" x="2*(248.33*2+248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2+4*248.33"/>
+
+<position name="ferrous_ring1pos" unit="mm" x="0" y="0" z="23299" />
+<position name="ferrous_ring2pos" unit="mm" x="0" y="0" z="22977" />
+<position name="ferrous_ring3pos" unit="mm" x="0" y="0" z="22728" />
+<position name="ferrous_ring4pos" unit="mm" x="0" y="0" z="22496" />
+<position name="ferrous_ring5pos" unit="mm" x="0" y="0" z="22186" />
+<position name="ferrous_ring6pos" unit="mm" x="0" y="0" z="21912" />
+<position name="ferrous_pmtPos"   unit="mm" x="0" y="0" z="22586" />
+

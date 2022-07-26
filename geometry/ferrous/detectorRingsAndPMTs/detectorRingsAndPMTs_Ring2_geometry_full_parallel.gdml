@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials    SYSTEM "../../materials.xml">
+<!ENTITY detConstants SYSTEM "detectorRingsAndPMTs_constants.xml">
+<!ENTITY detSolids    SYSTEM "detectorRingsAndPMTs_solids.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    &detConstants;
+  </define>
+
+  <solids>
+    &detSolids;
+  </solids>
+
+  <structure>
+    <volume name="Ring2_logic" >
+      <materialref ref="G4_Galactic" />
+      <solidref ref="tubeRing2" />
+      <auxiliary auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary auxtype="DetNo" auxvalue="9922"/>
+    </volume>
+  </structure>
+
+  <setup name="ring2" version="1.0" >
+    <world ref="Ring2_logic" />
+  </setup>
+
+</gdml>

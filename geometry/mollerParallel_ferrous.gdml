@@ -320,6 +320,11 @@
       <positionref ref="ferrous_pos"/>
     </physvol>
 
+    <physvol name="upstreamConcreteNearBeamline_9141">
+      <file name="ferrous/concreteNearBeamline/upstreamConcreteNearBeamline_geometry_full_parallel.gdml"/>
+      <positionref ref="concreteNearBeamlinePos"/>
+    </physvol>
+
 <!-- INACTIVE FERROUS COPY AS NEEDED
 
     <physvol name="bearings_PV">
@@ -329,11 +334,6 @@
 
     <physvol name="bellows_PV">
       <file name="ferrous/bellows/bellows.gdml"/>
-     <positionref ref="ferrous_pos"/>
-    </physvol>
-
-    <physvol name="gemsupport_PV">
-      <file name="ferrous/gemsupport/gemsupport.gdml"/>
      <positionref ref="ferrous_pos"/>
     </physvol>
 

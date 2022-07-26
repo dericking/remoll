@@ -1,0 +1,25 @@
+<constant name="ring1inner" value="715"  />
+<constant name="ring1outer" value="738"  />
+<constant name="ring2inner" value="735"  />
+<constant name="ring2outer" value="785"  />
+<constant name="ring3inner" value="783"  />
+<constant name="ring3outer" value="832"  />
+<constant name="ring4inner" value="831"  />
+<constant name="ring4outer" value="939"  />
+<constant name="ring5inner" value="922"  />
+<constant name="ring5outer" value="1060" />
+<constant name="ring6inner" value="1060" />
+<constant name="ring6outer" value="1150" />
+
+<constant name="ring1z" value="23299"/>
+<constant name="ring2z" value="22977"/>
+<constant name="ring3z" value="22728"/>
+<constant name="ring4z" value="22496"/>
+<constant name="ring5z" value="22186"/>
+<constant name="ring6z" value="21912"/>
+
+<constant name="ringThickness" value="1" />
+
+<constant name="pmtDeltaZ"  value="1344" />
+<constant name="pmtInnerR"  value="1416" />
+<constant name="pmtOuterR"  value="1644" />
