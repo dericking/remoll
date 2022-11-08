@@ -6,7 +6,7 @@
 9060,"Tierod Ends (this will break into 9060-60 (inner) and 9070-79 (outer))""
 
 9099,"Drift Pipe Mount"
-9100,"Drift Pipe Ion Pump Pipe"
+9100,"Drift Pipe Vacuum Pipe"
 
 9101,"Water-cooled Leads DS Mag T1 Supply"
 9102,"Water-cooled Leads DS Mag T1 Return"
@@ -40,6 +40,8 @@
 9206,"Gem Support US Outer Right"
 9207,"Gem Support US Inner Left"
 9208,"Gem Support US Outer Left"
+
+9209,"Jib Crane"
 
 9211,"Det Support US Center"
 9212,"Det Support Side Left"

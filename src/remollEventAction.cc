@@ -52,6 +52,9 @@ void remollEventAction::EndOfEventAction(const G4Event* aEvent)
   // Traverse all hit collections, sort by output type
   G4HCofThisEvent *HCE = aEvent->GetHCofThisEvent();
   auto n = HCE->GetCapacity();
+
+  Int_t nn = 0; //number of collections with a hit registered for this event
+
   for (decltype(n) hcidx = 0; hcidx < n; hcidx++) {
     G4VHitsCollection* thiscol = HCE->GetHC(hcidx);
     if (thiscol){ // This is NULL if nothing is stored
@@ -59,9 +62,11 @@ void remollEventAction::EndOfEventAction(const G4Event* aEvent)
       // Dynamic cast to test types, process however see fit and feed to IO
 
       ////  Generic Detector Hits ///////////////////////////////////
-      if (remollGenericDetectorHitCollection *thiscast =
-          dynamic_cast<remollGenericDetectorHitCollection*>(thiscol)) {
+      if (remollGenericDetectorHitCollection *thiscast = dynamic_cast<remollGenericDetectorHitCollection*>(thiscol)) {
+
         for (unsigned int hidx = 0; hidx < thiscast->GetSize(); hidx++) {
+
+          nn++; //this collection had a hit recorded so increment this.
 
 	  remollGenericDetectorHit *currentHit =
 	    (remollGenericDetectorHit *) thiscast->GetHit(hidx);
@@ -99,6 +104,7 @@ void remollEventAction::EndOfEventAction(const G4Event* aEvent)
   }
 
   // Fill tree and reset buffers
-  io->FillTree();
+  if(nn > 0) io->FillTree();
+
   io->Flush();
 }

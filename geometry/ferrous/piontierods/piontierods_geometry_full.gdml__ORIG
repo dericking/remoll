@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<!--9211,9212,9213,9214,9215,9216-->
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position name="piontierod_front_center" unit="mm" x="0.0"     y="-2680.0" z="21600" />
+    <position name="piontierod_middle_left"  unit="mm" x="1175.0"  y="-2572.5" z="22460" />
+    <position name="piontierod_middle_right" unit="mm" x="-1175.0" y="-2572.5" z="22460" />
+    <position name="piontierod_back_left"    unit="mm" x="1403.0"  y="-2655.0" z="23420" />
+    <position name="piontierod_back_center"  unit="mm" x="-256.5"  y="-2655.0" z="23420" />
+    <position name="piontierod_back_right"   unit="mm" x="-1406.0" y="-2655.0" z="23420" />
+
+    <constant name="piontierod_rod_diameter" value="1.505" />
+    <constant name="piontierod_rod_vert_len" value="28.13" />
+    <constant name="piontierod_rod_side_len" value="76.40" />
+    <constant name="piontierod_rod_back_len" value="71.82" />
+
+    <rotation name="piontierod_side_rotation" unit="deg" x="-23.2" />
+    <rotation name="piontierod_back_rotation" unit="deg" z="17.8" y="90" />
+    <rotation name="piontierod_vert_rotation" unit="deg" x="90.0" />
+  </define>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="in" name="piontierod_vert_solid" rmax="piontierod_rod_diameter" rmin="0.0" startphi="0" z="piontierod_rod_vert_len"/>
+    <tube aunit="deg" deltaphi="360" lunit="in" name="piontierod_side_solid" rmax="piontierod_rod_diameter" rmin="0.0" startphi="0" z="piontierod_rod_side_len"/>
+    <tube aunit="deg" deltaphi="360" lunit="in" name="piontierod_back_solid" rmax="piontierod_rod_diameter" rmin="0.0" startphi="0" z="piontierod_rod_back_len"/>
+
+    <multiUnion name="detector_piontierod" >
+      <multiUnionNode name="detectorSupport-1">
+        <solid ref="piontierod_vert_solid" />
+        <positionref ref="piontierod_front_center" />
+        <rotationref ref="piontierod_vert_rotation"/>
+      </multiUnionNode>
+      <multiUnionNode name="detectorSupport-2">
+        <solid ref="piontierod_side_solid" />
+        <positionref ref="piontierod_middle_left" />
+        <rotationref ref="piontierod_side_rotation"/>
+      </multiUnionNode>
+      <multiUnionNode name="detectorSupport-3">
+        <solid ref="piontierod_side_solid" />
+        <positionref ref="piontierod_middle_right" />
+        <rotationref ref="piontierod_side_rotation"/>
+      </multiUnionNode>
+      <multiUnionNode name="detectorSupport-4">
+        <solid ref="piontierod_vert_solid" />
+        <positionref ref="piontierod_back_left" />
+        <rotationref ref="piontierod_vert_rotation"/>
+      </multiUnionNode>
+      <multiUnionNode name="detectorSupport-5">
+        <solid ref="piontierod_back_solid" />
+        <positionref ref="piontierod_back_center" />
+        <rotationref ref="piontierod_back_rotation"/>
+      </multiUnionNode>
+      <multiUnionNode name="detectorSupport-6">
+        <solid ref="piontierod_vert_solid" />
+        <positionref ref="piontierod_back_right" />
+        <rotationref ref="piontierod_vert_rotation"/>
+      </multiUnionNode>
+    </multiUnion>
+  </solids>
+
+  <structure>
+    <volume name="detector_piontierod_logic" >
+      <materialref ref="G4_STAINLESS-STEEL" />
+      <solidref ref="detector_piontierod" />
+    </volume>
+  </structure>
+
+  <setup name="detectorSupport" version="1.0" >
+    <world ref="detector_piontierod_logic" />
+  </setup>
+
+</gdml>

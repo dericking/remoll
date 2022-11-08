@@ -291,12 +291,12 @@
 
   <structure>
     <!--TEMP-->
-    <!--<volume name="dsBarite_PLUG">
+    <volume name="dsBarite_PLUG">
        <materialref ref="Kryptonite"/>
        <solidref ref="dsBarite_2plug"/>
        <auxiliary auxtype="Color" auxvalue="gray"/>
        <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-    </volume>-->
+    </volume>
 
     <!--rebar volumes-->
     <volume name="rebar1_ferrous">

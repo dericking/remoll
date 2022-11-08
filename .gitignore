@@ -1,5 +1,8 @@
 images
 rootfiles
+jobs
+
+**/default.tar.gz
 
 # random seed files
 G4Master_run*.rndm

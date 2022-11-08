@@ -21,10 +21,11 @@ using namespace std;
 
 Bool_t firstPDFpage(true);
 
-void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums, string primHits)
+void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums, string primHits, Int_t gencut)
 {
   const Int_t primSimEvents = prim;
   const Int_t parallel = par;
+  const Int_t generationCut = gencut;
 
   Double_t detRmin = 500.;
   Double_t detRmax = 1300.;
@@ -44,7 +45,7 @@ void ferrous_analysis::Loop(Int_t par, Int_t prim, string DetNums, string primHi
 
   //Text output file
   std::ofstream fout;
-  fout.open("ferrous_analysis_results.txt");
+  fout.open( Form("ferrous_analysis_results_%i.txt",gencut) );
 
   //THIS WILL BE USED FOR THE ANALYSIS ON THE SERVER.  HERE I'LL JUST REFER TO ONE ABSOLUTE FILE PATH
 

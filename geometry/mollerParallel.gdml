@@ -1047,21 +1047,21 @@
 
     <!-- Main detector plane -->
     <!-- Removed in preference of ferrous detector planes -->
-    <!--<physvol name="mainDetectorVirtualPlane_phys">
+    <physvol name="mainDetectorVirtualPlane_phys">
       <volumeref ref="mainDetectorVirtualPlane_log"/>
       <positionref ref="mainDetectorVirtualPlane_pos"/>
-    </physvol>-->
-    
+    </physvol>
+
     <physvol name="ferrous_ringAll_9928">
       <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_RingAll_geometry_full_parallel.gdml"/>
       <positionref ref="ferrous_ring5pos"/>
     </physvol>
-    
+
     <physvol name="ferrous_ring1_9921">
       <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring1_geometry_full_parallel.gdml"/>
       <positionref ref="ferrous_ring1pos"/>
     </physvol>
-    
+
     <physvol name="ferrous_ring2_9922">
       <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_Ring2_geometry_full_parallel.gdml"/>
       <positionref ref="ferrous_ring2pos"/>

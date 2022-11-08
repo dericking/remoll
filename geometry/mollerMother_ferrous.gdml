@@ -287,7 +287,6 @@
       <positionref ref="trackingDetectorVirtualPlaneBack1_pos"/>
     </physvol>-->
 
-
       <!-- GEM Rotator -->
       <physvol name="GemRotatorSupport1_ph">
 	<volumeref ref="GemRotatorSupport1_log"/>
@@ -339,11 +338,47 @@
 	<position name="GemRotatorSupport8_pos" unit="mm" x="2*(248.33*2+248.33/2)" y="-2980+1787.976/2" z="19132.69+400/2+1000/2+4*248.33"/>
       </physvol>
       
+
+
+      <!-- Fasteners BRASS/BRONZE, added by Eric -->
+      <physvol name="fasteners_coil_parallel_PV">
+        <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
+        <position unit="mm" x="0" y="0" z="0"/>
+      </physvol>
+
+      <physvol name="fasteners_bracket_parallel_PV">
+        <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket.gdml"/>
+        <position unit="mm" x="0" y="0" z="0"/>
+      </physvol>
+
+      <physvol name="fasteners_clamp_parallel_PV">
+        <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp.gdml"/>
+        <position unit="mm" x="0" y="0" z="0"/>
+      </physvol>
+
+
       <!-- DETECTOR SUPPORTS FERRROS SS, added by Eric -->
       <physvol>
         <file name="ferrous/detectorsupport/detectorsupport_geometry_full.gdml"/>
         <positionref ref="hallCenter"/>
       </physvol>
+
+      <!-- PION DONUT TIE ROD ENDS SS, added by Eric -->
+      <physvol>
+        <file name="ferrous/piontierods/piontierods_geometry_full.gdml"/>
+        <positionref ref="hallCenter"/>
+      </physvol>
+
+      <!-- JIB CRANE SS, added by Eric -->
+     <physvol name="Jibcrane_parallel_steel">
+       <file name="ferrous/jibcrane/jibcrane_geometry_full.gdml"/>
+       <position name="jibcrane_position" unit="mm"  x="-5700" y="2000"  z="25400"   />
+       <rotation name="jibcrane_rotation" unit="deg" x="0.0"   y="97"   z="0" />
+     </physvol>
+
+
+
+
 
 
       <!-- Main Detectors -->
@@ -373,10 +408,6 @@
         <file name="pion/pionDetectorSystem.gdml"/>
         <positionref ref="pionDetectorSystemFaceUS"/>
       </physvol-->
-
-
-
-
 
       <auxiliary auxtype="Alpha" auxvalue="0.1"/>
     </volume>

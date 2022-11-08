@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials SYSTEM "../../materials.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <constant name="jibcrane_plate_length"  value="2083" />
+    <constant name="jibcrane_plate_depth"   value="255"  />
+    <constant name="jibcrane_plate_width"   value="102"  />
+    <constant name="jibcrane_rod_radius"    value="30"   />
+    <constant name="jibcrane_rod_length"    value="4572" />
+    <constant name="jibcrane_ibeam_length"  value="5487" />
+    <constant name="jibcrane_ibeam_thick"   value="32"   />
+    <constant name="jibcrane_hbeam_width"   value="203"  />
+    <constant name="jibcrane_vbeam_width"   value="254"  />
+
+    <!--<position name="jibcrane_position"      unit="mm"  x="3014" y="1000"  z="25000"   />-->
+    <position name="jibcrane_ibeam_top_pos" unit="mm"  x="0"    y="143"   z="0"       />
+    <position name="jibcrane_ibeam_bot_pos" unit="mm"  x="0"    y="-143"  z="0"       />
+    <position name="jibcrane_plate_pos"     unit="mm"  x="0"    y="875.0" z="-2688.0" />
+    <position name="jibcrane_rod_position"  unit="mm"  x="0"    y="1010"  z="-606"    />
+
+    <rotation name="jibcrane_assembly_rot"  unit="deg" x="0"    y="0.0"   z="0"       />
+    <rotation name="jibcrane_rod_rot"       unit="deg" z="0"    y="0.0"   x="22.468" />
+  </define>
+
+  <solids>
+    <!--Solids oriented so the jib crane is in the zdirection when extended perp to the plate-->
+    <tube aunit="deg" name="jibcrane_rod_solid"   z="jibcrane_rod_length"  rmax="jibcrane_rod_radius" rmin="0.0"      startphi="0" deltaphi="360" lunit="mm" />
+
+    <box  lunit="mm"  name="jibcrane_plate_solid" x="jibcrane_plate_depth" y="jibcrane_plate_length"  z="jibcrane_plate_width" />
+
+    <box  lunit="mm"  name="jibcrane_beamsol_top" x="jibcrane_hbeam_width" y="jibcrane_ibeam_thick"   z="jibcrane_ibeam_length" />
+    <box  lunit="mm"  name="jibcrane_beamsol_bot" x="jibcrane_hbeam_width" y="jibcrane_ibeam_thick"   z="jibcrane_ibeam_length" />
+    <box  lunit="mm"  name="jibcrane_beamsol_web" x="jibcrane_ibeam_thick" y="jibcrane_vbeam_width"   z="jibcrane_ibeam_length" />
+
+    <union name="jibcrane_ibeam_pre">
+        <first       ref="jibcrane_beamsol_web"  />
+        <second      ref="jibcrane_beamsol_top"  />
+        <positionref ref="jibcrane_ibeam_top_pos"/>
+    </union>
+    <union name="jibcrane_ibeam">
+        <first       ref="jibcrane_ibeam_pre"    />
+        <second      ref="jibcrane_beamsol_bot"  />
+        <positionref ref="jibcrane_ibeam_bot_pos"/>
+    </union>
+    <union name="jibcrane_union_plate">
+        <first       ref="jibcrane_ibeam"        />
+        <second      ref="jibcrane_plate_solid"  />
+        <positionref ref="jibcrane_plate_pos"    />
+    </union>
+    <union name="jibcrane_solid">
+        <first       ref="jibcrane_union_plate" />
+        <second      ref="jibcrane_rod_solid"   />
+        <positionref ref="jibcrane_rod_position"/>
+        <rotationref ref="jibcrane_rod_rot"     />
+    </union>
+  </solids>
+
+  <structure>
+    <volume  name="jibcrane_parallel_logic">
+      <materialref ref="G4_Galactic"                    />
+      <solidref    ref="jibcrane_solid"                 />
+      <auxiliary   auxtype="SensDet" auxvalue="planeDet"/>
+      <auxiliary   auxtype="DetNo"   auxvalue="9209"    />
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0" >
+    <world ref="jibcrane_parallel_logic" />
+  </setup>
+
+</gdml>

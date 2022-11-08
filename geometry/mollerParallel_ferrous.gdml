@@ -169,15 +169,15 @@
     <!-- ferrous materials -->
 
     <!-- fasteners -->
-    <physvol name="fasteners_coil_parallel_PV">
+    <physvol name="fasteners_coil_Parallel_9020">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_coil.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
-    <physvol name="fasteners_bracket_parallel_PV">
+    <physvol name="fasteners_bracket_Parallel_9030">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_bracket.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
-    <physvol name="fasteners_clamp_parallel_PV">
+    <physvol name="fasteners_clamp_Parallel_9010">
       <file name="ferrous/fasteners/fasteners_v2/fasteners_clamp.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
@@ -239,6 +239,8 @@
       <file name="ferrous/driftpipemount/driftpipemount_geometry_parallel.gdml"/>
       <positionref ref="ferrous_pos"/>
     </physvol>
+
+    
 
     <!-- rebar ds new -->
     <physvol name="rebards_new_parallel_9110">
@@ -320,10 +322,27 @@
       <positionref ref="ferrous_pos"/>
     </physvol>
 
+    <physvol name="Jibcrane_parallel_9209">
+      <file name="ferrous/jibcrane/jibcrane_geometry_full_parallel_9209.gdml"/>
+      <position name="jibcrane_position" unit="mm"  x="-5700" y="2000"  z="25400"   />
+      <rotation name="jibcrane_rotation" unit="deg" x="0.0"   y="97"   z="0" />
+    </physvol>
+
+    <physvol name="DetectorSupport_parallel_9221">
+      <file name="ferrous/piontierods/piontierods_geometry_full_parallel_9221.gdml"/>
+      <positionref ref="ferrous_pos"/>
+    </physvol>
+
     <physvol name="upstreamConcreteNearBeamline_9141">
       <file name="ferrous/concreteNearBeamline/upstreamConcreteNearBeamline_geometry_full_parallel.gdml"/>
       <positionref ref="concreteNearBeamlinePos"/>
     </physvol>
+
+    <physvol name="ferrous_ringAll_9928">
+      <file name="ferrous/detectorRingsAndPMTs/detectorRingsAndPMTs_RingAll_geometry_full_parallel.gdml"/>
+      <positionref ref="ferrous_ring5pos"/>
+    </physvol>
+
 
 <!-- INACTIVE FERROUS COPY AS NEEDED
 

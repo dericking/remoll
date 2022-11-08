@@ -89,8 +89,8 @@ void skimTreeMulti(string fileList, string DetNums, Int_t gencut=0, int beamGen=
   b_rate    = otree->Branch("rate", &newrate);
   b_hit     = otree->Branch("hit",  &newhit );
   for(Int_t i = 0; i < detectorNumbers.size(); i++){
-    cout << "Creating pointer to TFile named " << Form("o_remollSkimTree%d.root",detectorNumbers[i]) << endl;
-    outputFiles.push_back( new TFile(Form("o_remollSkimTree%d.root",detectorNumbers[i]),"RECREATE") );
+    cout << "Creating pointer to TFile named " << Form("o_remollSkimTree%d_%i.root",detectorNumbers[i],gencut) << endl;
+    outputFiles.push_back( new TFile(Form("o_remollSkimTree%d_%i.root",detectorNumbers[i],gencut),"RECREATE") );
     otree->SetObject("T",Form("ferrous skim tree %i",detectorNumbers[i]));
     //otree->SetObject(Form("T%i",detectorNumbers[i]),Form("ferrous skim tree %i",detectorNumbers[i])); //for debugging
     outputTrees.push_back( otree->CloneTree(0) ); //Create a clone of tree and copy 0 entries

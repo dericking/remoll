@@ -291,12 +291,12 @@
 
   <structure>
     <!--TEMP-->
-    <!--<volume name="dsBarite_PLUG">
+    <volume name="dsBarite_PLUG">
        <materialref ref="Kryptonite"/>
        <solidref ref="dsBarite_2plug"/>
        <auxiliary auxtype="Color" auxvalue="gray"/>
        <auxiliary auxtype="Alpha" auxvalue="0.8"/>
-    </volume>-->
+    </volume>
 
     <!--rebar volumes-->
     <volume name="rebar1_ferrous">
@@ -444,7 +444,7 @@
       <!--PLUG-->
       <!--<physvol name="dsBarite_krypt_plug">
         <volumeref ref="dsBarite_PLUG"/>
-        <position name="dsBarite_pos" unit="mm" x="0" y="0" z="4005-250/2 - 2000 + 86/2 + 1 - 415/2"/>
+        <position name="dsBarite_pos" unit="mm" x="0" y="0" z="4005-250/2 - 2000 + 86/2 + 1 + 415/2"/>
       </physvol>-->
 
       <!--shielding placement-->

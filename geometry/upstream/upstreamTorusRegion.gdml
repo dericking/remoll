@@ -1503,7 +1503,7 @@
     </volume>
 
       <!-- Hybrid wall -->
-   <!--<volume name="Beampipe_under_PbWall_logic">
+   <volume name="Beampipe_under_PbWall_logic">
       <materialref ref="G4_Al"/>
       <solidref ref="Beampipe_under_PbWall_solid"/>
       <auxiliary auxtype="Color" auxvalue="Blue"/>
@@ -1518,7 +1518,7 @@
       <physvol name="phys_PbWall_acce">
 	      <volumeref ref="Beampipe_under_PbWall_logic"/>
       </physvol>
-    </volume>-->
+    </volume>
 
     <volume name="PbWall_logic">
       <materialref ref="Lead"/>
